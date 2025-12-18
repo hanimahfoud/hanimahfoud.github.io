@@ -15,20 +15,22 @@
         .header { 
             background: linear-gradient(135deg, #2c3e50, #4ca1af); 
             color: white; 
-            padding: 50px 20px; 
+            /* التعديل هنا: زدنا المسافة العلوية من 50px إلى 100px */
+            padding: 100px 20px 40px; 
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             position: relative;
         }
         
-        /* --- تنسيق أزرار اللغة الجديدة --- */
         .lang-switch {
             position: absolute;
             top: 20px;
             display: flex;
-            gap: 8px; /* المسافة بين الأزرار */
+            gap: 8px;
+            /* إضافة لضمان عدم خروج الأزرار في الشاشات الصغيرة جداً */
+            flex-wrap: wrap; 
+            z-index: 10; /* لضمان أن تكون الأزرار دائماً فوق أي شيء */
         }
         
-        /* تغيير مكان الأزرار حسب اتجاه الصفحة */
         html[dir="rtl"] .lang-switch { left: 20px; right: auto; }
         html[dir="ltr"] .lang-switch { right: 20px; left: auto; }
 
@@ -48,7 +50,6 @@
             color: #2c3e50;
             transform: translateY(-2px);
         }
-        /* -------------------------------- */
 
         .profile-img {
             width: 160px;
@@ -249,7 +250,6 @@
         };
 
         function changeLanguage(lang) {
-            // منطق تغيير الاتجاه
             if (lang === 'ar' || lang === 'fa') {
                 document.documentElement.dir = 'rtl';
             } else {
@@ -257,7 +257,6 @@
             }
             document.documentElement.lang = lang;
 
-            // تحديث النصوص
             document.getElementById('name').textContent = translations[lang].name;
             document.getElementById('job-title').textContent = translations[lang].job;
             document.getElementById('sub-title').textContent = translations[lang].sub;
