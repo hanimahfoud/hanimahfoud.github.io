@@ -15,30 +15,40 @@
         .header { 
             background: linear-gradient(135deg, #2c3e50, #4ca1af); 
             color: white; 
-            padding: 40px 20px; 
+            padding: 50px 20px; 
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             position: relative;
         }
-        /* تصميم قائمة اللغات */
+        
+        /* --- تنسيق أزرار اللغة الجديدة --- */
         .lang-switch {
             position: absolute;
             top: 20px;
-            left: 20px; /* مكانها يعتمد على الاتجاه */
+            display: flex;
+            gap: 8px; /* المسافة بين الأزرار */
         }
-        /* تغيير مكان القائمة حسب اتجاه الصفحة */
+        
+        /* تغيير مكان الأزرار حسب اتجاه الصفحة */
         html[dir="rtl"] .lang-switch { left: 20px; right: auto; }
         html[dir="ltr"] .lang-switch { right: 20px; left: auto; }
 
-        .lang-switch select {
+        .lang-btn {
             background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             color: white;
-            border: 1px solid white;
-            padding: 5px 10px;
-            border-radius: 5px;
+            padding: 6px 12px;
+            border-radius: 20px;
             cursor: pointer;
+            font-size: 14px;
             font-weight: bold;
+            transition: 0.3s;
         }
-        .lang-switch select option { background: #2c3e50; color: white; }
+        .lang-btn:hover {
+            background: white;
+            color: #2c3e50;
+            transform: translateY(-2px);
+        }
+        /* -------------------------------- */
 
         .profile-img {
             width: 160px;
@@ -68,27 +78,23 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
             line-height: 1.6;
         }
-        /* محاذاة النص حسب اللغة */
+        
         html[dir="rtl"] .content-section { text-align: right; }
         html[dir="ltr"] .content-section { text-align: left; }
 
         h3 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; display: inline-block; }
         ul { padding-inline-start: 20px; }
         a { color: #3498db; text-decoration: none; }
-        .active { display: block; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
     <div class="header">
         <div class="lang-switch">
-            <select onchange="changeLanguage(this.value)">
-                <option value="ar" selected>🇸🇦 العربية</option>
-                <option value="en">🇺🇸 English</option>
-                <option value="fa">🇮🇷 فارسی</option>
-                <option value="de">🇩🇪 Deutsch</option>
-            </select>
+            <button class="lang-btn" onclick="changeLanguage('ar')">عربي</button>
+            <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="changeLanguage('fa')">فارسی</button>
+            <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
         </div>
 
         <img src="hani-profile.jpg" alt="Hani Mahfoud" class="profile-img">
@@ -143,7 +149,6 @@
     </div>
 
     <script>
-        // قاموس الترجمة الكامل
         const translations = {
             ar: {
                 name: "هاني اكرم محفوض",
@@ -244,36 +249,30 @@
         };
 
         function changeLanguage(lang) {
-            // تغيير الاتجاه (RTL/LTR)
+            // منطق تغيير الاتجاه
             if (lang === 'ar' || lang === 'fa') {
                 document.documentElement.dir = 'rtl';
-                document.documentElement.lang = lang;
             } else {
                 document.documentElement.dir = 'ltr';
-                document.documentElement.lang = lang;
             }
+            document.documentElement.lang = lang;
 
             // تحديث النصوص
             document.getElementById('name').textContent = translations[lang].name;
             document.getElementById('job-title').textContent = translations[lang].job;
             document.getElementById('sub-title').textContent = translations[lang].sub;
-            
             document.getElementById('btn-res').textContent = translations[lang].btnRes;
             document.getElementById('btn-proj').textContent = translations[lang].btnProj;
             document.getElementById('btn-skill').textContent = translations[lang].btnSkill;
             document.getElementById('btn-cont').textContent = translations[lang].btnCont;
-
             document.getElementById('res-title').textContent = translations[lang].resTitle;
             document.getElementById('scholar-link').textContent = translations[lang].scholarLink;
-            
             document.getElementById('proj-title').textContent = translations[lang].projTitle;
             document.getElementById('proj-list').innerHTML = translations[lang].projList;
-
             document.getElementById('skill-title').textContent = translations[lang].skillTitle;
             document.getElementById('skill-content').innerHTML = translations[lang].skillContent;
-
             document.getElementById('cont-title').textContent = translations[lang].contTitle;
-            // تحديث العنوان فقط مع الحفاظ على الايميل والرقم ثابتين
+            
             var contDiv = document.getElementById('cont-content');
             contDiv.innerHTML = `
                 <p>${translations[lang].contLoc}</p>
