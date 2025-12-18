@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Hani Mahfoud | NLP Engineer</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background-color: #f4f4f4; }
+        .header { background: #2c3e50; color: white; padding: 20px; }
+        .btn-container { margin: 20px 0; }
+        .btn {
+            background-color: #3498db; color: white; padding: 15px 30px;
+            border: none; margin: 5px; cursor: pointer; font-size: 18px; border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn:hover { background-color: #2980b9; }
+        .content-section { display: none; padding: 20px; background: white; margin: 20px auto; width: 80%; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .active { display: block; }
+        h3 { color: #2c3e50; }
+        ul { text-align: right; padding-right: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>هاني أكرم محفوض</h1>
+        <p>NLP Engineer & Data Scientist</p>
+    </div>
+
+    <div class="btn-container">
+        <button class="btn" onclick="showSection('researches')">📚 الأبحاث المنشورة</button>
+        <button class="btn" onclick="showSection('projects')">💻 المشاريع والأعمال</button>
+        <button class="btn" onclick="showSection('skills')">🛠 المهارات والخبرات</button>
+        <button class="btn" onclick="showSection('contact')">📩 تواصل معي</button>
+    </div>
+
+    <div id="researches" class="content-section">
+        <h3>الأبحاث العلمية (Published Research)</h3>
+        <ul>
+            <li><strong>Autism Detection:</strong> An Effective Model Of Autism Spectrum Disorder Using Machine Learning.</li>
+            <li><strong>NER Classification:</strong> Identifying Discourse Elements in Writing by Longformer.</li>
+            <li><strong>AraBERT Evaluation:</strong> Detecting Dialects and Sentiment Polarity in Arabic Language.</li>
+        </ul>
+        <p><a href="https://scholar.google.com/citations?user=ARJ_H2YAAAAJ&hl=ar" target="_blank">رابط Google Scholar</a></p>
+    </div>
+
+    <div id="projects" class="content-section">
+        <h3>مشاريع قمت بتنفيذها</h3>
+        <ul>
+            <li>تحليل المشاعر (Sentiment Analysis) باستخدام نماذج التعلم العميق.</li>
+            <li>تصنيف النصوص (Text Classification) للغتين العربية والإنجليزية.</li>
+            <li>ورشة عمل: تقنيات التعلم العميق لمعالجة اللغات الطبيعية (الفارسية).</li>
+        </ul>
+    </div>
+
+    <div id="skills" class="content-section">
+        <h3>المهارات التقنية</h3>
+        <p><strong>اللغات:</strong> Python (Native), SQL</p>
+        <p><strong>المكتبات:</strong> Pandas, NumPy, Scikit-learn, TensorFlow (Keras), Hazm</p>
+        <p><strong>Big Data:</strong> Hadoop, Spark, Hive</p>
+    </div>
+
+    <div id="contact" class="content-section">
+        <h3>معلومات التواصل</h3>
+        <p>البريد الإلكتروني: hani.mahfoud.904@gmail.com</p>
+        <p>الموقع: العراق - البصرة</p>
+    </div>
+
+    <script>
+        function showSection(id) {
+            // إخفاء كل الأقسام
+            var sections = document.querySelectorAll('.content-section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            // إظهار القسم المطلوب
+            document.getElementById(id).style.display = 'block';
+        }
+        // إظهار قسم افتراضي عند التحميل
+        showSection('projects');
+    </script>
+
+</body>
+</html>
