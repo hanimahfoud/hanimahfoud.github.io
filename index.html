@@ -34,7 +34,6 @@
             overflow-x: hidden;
         }
 
-        /* --- تأثير الزجاج (Glassmorphism) --- */
         .glass-card {
             background: var(--glass-bg);
             backdrop-filter: blur(16px);
@@ -44,7 +43,6 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* --- رأس الصفحة --- */
         .header { 
             width: 100%;
             padding: 120px 20px 40px; 
@@ -80,16 +78,16 @@
             position: absolute;
             top: 25px;
             display: flex;
-            flex-wrap: wrap; /* للسماح بنزول الأزرار سطر جديد في الموبايل */
+            flex-wrap: wrap; 
             gap: 8px;
             z-index: 100;
             justify-content: center;
         }
-        /* توسيط الأزرار في الموبايل */
+        
         @media (max-width: 600px) {
             .lang-switch { left: 50%; transform: translateX(-50%); width: 100%; top: 15px; } 
         }
-        /* في الشاشات الكبيرة */
+        
         @media (min-width: 601px) {
             html[dir="rtl"] .lang-switch { left: 25px; transform: none; }
             html[dir="ltr"] .lang-switch { right: 25px; transform: none; }
@@ -315,6 +313,11 @@
                 contTitle: "لنبدأ العمل معاً",
                 contLoc: '<i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> العراق - البصرة',
                 waText: "تواصل عبر واتساب",
+                // تمت إضافة قائمة الأبحاث المفقودة هنا
+                resList: `
+                    <li><strong>Autism Detection:</strong> نموذج فعال لاكتشاف طيف التوحد باستخدام تعلم الآلة.</li>
+                    <li><strong>NER & Discourse:</strong> تحديد عناصر الخطاب في الكتابة باستخدام Longformer.</li>
+                    <li><strong>AraBERT Study:</strong> تقييم نموذج AraBERT في كشف اللهجات والقطبية.</li>`,
                 projList: `
                     <li><strong>Sentiment Analysis:</strong> تطوير نماذج متقدمة لتحليل المشاعر للنصوص العربية باستخدام Deep Learning.</li>
                     <li><strong>Text Classification:</strong> بناء نظام آلي لتصنيف المقالات الصحفية بدقة عالية.</li>
@@ -343,6 +346,10 @@
                 contTitle: "Let's Collaborate",
                 contLoc: '<i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> Iraq - Basra',
                 waText: "Chat on WhatsApp",
+                resList: `
+                    <li><strong>Autism Detection:</strong> An Effective Model Of Autism Spectrum Disorder Using Machine Learning.</li>
+                    <li><strong>NER & Discourse:</strong> Identifying Discourse Elements in Writing by Longformer.</li>
+                    <li><strong>AraBERT Study:</strong> Evaluating AraBERT Model in Detecting Dialects and Sentiment Polarity.</li>`,
                 projList: `
                     <li><strong>Sentiment Analysis:</strong> Developing advanced models for Arabic/English texts using Deep Learning.</li>
                     <li><strong>Text Classification:</strong> Automated high-accuracy classification of newspaper articles.</li>
@@ -371,6 +378,10 @@
                 contTitle: "تماس با من",
                 contLoc: '<i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> عراق - بصره',
                 waText: "چت در واتساپ",
+                resList: `
+                    <li><strong>تشخیص اوتیسم:</strong> مدل موثر اختلال طیف اوتیسم با استفاده از یادگیری ماشین.</li>
+                    <li><strong>طبقه‌بندی NER:</strong> شناسایی عناصر گفتمان در نوشتن با استفاده از Longformer.</li>
+                    <li><strong>مطالعه AraBERT:</strong> ارزیابی مدل AraBERT در تشخیص لهجه‌ها و قطبیت احساسات.</li>`,
                 projList: `
                     <li><strong>تحلیل احساسات:</strong> توسعه مدل‌های پیشرفته برای متون عربی و انگلیسی.</li>
                     <li><strong>طبقه‌بندی متن:</strong> سیستم خودکار طبقه‌بندی مقالات با دقت بالا.</li>
@@ -399,6 +410,10 @@
                 contTitle: "Kontaktieren Sie mich",
                 contLoc: '<i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> Irak - Basra',
                 waText: "WhatsApp Chat",
+                resList: `
+                    <li><strong>Autismus-Erkennung:</strong> Ein effektives Modell der Autismus-Spektrum-Störung unter Verwendung von maschinellem Lernen.</li>
+                    <li><strong>NER & Diskurs:</strong> Identifizierung von Diskurselementen beim Schreiben durch Longformer.</li>
+                    <li><strong>AraBERT-Studie:</strong> Bewertung des AraBERT-Modells bei der Erkennung von Dialekten und Stimmungspolarität.</li>`,
                 projList: `
                     <li><strong>Sentiment-Analyse:</strong> Entwicklung von Modellen für arabische/englische Texte.</li>
                     <li><strong>Textklassifikation:</strong> Automatische Klassifizierung von Artikeln.</li>
@@ -427,6 +442,10 @@
                 contTitle: "Să Colaborăm",
                 contLoc: '<i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> Irak - Basra',
                 waText: "Chat pe WhatsApp",
+                resList: `
+                    <li><strong>Detectarea Autismului:</strong> Un model eficient al tulburării spectrului autist folosind învățarea automată.</li>
+                    <li><strong>NER & Discurs:</strong> Identificarea elementelor de discurs în scriere prin Longformer.</li>
+                    <li><strong>Studiu AraBERT:</strong> Evaluarea modelului AraBERT în detectarea dialectelor și polarității sentimentelor.</li>`,
                 projList: `
                     <li><strong>Analiza Sentimentelor:</strong> Dezvoltarea de modele avansate pentru texte în arabă/engleză folosind Deep Learning.</li>
                     <li><strong>Clasificarea Textului:</strong> Clasificarea automată de înaltă precizie a articolelor din ziare.</li>
@@ -455,6 +474,10 @@
                 contTitle: "Collaborons Ensemble",
                 contLoc: '<i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> Irak - Bassorah',
                 waText: "Discuter sur WhatsApp",
+                resList: `
+                    <li><strong>Détection de l'autisme:</strong> Un modèle efficace du trouble du spectre autistique utilisant l'apprentissage automatique.</li>
+                    <li><strong>NER & Discours:</strong> Identification des éléments de discours dans l'écriture par Longformer.</li>
+                    <li><strong>Étude AraBERT:</strong> Évaluation du modèle AraBERT dans la détection des dialectes et de la polarité des sentiments.</li>`,
                 projList: `
                     <li><strong>Analyse des Sentiments:</strong> Développement de modèles avancés pour textes arabes/anglais utilisant le Deep Learning.</li>
                     <li><strong>Classification de Texte:</strong> Classification automatisée de haute précision d'articles de journaux.</li>
@@ -468,11 +491,9 @@
         };
 
         function changeLanguage(lang) {
-            // تحديث الاتجاه
             document.documentElement.dir = (lang === 'ar' || lang === 'fa') ? 'rtl' : 'ltr';
             document.documentElement.lang = lang;
 
-            // تحديث النصوص (بما في ذلك الوظيفة والوصف)
             const t = translations[lang];
             
             document.getElementById('name').textContent = t.name;
@@ -487,7 +508,6 @@
             document.getElementById('cont-title').textContent = t.contTitle;
             document.getElementById('wa-text').textContent = t.waText;
 
-            // تحديث محتوى HTML (الأزرار والقوائم)
             document.getElementById('btn-about').innerHTML = t.btnAbout;
             document.getElementById('btn-res').innerHTML = t.btnRes;
             document.getElementById('btn-proj').innerHTML = t.btnProj;
@@ -497,7 +517,7 @@
             
             document.getElementById('proj-list').innerHTML = t.projList;
             document.getElementById('skill-content').innerHTML = t.skillContent;
-            document.getElementById('res-list').innerHTML = t.resList || translations['en'].resList; // Fallback if list not full translated
+            document.getElementById('res-list').innerHTML = t.resList;
         }
 
         function showSection(id) {
