@@ -10,17 +10,40 @@
             text-align: center; 
             background-color: #f8f9fa; 
             margin: 0; padding: 0; 
+            transition: all 0.3s ease;
         }
         .header { 
             background: linear-gradient(135deg, #2c3e50, #4ca1af); 
             color: white; 
             padding: 40px 20px; 
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
         }
+        /* تصميم قائمة اللغات */
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            left: 20px; /* مكانها يعتمد على الاتجاه */
+        }
+        /* تغيير مكان القائمة حسب اتجاه الصفحة */
+        html[dir="rtl"] .lang-switch { left: 20px; right: auto; }
+        html[dir="ltr"] .lang-switch { right: 20px; left: auto; }
+
+        .lang-switch select {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .lang-switch select option { background: #2c3e50; color: white; }
+
         .profile-img {
             width: 160px;
             height: 160px;
-            border-radius: 50%; /* لجعل الصورة دائرية */
+            border-radius: 50%;
             border: 5px solid white;
             object-fit: cover;
             margin-bottom: 15px;
@@ -33,6 +56,7 @@
             transition: 0.3s; font-weight: bold;
         }
         .btn:hover { background-color: #2980b9; transform: translateY(-2px); }
+        
         .content-section { 
             display: none; 
             padding: 30px; 
@@ -42,11 +66,14 @@
             max-width: 800px;
             border-radius: 15px; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-            text-align: right;
             line-height: 1.6;
         }
+        /* محاذاة النص حسب اللغة */
+        html[dir="rtl"] .content-section { text-align: right; }
+        html[dir="ltr"] .content-section { text-align: left; }
+
         h3 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; display: inline-block; }
-        ul { padding-right: 20px; }
+        ul { padding-inline-start: 20px; }
         a { color: #3498db; text-decoration: none; }
         .active { display: block; animation: fadeIn 0.5s; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -55,62 +82,214 @@
 <body>
 
     <div class="header">
+        <div class="lang-switch">
+            <select onchange="changeLanguage(this.value)">
+                <option value="ar" selected>🇸🇦 العربية</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="fa">🇮🇷 فارسی</option>
+                <option value="de">🇩🇪 Deutsch</option>
+            </select>
+        </div>
+
         <img src="hani-profile.jpg" alt="Hani Mahfoud" class="profile-img">
-        <h1>هاني أكرم محفوض</h1>
-        <p style="font-size: 1.2em; opacity: 0.9;">NLP Engineer & PhD Candidate</p>
-        <p style="font-size: 0.9em; opacity: 0.8;">Specialized in Deep Learning & Computational Linguistics</p>
+        <h1 id="name">هاني اكرم محفوض</h1>
+        <p id="job-title" style="font-size: 1.2em; opacity: 0.9;">مهندس معالجة لغات طبيعية وباحث دكتوراه</p>
+        <p id="sub-title" style="font-size: 0.9em; opacity: 0.8;">متخصص في التعلم العميق واللغويات الحاسوبية</p>
     </div>
 
     <div class="btn-container">
-        <button class="btn" onclick="showSection('researches')">📚 الأبحاث</button>
-        <button class="btn" onclick="showSection('projects')">💻 المشاريع</button>
-        <button class="btn" onclick="showSection('skills')">🛠 المهارات</button>
-        <button class="btn" onclick="showSection('contact')">📩 تواصل معي</button>
+        <button class="btn" onclick="showSection('researches')" id="btn-res">📚 الأبحاث</button>
+        <button class="btn" onclick="showSection('projects')" id="btn-proj">💻 المشاريع</button>
+        <button class="btn" onclick="showSection('skills')" id="btn-skill">🛠 المهارات</button>
+        <button class="btn" onclick="showSection('contact')" id="btn-cont">📩 تواصل معي</button>
     </div>
 
     <div id="researches" class="content-section">
-        <h3>الأبحاث العلمية (Published Research)</h3>
-        <ul>
+        <h3 id="res-title">الأبحاث العلمية (Published Research)</h3>
+        <ul id="res-list">
             <li><strong>Autism Detection:</strong> An Effective Model Of Autism Spectrum Disorder Using Machine Learning.</li>
             <li><strong>NER Classification:</strong> Identifying Discourse Elements in Writing by Longformer.</li>
             <li><strong>AraBERT Evaluation:</strong> Detecting Dialects and Sentiment Polarity in Arabic Language.</li>
         </ul>
-        <p>🔗 <a href="https://scholar.google.com/citations?user=ARJ_H2YAAAAJ&hl=ar" target="_blank">تصفح حسابي على Google Scholar</a></p>
+        <p>🔗 <a href="https://scholar.google.com/citations?user=ARJ_H2YAAAAJ&hl=ar" target="_blank" id="scholar-link">تصفح حسابي على Google Scholar</a></p>
     </div>
 
-    <div id="projects" class="content-section" style="display: block;"> <h3>أبرز المشاريع</h3>
-        <ul>
+    <div id="projects" class="content-section" style="display: block;">
+        <h3 id="proj-title">أبرز المشاريع</h3>
+        <ul id="proj-list">
             <li><strong>Sentiment Analysis:</strong> تطوير نماذج تحليل المشاعر للنصوص العربية والإنجليزية باستخدام Deep Learning.</li>
             <li><strong>Text Classification:</strong> تصنيف المقالات الصحفية آلياً بدقة عالية.</li>
-            <li><strong>Workshop:</strong> تقديم ورشة عمل حول تقنيات التعلم العيق في المؤتمر الدولي الـ 26 للحاسوب.</li>
+            <li><strong>Workshop:</strong> تقديم ورشة عمل حول تقنيات التعلم العميق في المؤتمر الدولي الـ 26 للحاسوب.</li>
         </ul>
     </div>
 
     <div id="skills" class="content-section">
-        <h3>المهارات التقنية (Tech Stack)</h3>
-        <p><strong>🔹 اللغات البرمجية:</strong> Python (Advanced), SQL.</p>
-        <p><strong>🔹 مكتبات الذكاء الاصطناعي:</strong> TensorFlow, Keras, Scikit-learn, Pandas, NumPy.</p>
-        <p><strong>🔹 معالجة اللغات (NLP):</strong> Hazm, Parsivar, Transformers (BERT/AraBERT).</p>
-        <p><strong>🔹 البيانات الضخمة:</strong> Hadoop, Spark, Hive.</p>
+        <h3 id="skill-title">المهارات التقنية</h3>
+        <div id="skill-content">
+            <p><strong>🔹 اللغات البرمجية:</strong> Python (Advanced), SQL.</p>
+            <p><strong>🔹 مكتبات الذكاء الاصطناعي:</strong> TensorFlow, Keras, Scikit-learn, Pandas, NumPy.</p>
+            <p><strong>🔹 معالجة اللغات (NLP):</strong> Hazm, Parsivar, Transformers (BERT/AraBERT).</p>
+            <p><strong>🔹 البيانات الضخمة:</strong> Hadoop, Spark, Hive.</p>
+        </div>
     </div>
 
     <div id="contact" class="content-section">
-        <h3>تواصل معي</h3>
-        <p>📍 <strong>العنوان:</strong> العراق - البصرة</p>
-        <p>📧 <strong>البريد الإلكتروني:</strong> hani.mahfoud.904@gmail.com</p>
-        <p>📱 <strong>الهاتف:</strong> +9647776251552</p>
+        <h3 id="cont-title">تواصل معي</h3>
+        <div id="cont-content">
+            <p>📍 <strong>العنوان:</strong> العراق - البصرة</p>
+            <p>📧 <strong>البريد الإلكتروني:</strong> hani.mahfoud.904@gmail.com</p>
+            <p>📱 <strong>الهاتف:</strong> +9647776251552</p>
+        </div>
     </div>
 
     <script>
+        // قاموس الترجمة الكامل
+        const translations = {
+            ar: {
+                name: "هاني اكرم محفوض",
+                job: "مهندس معالجة لغات طبيعية وباحث دكتوراه",
+                sub: "متخصص في التعلم العميق واللغويات الحاسوبية",
+                btnRes: "📚 الأبحاث",
+                btnProj: "💻 المشاريع",
+                btnSkill: "🛠 المهارات",
+                btnCont: "📩 تواصل معي",
+                resTitle: "الأبحاث العلمية",
+                scholarLink: "تصفح حسابي على Google Scholar",
+                projTitle: "أبرز المشاريع",
+                skillTitle: "المهارات التقنية",
+                contTitle: "تواصل معي",
+                contLoc: "📍 <strong>العنوان:</strong> العراق - البصرة",
+                projList: `
+                    <li><strong>Sentiment Analysis:</strong> تطوير نماذج تحليل المشاعر للنصوص العربية والإنجليزية باستخدام Deep Learning.</li>
+                    <li><strong>Text Classification:</strong> تصنيف المقالات الصحفية آلياً بدقة عالية.</li>
+                    <li><strong>Workshop:</strong> تقديم ورشة عمل حول تقنيات التعلم العميق في المؤتمر الدولي الـ 26 للحاسوب.</li>`,
+                skillContent: `
+                    <p><strong>🔹 اللغات البرمجية:</strong> Python (Advanced), SQL.</p>
+                    <p><strong>🔹 مكتبات الذكاء الاصطناعي:</strong> TensorFlow, Keras, Scikit-learn, Pandas, NumPy.</p>
+                    <p><strong>🔹 معالجة اللغات (NLP):</strong> Hazm, Parsivar, Transformers (BERT/AraBERT).</p>
+                    <p><strong>🔹 البيانات الضخمة:</strong> Hadoop, Spark, Hive.</p>`
+            },
+            en: {
+                name: "Hani Akram Mahfoud",
+                job: "NLP Engineer & PhD Candidate",
+                sub: "Specialized in Deep Learning & Computational Linguistics",
+                btnRes: "📚 Research",
+                btnProj: "💻 Projects",
+                btnSkill: "🛠 Skills",
+                btnCont: "📩 Contact",
+                resTitle: "Published Research",
+                scholarLink: "Visit my Google Scholar",
+                projTitle: "Key Projects",
+                skillTitle: "Technical Skills",
+                contTitle: "Contact Me",
+                contLoc: "📍 <strong>Location:</strong> Iraq - Basra",
+                projList: `
+                    <li><strong>Sentiment Analysis:</strong> Developing sentiment analysis models for Arabic/English texts using Deep Learning.</li>
+                    <li><strong>Text Classification:</strong> Automated high-accuracy classification of newspaper articles.</li>
+                    <li><strong>Workshop:</strong> Conducted a Deep Learning for NLP workshop at the 26th Int'l Computer Conference.</li>`,
+                skillContent: `
+                    <p><strong>🔹 Programming:</strong> Python (Advanced), SQL.</p>
+                    <p><strong>🔹 AI Libraries:</strong> TensorFlow, Keras, Scikit-learn, Pandas, NumPy.</p>
+                    <p><strong>🔹 NLP Tools:</strong> Hazm, Parsivar, Transformers (BERT/AraBERT).</p>
+                    <p><strong>🔹 Big Data:</strong> Hadoop, Spark, Hive.</p>`
+            },
+            fa: {
+                name: "هانی اکرم محفوض",
+                job: "مهندس پردازش زبان طبیعی و دانشجوی دکتری",
+                sub: "متخصص در یادگیری عمیق و زبان‌شناسی رایانشی",
+                btnRes: "📚 پژوهش‌ها",
+                btnProj: "💻 پروژه‌ها",
+                btnSkill: "🛠 مهارت‌ها",
+                btnCont: "📩 تماس",
+                resTitle: "مقاله‌های منتشر شده",
+                scholarLink: "مشاهده پروفایل گوگل اسکولار",
+                projTitle: "پروژه‌های برجسته",
+                skillTitle: "مهارت‌های فنی",
+                contTitle: "تماس با من",
+                contLoc: "📍 <strong>آدرس:</strong> عراق - بصره",
+                projList: `
+                    <li><strong>تحلیل احساسات:</strong> توسعه مدل‌های تحلیل احساسات برای متون عربی و انگلیسی با استفاده از یادگیری عمیق.</li>
+                    <li><strong>طبقه‌بندی متن:</strong> طبقه‌بندی خودکار مقالات روزنامه با دقت بالا.</li>
+                    <li><strong>کارگاه:</strong> برگزاری کارگاه یادگیری عمیق برای NLP در بیست و ششمین کنفرانس بین‌المللی کامپیوتر.</li>`,
+                skillContent: `
+                    <p><strong>🔹 زبان‌های برنامه‌نویسی:</strong> Python (Advanced), SQL.</p>
+                    <p><strong>🔹 کتابخانه‌های هوش مصنوعی:</strong> TensorFlow, Keras, Scikit-learn, Pandas, NumPy.</p>
+                    <p><strong>🔹 ابزارهای NLP:</strong> Hazm, Parsivar, Transformers (BERT/AraBERT).</p>
+                    <p><strong>🔹 داده‌های حجیم:</strong> Hadoop, Spark, Hive.</p>`
+            },
+            de: {
+                name: "Hani Akram Mahfoud",
+                job: "NLP-Ingenieur & Doktorand",
+                sub: "Spezialisiert auf Deep Learning & Computerlinguistik",
+                btnRes: "📚 Forschung",
+                btnProj: "💻 Projekte",
+                btnSkill: "🛠 Fähigkeiten",
+                btnCont: "📩 Kontakt",
+                resTitle: "Veröffentlichte Forschung",
+                scholarLink: "Mein Google Scholar besuchen",
+                projTitle: "Ausgewählte Projekte",
+                skillTitle: "Technische Fähigkeiten",
+                contTitle: "Kontaktieren Sie mich",
+                contLoc: "📍 <strong>Standort:</strong> Irak - Basra",
+                projList: `
+                    <li><strong>Sentiment-Analyse:</strong> Entwicklung von Modellen für arabische/englische Texte mittels Deep Learning.</li>
+                    <li><strong>Textklassifikation:</strong> Automatische Klassifizierung von Zeitungsartikeln mit hoher Genauigkeit.</li>
+                    <li><strong>Workshop:</strong> Workshop zu Deep Learning für NLP auf der 26. Int. Computerkonferenz geleitet.</li>`,
+                skillContent: `
+                    <p><strong>🔹 Programmierung:</strong> Python (Advanced), SQL.</p>
+                    <p><strong>🔹 KI-Bibliotheken:</strong> TensorFlow, Keras, Scikit-learn, Pandas, NumPy.</p>
+                    <p><strong>🔹 NLP-Tools:</strong> Hazm, Parsivar, Transformers (BERT/AraBERT).</p>
+                    <p><strong>🔹 Big Data:</strong> Hadoop, Spark, Hive.</p>`
+            }
+        };
+
+        function changeLanguage(lang) {
+            // تغيير الاتجاه (RTL/LTR)
+            if (lang === 'ar' || lang === 'fa') {
+                document.documentElement.dir = 'rtl';
+                document.documentElement.lang = lang;
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.documentElement.lang = lang;
+            }
+
+            // تحديث النصوص
+            document.getElementById('name').textContent = translations[lang].name;
+            document.getElementById('job-title').textContent = translations[lang].job;
+            document.getElementById('sub-title').textContent = translations[lang].sub;
+            
+            document.getElementById('btn-res').textContent = translations[lang].btnRes;
+            document.getElementById('btn-proj').textContent = translations[lang].btnProj;
+            document.getElementById('btn-skill').textContent = translations[lang].btnSkill;
+            document.getElementById('btn-cont').textContent = translations[lang].btnCont;
+
+            document.getElementById('res-title').textContent = translations[lang].resTitle;
+            document.getElementById('scholar-link').textContent = translations[lang].scholarLink;
+            
+            document.getElementById('proj-title').textContent = translations[lang].projTitle;
+            document.getElementById('proj-list').innerHTML = translations[lang].projList;
+
+            document.getElementById('skill-title').textContent = translations[lang].skillTitle;
+            document.getElementById('skill-content').innerHTML = translations[lang].skillContent;
+
+            document.getElementById('cont-title').textContent = translations[lang].contTitle;
+            // تحديث العنوان فقط مع الحفاظ على الايميل والرقم ثابتين
+            var contDiv = document.getElementById('cont-content');
+            contDiv.innerHTML = `
+                <p>${translations[lang].contLoc}</p>
+                <p>📧 <strong>Email:</strong> hani.mahfoud.904@gmail.com</p>
+                <p>📱 <strong>Mobile:</strong> +9647776251552</p>
+            `;
+        }
+
         function showSection(id) {
             var sections = document.querySelectorAll('.content-section');
             sections.forEach(function(section) {
-                section.style.display = 'none'; // إخفاء الكل
+                section.style.display = 'none';
             });
-            document.getElementById(id).style.display = 'block'; // إظهار المطلوب
+            document.getElementById(id).style.display = 'block';
         }
     </script>
 
 </body>
 </html>
-
