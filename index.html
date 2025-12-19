@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>هاني اكرم محفوض — ملف مهني وأكاديمي</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#f2f7ff;margin:0}
+header{background:#0ea5e9;color:#fff;padding:20px;text-align:center}
+nav{background:#e0f2fe;padding:10px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+nav button{padding:10px 14px;border:0;border-radius:20px;cursor:pointer;font-weight:bold}
+section{display:none;padding:20px}
+section.active{display:block}
+</style>
+</head>
+<body>
+<header>
+<h1>هاني اكرم محفوض</h1>
+<p>AI • NLP • Data Analytics</p>
+</header>
+<nav>
+<button onclick="openPanel('overview')">ملخص</button>
+<button onclick="openPanel('teaching')">التدريس</button>
+<button onclick="openPanel('experience')">الخبرة</button>
+<button onclick="openPanel('portfolio')">الأبحاث والمشاريع</button>
+</nav>
+<section id="overview" class="active"><h2>ملخص مهني</h2></section>
+<section id="teaching"><h2>التدريس</h2><div id="syllabus"></div></section>
+<section id="experience"><h2>الخبرة المهنية</h2></section>
+<section id="portfolio"><h2>الأبحاث والمشاريع</h2></section>
+<script>
+function openPanel(id){
+ document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+}
+fetch('syllabus.json').then(r=>r.json()).then(d=>{
+ let html='';
+ d.courses.forEach(c=>{
+  html+=`<h3>${c.title_ar}</h3><ul>`;
+  c.weeks.forEach(w=>{html+=`<li>الأسبوع ${w.week}: ${w.title}</li>`});
+  html+='</ul>';
+ });
+ document.getElementById('syllabus').innerHTML=html;
+});
+</script>
+</body>
+</html>
