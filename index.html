@@ -1,532 +1,1321 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hani Mahfoud | AI & NLP Researcher</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hani Mahfoud | AI, NLP, Teaching & Industry</title>
 
-    <style>
-        :root {
-            --primary-color: #00d2ff;
-            --secondary-color: #3a7bd5;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-color: #ffffff;
-            --text-secondary: #b0b0b0;
-        }
+  <!-- SEO -->
+  <meta name="description" content="Hani Akram Mahfoud — AI & NLP Researcher, Teaching-ready (University) and Industry-focused (Energy/Oil & Gas). Courses, syllabi, projects, publications, and contact." />
+  <meta name="keywords" content="Hani Mahfoud, AI, NLP, Machine Learning, Deep Learning, Teaching Portfolio, University Lecturer, Oil and Gas Analytics, Predictive Maintenance, Text Mining" />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="color-scheme" content="dark light" />
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hani Mahfoud | AI, NLP, Teaching & Industry" />
+  <meta property="og:description" content="Academic-ready teaching syllabi + Industry-focused AI/NLP solutions. Courses, projects, publications, and contact." />
+  <meta property="og:image" content="hani-profile.jpg" />
+  <meta property="og:locale" content="ar_IQ" />
 
-        body { 
-            font-family: 'Poppins', 'Cairo', sans-serif; 
-            background: radial-gradient(circle at top right, #1a2980, #26d0ce);
-            background: linear-gradient(to right, #0f2027, #203a43, #2c5364); 
-            color: var(--text-color);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-        }
+  <!-- Hreflang (single-page with ?lang=) -->
+  <link rel="alternate" hreflang="ar" href="./?lang=ar" />
+  <link rel="alternate" hreflang="en" href="./?lang=en" />
+  <link rel="alternate" hreflang="fa" href="./?lang=fa" />
+  <link rel="alternate" hreflang="de" href="./?lang=de" />
+  <link rel="alternate" hreflang="ro" href="./?lang=ro" />
+  <link rel="alternate" hreflang="fr" href="./?lang=fr" />
+  <link rel="alternate" hreflang="x-default" href="./" />
 
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-        .header { 
-            width: 100%;
-            padding: 120px 20px 40px; 
-            text-align: center;
-            position: relative;
-        }
+  <style>
+    :root{
+      --bg0:#05070f;
+      --bg1:#0b1220;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.09);
+      --border: rgba(255,255,255,.12);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,.72);
+      --muted2: rgba(255,255,255,.56);
+      --brand:#00d2ff;
+      --brand2:#3a7bd5;
+      --good:#25D366;
+      --warn:#f1c40f;
+      --danger:#ff5c5c;
 
-        .profile-wrapper {
-            position: relative;
-            width: 170px;
-            height: 170px;
-            margin: 0 auto 20px;
-        }
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --shadow2: 0 8px 18px rgba(0,0,0,.28);
 
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid rgba(255,255,255,0.2);
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
-            transition: transform 0.5s;
-        }
+      --max: 1100px;
+    }
 
-        .profile-img:hover { transform: scale(1.05) rotate(2deg); }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior: smooth; }
+    body{
+      font-family: 'Poppins','Cairo', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(0,210,255,.18), transparent 50%),
+        radial-gradient(900px 600px at 85% 20%, rgba(58,123,213,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x:hidden;
+    }
 
-        h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px; }
-        p#job-title { color: var(--primary-color); font-weight: 600; font-size: 1.1rem; margin-bottom: 5px; }
-        p#sub-title { color: var(--text-secondary); font-size: 0.9rem; max-width: 600px; margin: 0 auto; }
+    a{ color: inherit; }
+    .wrap{ width: min(var(--max), 92vw); margin: 0 auto; }
 
-        /* --- أزرار اللغة --- */
-        .lang-switch {
-            position: absolute;
-            top: 25px;
-            display: flex;
-            flex-wrap: wrap; 
-            gap: 8px;
-            z-index: 100;
-            justify-content: center;
-        }
-        
-        @media (max-width: 600px) {
-            .lang-switch { left: 50%; transform: translateX(-50%); width: 100%; top: 15px; } 
-        }
-        
-        @media (min-width: 601px) {
-            html[dir="rtl"] .lang-switch { left: 25px; transform: none; }
-            html[dir="ltr"] .lang-switch { right: 25px; transform: none; }
-        }
+    /* glass */
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
 
-        .lang-btn {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.75rem;
-            transition: all 0.3s;
-            font-family: inherit;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-        .lang-btn:hover { background: var(--primary-color); border-color: var(--primary-color); color: #000; }
+    /* topbar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      padding: 14px 0;
+      background: rgba(5,7,15,.55);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .topbar .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .pill{
+      display:flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .btn{
+      cursor:pointer;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font: inherit;
+      font-weight: 700;
+      font-size: .82rem;
+      transition: .22s ease;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      user-select:none;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
+    .btn.primary{
+      background: linear-gradient(45deg, var(--brand), var(--brand2));
+      border-color: rgba(255,255,255,0);
+      color:#001018;
+      box-shadow: 0 10px 22px rgba(0,210,255,.12);
+    }
+    .btn.ghost{
+      background: rgba(255,255,255,.06);
+    }
+    .btn.active{
+      outline: 2px solid rgba(0,210,255,.35);
+      background: rgba(0,210,255,.10);
+    }
 
-        /* --- القائمة الرئيسية --- */
-        .nav-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            padding: 0 10px;
-            margin-top: 20px;
-        }
+    .langbtn{ text-transform: uppercase; }
 
-        .nav-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: none;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: inherit;
-        }
+    /* hero */
+    header.hero{
+      padding: 50px 0 20px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 160px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .avatar{
+      width: 160px; height:160px;
+      border-radius: 50%;
+      overflow:hidden;
+      border: 3px solid rgba(255,255,255,.18);
+      box-shadow: 0 0 26px rgba(0,210,255,.25);
+      background: rgba(255,255,255,.05);
+    }
+    .avatar img{
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+    }
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap: 8px;
+    }
+    h1{
+      font-size: clamp(1.65rem, 2.4vw, 2.55rem);
+      letter-spacing: .4px;
+      line-height: 1.2;
+    }
+    .kicker{
+      color: var(--brand);
+      font-weight: 800;
+      font-size: 1.05rem;
+    }
+    .sub{
+      color: var(--muted);
+      max-width: 64ch;
+      line-height: 1.75;
+    }
+    .cta-row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .meta-row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+      color: var(--muted2);
+      font-size: .9rem;
+    }
+    .meta-row i{ color: rgba(255,255,255,.65); }
 
-        .nav-btn i { color: var(--primary-color); }
-        .nav-btn:hover, .nav-btn.active-btn {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
+    /* nav */
+    nav.tabs{
+      margin: 18px 0 26px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tab{
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      cursor:pointer;
+      transition: .22s ease;
+      display:inline-flex;
+      gap: 10px;
+      align-items:center;
+      font-weight: 800;
+      user-select:none;
+    }
+    .tab i{ color: var(--brand); }
+    .tab:hover{ transform: translateY(-2px); background: rgba(255,255,255,.10); box-shadow: var(--shadow2); }
+    .tab[aria-selected="true"]{
+      outline: 2px solid rgba(0,210,255,.30);
+      background: rgba(0,210,255,.10);
+    }
 
-        /* --- المحتوى --- */
-        .content-section { 
-            display: none; 
-            width: 90%; 
-            max-width: 900px;
-            padding: 40px;
-            margin-bottom: 50px;
-            animation: slideUp 0.6s ease forwards;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-        
-        .active-section { display: block; }
+    /* sections */
+    main{ padding-bottom: 60px; }
+    section.panel{
+      display:none;
+      padding: 28px;
+      margin: 0 0 18px;
+      line-height: 1.85;
+      font-size: 1.02rem;
+    }
+    section.panel.active{ display:block; animation: up .5s ease both; }
+    @keyframes up { from{ opacity:0; transform: translateY(14px);} to{ opacity:1; transform: translateY(0);} }
 
-        h3 { 
-            color: var(--primary-color); 
-            border-bottom: 2px solid rgba(255,255,255,0.1); 
-            padding-bottom: 15px; 
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
+    .panel h2{
+      font-size: 1.45rem;
+      margin-bottom: 14px;
+      color: var(--brand);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      padding-bottom: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .panel h2 small{
+      color: var(--muted2);
+      font-weight: 600;
+      font-size: .85rem;
+    }
 
-        ul { list-style: none; }
-        li { 
-            margin-bottom: 15px; 
-            position: relative; 
-            padding-inline-start: 25px;
-        }
-        li::before {
-            content: '▹';
-            color: var(--primary-color);
-            position: absolute;
-            left: 0; 
-        }
-        html[dir="rtl"] li::before { left: auto; right: 0; }
+    /* grid cards */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .col-12{ grid-column: span 12; }
+    .col-6{ grid-column: span 6; }
+    .col-4{ grid-column: span 4; }
+    .mini{
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .mini h3{
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .mini p{ color: var(--muted); font-size: .95rem; }
+    .mini .tags{ margin-top: 10px; display:flex; flex-wrap: wrap; gap: 8px; }
+    .tag{
+      font-size: .75rem;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(0,210,255,.10);
+      border: 1px solid rgba(0,210,255,.22);
+      color: rgba(255,255,255,.92);
+      display:inline-flex;
+      gap: 6px;
+      align-items:center;
+      user-select:none;
+    }
+    .tag.gray{
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.14);
+      color: rgba(255,255,255,.78);
+    }
 
-        /* --- زر الواتساب --- */
-        .whatsapp-btn {
-            background: linear-gradient(45deg, #25D366, #128C7E);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-        }
-        .whatsapp-btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
+    /* lists */
+    ul.clean{ list-style: none; padding:0; }
+    ul.clean li{
+      margin: 10px 0;
+      position: relative;
+      padding-inline-start: 22px;
+      color: var(--muted);
+    }
+    ul.clean li::before{
+      content:'▹';
+      position:absolute;
+      inset-inline-start: 0;
+      color: var(--brand);
+    }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    /* courses */
+    .toolbar{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .search{
+      flex: 1 1 280px;
+      min-width: 240px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .search input{
+      width:100%;
+      background: transparent;
+      border:none;
+      outline:none;
+      color: var(--text);
+      font: inherit;
+      font-size: .95rem;
+    }
+    .chips{ display:flex; flex-wrap: wrap; gap: 8px; }
+    .chip{
+      cursor:pointer;
+      user-select:none;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.85);
+      font-weight: 800;
+      font-size: .78rem;
+      transition: .2s ease;
+    }
+    .chip.active{ background: rgba(0,210,255,.12); border-color: rgba(0,210,255,.28); }
+    .chip:hover{ transform: translateY(-1px); }
 
-        @media (max-width: 600px) {
-            .header { padding-top: 80px; }
-            .nav-btn { width: 45%; justify-content: center; font-size: 0.9rem; }
-            .content-section { padding: 25px; width: 95%; }
-            h1 { font-size: 1.8rem; }
-        }
-    </style>
+    .course-card{
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+    .course-head{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: start;
+      justify-content: space-between;
+    }
+    .course-head h3{
+      font-size: 1.05rem;
+      line-height: 1.4;
+      margin:0;
+    }
+    .course-desc{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    details.syllabus{
+      margin-top: 12px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding-top: 12px;
+    }
+    details.syllabus summary{
+      cursor:pointer;
+      list-style:none;
+      user-select:none;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      font-weight: 900;
+      color: rgba(255,255,255,.92);
+    }
+    details.syllabus summary::-webkit-details-marker{ display:none; }
+    .syll-body{
+      margin-top: 12px;
+      display:grid;
+      gap: 12px;
+    }
+    .syll-block{
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.20);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .syll-block h4{
+      margin-bottom: 8px;
+      font-size: .95rem;
+      color: var(--brand);
+    }
+    .syll-block ul{ margin-inline-start: 18px; color: var(--muted); }
+    .table{
+      width:100%;
+      border-collapse: collapse;
+      overflow:hidden;
+      border-radius: 12px;
+    }
+    .table th,.table td{
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding: 10px;
+      vertical-align: top;
+      color: rgba(255,255,255,.85);
+      font-size: .92rem;
+    }
+    .table th{ color: rgba(255,255,255,.95); text-align: start; background: rgba(255,255,255,.04); }
+    .table td{ color: var(--muted); }
+    .table tr:last-child td{ border-bottom:none; }
+
+    /* contact */
+    .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .contact-item{
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+    .contact-item h3{ font-size: 1.05rem; margin-bottom: 10px; display:flex; align-items:center; gap:10px; }
+    .contact-item p{ color: var(--muted); }
+
+    .note{
+      color: rgba(255,255,255,.70);
+      font-size: .9rem;
+      margin-top: 10px;
+    }
+
+    footer{
+      padding: 18px 0 40px;
+      color: rgba(255,255,255,.55);
+      text-align:center;
+      font-size: .85rem;
+    }
+
+    /* responsive */
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; text-align: center; }
+      .avatar{ margin: 0 auto; }
+      .cta-row{ justify-content: center; }
+      .meta-row{ justify-content: center; }
+    }
+    @media (max-width: 760px){
+      .col-6{ grid-column: span 12; }
+      .col-4{ grid-column: span 12; }
+      section.panel{ padding: 20px; }
+      .contact-grid{ grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+      *{ transition: none !important; animation: none !important; }
+    }
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Hani Akram Mahfoud",
+    "jobTitle":"AI & NLP Researcher | Teaching-ready | Industry-focused",
+    "url":"https://hanimahfoud.github.io/",
+    "image":"https://hanimahfoud.github.io/hani-profile.jpg",
+    "sameAs":[
+      "https://scholar.google.com/citations?user=ARJ_H2YAAAAJ&hl=ar",
+      "https://github.com/hanimahfoud"
+    ],
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Basra",
+      "addressCountry":"IQ"
+    }
+  }
+  </script>
 </head>
 <body>
 
-    <div class="lang-switch glass-card" style="padding: 8px; border-radius: 30px;">
-        <button class="lang-btn" onclick="changeLanguage('ar')">عربي</button>
-        <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
-        <button class="lang-btn" onclick="changeLanguage('fa')">فارسی</button>
-        <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
-        <button class="lang-btn" onclick="changeLanguage('ro')">RO</button>
-        <button class="lang-btn" onclick="changeLanguage('fr')">FR</button>
-    </div>
+  <div class="topbar">
+    <div class="wrap row">
+      <div class="pill" role="group" aria-label="Mode switch">
+        <button class="btn active" id="mode-academic" type="button" onclick="setMode('academic')"><i class="fa-solid fa-building-columns"></i><span data-i18n="modeAcademic">Academic</span></button>
+        <button class="btn" id="mode-industry" type="button" onclick="setMode('industry')"><i class="fa-solid fa-industry"></i><span data-i18n="modeIndustry">Industry</span></button>
+      </div>
 
-    <header class="header">
-        <div class="profile-wrapper">
-            <img src="hani-profile.jpg" alt="Hani Mahfoud" class="profile-img">
+      <div class="pill" role="group" aria-label="Language switch">
+        <button class="btn langbtn" type="button" onclick="changeLanguage('ar')">عربي</button>
+        <button class="btn langbtn" type="button" onclick="changeLanguage('en')">EN</button>
+        <button class="btn langbtn" type="button" onclick="changeLanguage('fa')">FA</button>
+        <button class="btn langbtn" type="button" onclick="changeLanguage('de')">DE</button>
+        <button class="btn langbtn" type="button" onclick="changeLanguage('ro')">RO</button>
+        <button class="btn langbtn" type="button" onclick="changeLanguage('fr')">FR</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="avatar" aria-hidden="true">
+          <img src="hani-profile.jpg" alt="Hani Mahfoud" loading="eager" width="160" height="160" />
         </div>
-        <h1 id="name">هاني اكرم محفوض</h1>
-        <p id="job-title">مهندس معالجة لغات طبيعية (NLP) وباحث دكتوراه</p>
-        <p id="sub-title">دمج الذكاء الاصطناعي مع علوم اللغة لفهم البيانات الضخمة</p>
-    </header>
+        <div class="title">
+          <h1 id="name">هاني اكرم محفوض</h1>
+          <div class="kicker" id="job-title">مهندس معالجة لغات طبيعية (NLP) وباحث دكتوراه</div>
+          <div class="sub" id="sub-title">موقع واحد يخدم: التقديم للتدريس الجامعي + التقديم للشركات (ومنها النفط) — مع مخططات تدريس كاملة داخل الموقع.</div>
 
-    <nav class="nav-container">
-        <button class="nav-btn" onclick="showSection('about')" id="btn-about"><i class="fas fa-user"></i> من أنا</button>
-        <button class="nav-btn" onclick="showSection('projects')" id="btn-proj"><i class="fas fa-laptop-code"></i> المشاريع</button>
-        <button class="nav-btn" onclick="showSection('researches')" id="btn-res"><i class="fas fa-book-open"></i> الأبحاث</button>
-        <button class="nav-btn" onclick="showSection('skills')" id="btn-skill"><i class="fas fa-tools"></i> المهارات</button>
-        <button class="nav-btn" onclick="showSection('contact')" id="btn-cont"><i class="fas fa-envelope"></i> تواصل معي</button>
-    </nav>
+          <div class="cta-row">
+            <button class="btn primary" type="button" onclick="openTab('academic')"><i class="fa-solid fa-building-columns"></i><span data-i18n="ctaAcademic">ملف الجامعات</span></button>
+            <button class="btn primary" type="button" onclick="openTab('industry')"><i class="fa-solid fa-industry"></i><span data-i18n="ctaIndustry">ملف الشركات/النفط</span></button>
+            <a class="btn ghost" href="#contact" onclick="openTab('contact')"><i class="fa-solid fa-paper-plane"></i><span data-i18n="ctaContact">تواصل سريع</span></a>
+            <a class="btn ghost" href="https://scholar.google.com/citations?user=ARJ_H2YAAAAJ&hl=ar" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i><span data-i18n="ctaScholar">Google Scholar</span></a>
+          </div>
 
-    <div id="about" class="content-section glass-card active-section">
-        <h3 id="about-title">نبذة عني</h3>
-        <p id="about-text">
-            أنا باحث شغوف في مجال الذكاء الاصطناعي ومعالجة اللغات الطبيعية (NLP). حاصل على درجة الماجستير بامتياز في اللغويات الحاسوبية، وحالياً باحث دكتوراه أعمل على سد الفجوة بين لغة الإنسان وفهم الآلة. 
-            لدي خبرة عميقة في بناء نماذج التعلم العميق (Deep Learning) وتحليل البيانات الضخمة، مع تركيز خاص على اللغات العربية، الفارسية، والإنجليزية.
-        </p>
+          <div class="meta-row">
+            <span><i class="fa-solid fa-location-dot"></i> <span id="meta-loc">العراق – البصرة</span></span>
+            <span><i class="fa-solid fa-envelope"></i> <span id="meta-email">hani.mahfoud.904@gmail.com</span></span>
+            <span><i class="fa-brands fa-whatsapp"></i> <span data-i18n="metaWhatsapp">متاح عبر واتساب</span></span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="tabs" role="tablist" aria-label="Main navigation">
+        <button class="tab" role="tab" aria-selected="true" id="tab-home" onclick="openTab('home')"><i class="fa-solid fa-house"></i> <span data-i18n="navHome">الرئيسية</span></button>
+        <button class="tab" role="tab" aria-selected="false" id="tab-academic" onclick="openTab('academic')"><i class="fa-solid fa-building-columns"></i> <span data-i18n="navAcademic">للجامعات</span></button>
+        <button class="tab" role="tab" aria-selected="false" id="tab-industry" onclick="openTab('industry')"><i class="fa-solid fa-industry"></i> <span data-i18n="navIndustry">للشركات/النفط</span></button>
+        <button class="tab" role="tab" aria-selected="false" id="tab-courses" onclick="openTab('courses')"><i class="fa-solid fa-chalkboard-user"></i> <span data-i18n="navCourses">المواد والمخططات</span></button>
+        <button class="tab" role="tab" aria-selected="false" id="tab-projects" onclick="openTab('projects')"><i class="fa-solid fa-laptop-code"></i> <span data-i18n="navProjects">مشاريع</span></button>
+        <button class="tab" role="tab" aria-selected="false" id="tab-publications" onclick="openTab('publications')"><i class="fa-solid fa-book-open"></i> <span data-i18n="navPublications">أبحاث</span></button>
+        <button class="tab" role="tab" aria-selected="false" id="tab-contact" onclick="openTab('contact')"><i class="fa-solid fa-envelope"></i> <span data-i18n="navContact">تواصل</span></button>
+      </nav>
     </div>
+  </header>
 
-    <div id="projects" class="content-section glass-card">
-        <h3 id="proj-title">أبرز المشاريع</h3>
-        <ul id="proj-list">
-            <li><strong>Sentiment Analysis:</strong> تطوير نماذج متقدمة لتحليل المشاعر للنصوص العربية باستخدام Deep Learning.</li>
-            <li><strong>Text Classification:</strong> بناء نظام آلي لتصنيف المقالات الصحفية بدقة عالية.</li>
-            <li><strong>AI Workshop:</strong> تقديم ورشة عمل متخصصة في تقنيات التعلم العميق في المؤتمر الدولي الـ 26 للحاسوب.</li>
-        </ul>
-    </div>
+  <main class="wrap">
+    <section id="home" class="panel card active" role="tabpanel" aria-labelledby="tab-home">
+      <h2><span data-i18n="homeTitle">ملخص سريع</span> <small data-i18n="homeHint">اختر المسار المناسب من الأعلى</small></h2>
 
-    <div id="researches" class="content-section glass-card">
-        <h3 id="res-title">الأبحاث العلمية المنشورة</h3>
-        <ul id="res-list">
+      <div class="grid">
+        <div class="mini col-6">
+          <h3><i class="fa-solid fa-building-columns" style="color:var(--brand)"></i> <span data-i18n="homeAcademicBox">للجامعات</span></h3>
+          <p data-i18n="homeAcademicText">قسم جاهز للتقديم للتدريس: فلسفة تدريس، مواد مع مخطط 16 أسبوع، مخرجات تعلم، وطرق تدريس — كلها داخل الموقع.</p>
+          <div class="tags">
+            <span class="tag"><i class="fa-solid fa-check"></i><span data-i18n="tagSyllabi">Syllabi</span></span>
+            <span class="tag"><i class="fa-solid fa-check"></i><span data-i18n="tagTeaching">Teaching</span></span>
+            <span class="tag gray"><i class="fa-solid fa-magnifying-glass"></i><span data-i18n="tagSearchable">Searchable</span></span>
+          </div>
+        </div>
+
+        <div class="mini col-6">
+          <h3><i class="fa-solid fa-industry" style="color:var(--brand)"></i> <span data-i18n="homeIndustryBox">للشركات/النفط</span></h3>
+          <p data-i18n="homeIndustryText">عرض عملي يركز على حلول AI/NLP: تنبؤ، كشف شذوذ، تحليل تقارير، لوحات مؤشرات، مع طريقة عمل واضحة (Pilot → PoC → Deployment).</p>
+          <div class="tags">
+            <span class="tag"><i class="fa-solid fa-gear"></i><span data-i18n="tagUseCases">Use cases</span></span>
+            <span class="tag"><i class="fa-solid fa-shield-halved"></i><span data-i18n="tagConf">Confidentiality</span></span>
+            <span class="tag gray"><i class="fa-solid fa-file-lines"></i><span data-i18n="tagDocs">Documentation</span></span>
+          </div>
+        </div>
+
+        <div class="mini col-12">
+          <h3><i class="fa-solid fa-circle-info" style="color:var(--warn)"></i> <span data-i18n="homeAboutTitle">من أنا</span></h3>
+          <p id="about-text">
+            أنا باحث شغوف في مجال الذكاء الاصطناعي ومعالجة اللغات الطبيعية (NLP). حاصل على درجة الماجستير بامتياز في اللغويات الحاسوبية، وحالياً باحث دكتوراه أعمل على سد الفجوة بين لغة الإنسان وفهم الآلة. لدي خبرة في بناء نماذج التعلم العميق وتحليل البيانات، مع تركيز خاص على العربية والفارسية والإنجليزية.
+          </p>
+          <div class="cta-row" style="margin-top:12px">
+            <button class="btn" type="button" onclick="openTab('courses')"><i class="fa-solid fa-chalkboard-user"></i><span data-i18n="btnBrowseCourses">تصفح المواد</span></button>
+            <button class="btn" type="button" onclick="openTab('projects')"><i class="fa-solid fa-laptop-code"></i><span data-i18n="btnBrowseProjects">شوف المشاريع</span></button>
+            <button class="btn" type="button" onclick="openTab('publications')"><i class="fa-solid fa-book-open"></i><span data-i18n="btnBrowsePubs">شوف الأبحاث</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="academic" class="panel card" role="tabpanel" aria-labelledby="tab-academic">
+      <h2><span data-i18n="academicTitle">ملف التقديم للجامعات</span> <small data-i18n="academicHint">Teaching-ready</small></h2>
+
+      <div class="grid">
+        <div class="mini col-6">
+          <h3><i class="fa-solid fa-lightbulb" style="color:var(--brand)"></i> <span data-i18n="teachPhiloTitle">فلسفة التدريس</span></h3>
+          <p data-i18n="teachPhiloText">تدريس قائم على المشاريع: شرح المفاهيم + تطبيق عملي + تقييم عادل. التركيز على التفكير النقدي، بناء نماذج قابلة للتفسير، وتوثيق العمل بشكل مهني.</p>
+          <ul class="clean" style="margin-top:10px">
+            <li data-i18n="teachPoint1">مشاريع صغيرة أسبوعيًا + مشروع نهائي</li>
+            <li data-i18n="teachPoint2">Rubrics واضحة للتقييم</li>
+            <li data-i18n="teachPoint3">دمج أدوات رقمية (LMS/Assignments/Quizzes)</li>
+          </ul>
+        </div>
+
+        <div class="mini col-6">
+          <h3><i class="fa-solid fa-list-check" style="color:var(--brand)"></i> <span data-i18n="teachOfferTitle">مواد أستطيع تدريسها</span></h3>
+          <p data-i18n="teachOfferText">مجموعة مواد أساسية ومتقدمة — مع مخطط 16 أسبوع لكل مادة (موجود بالكامل في قسم المواد).</p>
+          <div class="cta-row" style="margin-top:12px">
+            <button class="btn primary" type="button" onclick="openTab('courses')"><i class="fa-solid fa-chalkboard-user"></i><span data-i18n="btnOpenSyllabi">فتح المخططات</span></button>
+            <button class="btn" type="button" onclick="scrollToCourses('research')"><i class="fa-solid fa-filter"></i><span data-i18n="btnFilterResearch">مواد البحث والسمينار</span></button>
+          </div>
+          <p class="note" data-i18n="academicNote">ملاحظة: تقدر تبحث داخل المواد وتفلترها حسب المجال (AI / NLP / Data / Systems / Research).</p>
+        </div>
+
+        <div class="mini col-12">
+          <h3><i class="fa-solid fa-graduation-cap" style="color:var(--warn)"></i> <span data-i18n="academicCredTitle">مخرجات أكاديمية سريعة</span></h3>
+          <div class="grid" style="margin-top:10px">
+            <div class="mini col-4">
+              <h3><i class="fa-solid fa-book-open" style="color:var(--brand)"></i> <span data-i18n="academicPubs">أبحاث</span></h3>
+              <p data-i18n="academicPubsText">قائمة منشورات + رابط Scholar.</p>
+              <button class="btn" type="button" onclick="openTab('publications')"><i class="fa-solid fa-arrow-right"></i><span data-i18n="goPubs">اذهب للأبحاث</span></button>
+            </div>
+            <div class="mini col-4">
+              <h3><i class="fa-solid fa-laptop-code" style="color:var(--brand)"></i> <span data-i18n="academicProjects">مشاريع</span></h3>
+              <p data-i18n="academicProjectsText">نماذج تطبيقية في NLP/ML قابلة للعرض كأمثلة تعليمية.</p>
+              <button class="btn" type="button" onclick="openTab('projects')"><i class="fa-solid fa-arrow-right"></i><span data-i18n="goProjects">اذهب للمشاريع</span></button>
+            </div>
+            <div class="mini col-4">
+              <h3><i class="fa-solid fa-users" style="color:var(--brand)"></i> <span data-i18n="academicSupervision">إشراف/مشاريع طلاب</span></h3>
+              <p data-i18n="academicSupervisionText">أفكار مشاريع تخرج: تصنيف نصوص، استخراج كيانات، تلخيص، RAG.</p>
+              <a class="btn" href="#contact" onclick="openTab('contact')"><i class="fa-solid fa-paper-plane"></i><span data-i18n="goContact">تواصل</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="industry" class="panel card" role="tabpanel" aria-labelledby="tab-industry">
+      <h2><span data-i18n="industryTitle">ملف التقديم للشركات/النفط</span> <small data-i18n="industryHint">Outcomes & delivery</small></h2>
+
+      <div class="grid">
+        <div class="mini col-6">
+          <h3><i class="fa-solid fa-briefcase" style="color:var(--brand)"></i> <span data-i18n="servicesTitle">الخدمات</span></h3>
+          <ul class="clean">
+            <li data-i18n="svc1">تحليل نصوص وتقارير (Arabic/English/Persian) — تصنيف/تلخيص/استخراج كيانات</li>
+            <li data-i18n="svc2">Time-series Forecasting & Anomaly Detection (مناسب للقياسات/الحساسات)</li>
+            <li data-i18n="svc3">لوحات مؤشرات KPI + تقارير دورية + توثيق</li>
+            <li data-i18n="svc4">نماذج ML/DL: تدريب، تقييم، تحسين، ونشر أولي (PoC)</li>
+          </ul>
+        </div>
+
+        <div class="mini col-6">
+          <h3><i class="fa-solid fa-oil-well" style="color:var(--warn)"></i> <span data-i18n="usecasesTitle">Use-cases للنفط والطاقة</span></h3>
+          <ul class="clean">
+            <li data-i18n="uc1">Predictive Maintenance (تنبؤ أعطال/توقفات غير مخططة)</li>
+            <li data-i18n="uc2">Anomaly Detection لقراءات الضغط/الحرارة/الاهتزاز</li>
+            <li data-i18n="uc3">HSE: تحليل تقارير السلامة وNear-miss واستخراج مؤشرات</li>
+            <li data-i18n="uc4">Document Intelligence: تلخيص تقارير/محاضر، واستخراج معلومات تلقائيًا</li>
+          </ul>
+          <p class="note" data-i18n="industryNote">جاهز للعمل تحت NDA وسرية بيانات، مع تسليمات واضحة وتوثيق.</p>
+        </div>
+
+        <div class="mini col-12">
+          <h3><i class="fa-solid fa-route" style="color:var(--brand)"></i> <span data-i18n="deliveryTitle">طريقة العمل (واضحة وسريعة)</span></h3>
+          <div class="tags">
+            <span class="tag"><i class="fa-solid fa-flag"></i><span data-i18n="del1">1) Discovery</span></span>
+            <span class="tag"><i class="fa-solid fa-flask"></i><span data-i18n="del2">2) Pilot / PoC</span></span>
+            <span class="tag"><i class="fa-solid fa-chart-line"></i><span data-i18n="del3">3) Evaluation</span></span>
+            <span class="tag"><i class="fa-solid fa-rocket"></i><span data-i18n="del4">4) Delivery</span></span>
+            <span class="tag gray"><i class="fa-solid fa-file-lines"></i><span data-i18n="del5">Docs + Handover</span></span>
+          </div>
+          <div class="cta-row" style="margin-top:12px">
+            <a class="btn primary" target="_blank" rel="noopener" id="wa-industry" href="#"><i class="fa-brands fa-whatsapp"></i><span data-i18n="ctaWhatsAppIndustry">راسلني واتساب (Industry)</span></a>
+            <a class="btn" href="mailto:hani.mahfoud.904@gmail.com?subject=Industry%20Inquiry&body=Hello%20Hani%2C%0A%0AI%27d%20like%20to%20discuss%20an%20AI%2FData%20use-case%20for%20%5BCompany%5D.%20Use-case%3A%20...%0AData%20availability%3A%20...%0ATimeline%3A%20...%0A%0ARegards%2C"><i class="fa-solid fa-envelope"></i><span data-i18n="ctaEmailIndustry">إيميل سريع</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses" class="panel card" role="tabpanel" aria-labelledby="tab-courses">
+      <h2><span data-i18n="coursesTitle">المواد والمخططات التدريسية</span> <small data-i18n="coursesHint">مخطط 16 أسبوع + مخرجات + طرق تدريس</small></h2>
+
+      <div class="toolbar">
+        <div class="search" aria-label="Search courses">
+          <i class="fa-solid fa-magnifying-glass" style="color:rgba(255,255,255,.65)"></i>
+          <input id="courseSearch" type="text" placeholder="ابحث باسم المادة…" oninput="renderCourses()" />
+        </div>
+
+        <div class="chips" role="group" aria-label="Course filters">
+          <span class="chip active" data-filter="all" onclick="setCourseFilter('all')"><span data-i18n="filterAll">الكل</span></span>
+          <span class="chip" data-filter="ai" onclick="setCourseFilter('ai')">AI/ML</span>
+          <span class="chip" data-filter="nlp" onclick="setCourseFilter('nlp')">NLP</span>
+          <span class="chip" data-filter="data" onclick="setCourseFilter('data')">Data</span>
+          <span class="chip" data-filter="systems" onclick="setCourseFilter('systems')">Systems</span>
+          <span class="chip" data-filter="research" onclick="setCourseFilter('research')"><span data-i18n="filterResearch">بحث</span></span>
+        </div>
+      </div>
+
+      <div id="coursesList" class="grid"></div>
+      <p class="note" data-i18n="coursesNote">ملاحظة: إذا كنت في وضع اللغة EN، واجهة الموقع تصير إنكليزي لكن تفاصيل المخططات تبقى عربية (لأن المصدر عربي) — وإذا تحب أضيف ترجمة إنكليزية لاحقًا.</p>
+    </section>
+
+    <section id="projects" class="panel card" role="tabpanel" aria-labelledby="tab-projects">
+      <h2><span data-i18n="projectsTitle">مشاريع (Case Studies)</span> <small data-i18n="projectsHint">مشكلة → حل → أثر</small></h2>
+
+      <div class="grid">
+        <div class="course-card col-6">
+          <div class="course-head">
+            <h3><i class="fa-solid fa-face-smile" style="color:var(--brand)"></i> Sentiment Analysis</h3>
+            <div class="tags">
+              <span class="tag">NLP</span><span class="tag">Transformers</span>
+            </div>
+          </div>
+          <p class="course-desc" data-i18n="proj1desc">تطوير نموذج لتحليل المشاعر للنصوص العربية. (ضع هنا الداتا/النتائج/الرابط عند التحديث)</p>
+          <div class="cta-row" style="margin-top:10px">
+            <a class="btn" href="#" onclick="return false;"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a class="btn" href="#" onclick="return false;"><i class="fa-solid fa-display"></i> Demo</a>
+          </div>
+        </div>
+
+        <div class="course-card col-6">
+          <div class="course-head">
+            <h3><i class="fa-solid fa-newspaper" style="color:var(--brand)"></i> Text Classification</h3>
+            <div class="tags">
+              <span class="tag">ML</span><span class="tag gray">Evaluation</span>
+            </div>
+          </div>
+          <p class="course-desc" data-i18n="proj2desc">تصنيف مقالات/وثائق بدقة عالية. (أضف metric مثل F1/Accuracy لاحقًا)</p>
+          <div class="cta-row" style="margin-top:10px">
+            <a class="btn" href="#" onclick="return false;"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a class="btn" href="#" onclick="return false;"><i class="fa-solid fa-file-lines"></i> Report</a>
+          </div>
+        </div>
+
+        <div class="course-card col-12">
+          <div class="course-head">
+            <h3><i class="fa-solid fa-chalkboard" style="color:var(--warn)"></i> AI Workshop / Training</h3>
+            <div class="tags">
+              <span class="tag gray">Teaching</span><span class="tag gray">Hands-on</span>
+            </div>
+          </div>
+          <p class="course-desc" data-i18n="proj3desc">ورش تدريبية في تقنيات التعلم العميق وNLP. (أضف عنوان الورشة/المؤتمر/المحتوى)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="panel card" role="tabpanel" aria-labelledby="tab-publications">
+      <h2><span data-i18n="pubsTitle">الأبحاث والمنشورات</span> <small data-i18n="pubsHint">صياغة مرجعية + روابط</small></h2>
+
+      <div class="grid">
+        <div class="course-card col-12">
+          <div class="course-head">
+            <h3><i class="fa-solid fa-file-lines" style="color:var(--brand)"></i> Published work (selected)</h3>
+            <div class="cta-row">
+              <a class="btn primary" target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=ARJ_H2YAAAAJ&hl=ar"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
+            </div>
+          </div>
+          <ul class="clean" id="pubs-list" style="margin-top:10px">
             <li><strong>Autism Detection:</strong> نموذج فعال لاكتشاف طيف التوحد باستخدام تعلم الآلة.</li>
             <li><strong>NER & Discourse:</strong> تحديد عناصر الخطاب في الكتابة باستخدام Longformer.</li>
             <li><strong>AraBERT Study:</strong> تقييم نموذج AraBERT في كشف اللهجات والقطبية.</li>
-        </ul>
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="https://scholar.google.com/citations?user=ARJ_H2YAAAAJ&hl=ar" target="_blank" class="nav-btn" style="display: inline-flex; background: rgba(255,255,255,0.1);">
-                <i class="fas fa-graduation-cap"></i> <span id="scholar-link">Google Scholar</span>
-            </a>
+          </ul>
+          <p class="note" data-i18n="pubsNote">تقدر تضيف لكل ورقة: السنة + اسم المجلة/المؤتمر + DOI/PDF + BibTeX (وأرتبه لك داخل نفس القسم).</p>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <div id="skills" class="content-section glass-card">
-        <h3 id="skill-title">الترسانة التقنية</h3>
-        <div id="skill-content">
-            <p><i class="fab fa-python" style="color:#f1c40f"></i> <strong>البرمجة:</strong> Python (Expert), SQL.</p>
-            <p><i class="fas fa-brain" style="color:#e74c3c"></i> <strong>الذكاء الاصطناعي:</strong> TensorFlow, Keras, PyTorch.</p>
-            <p><i class="fas fa-language" style="color:#2ecc71"></i> <strong>NLP:</strong> BERT, Transformers, Hazm, Parsivar.</p>
-            <p><i class="fas fa-database" style="color:#3498db"></i> <strong>البيانات الضخمة:</strong> Hadoop, Spark, Hive.</p>
+    <section id="contact" class="panel card" role="tabpanel" aria-labelledby="tab-contact">
+      <h2><span data-i18n="contactTitle">تواصل معي</span> <small data-i18n="contactHint">اختر أسرع طريقة</small></h2>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <h3><i class="fa-solid fa-envelope" style="color:var(--warn)"></i> <span data-i18n="contactEmail">Email</span></h3>
+          <p><strong>hani.mahfoud.904@gmail.com</strong></p>
+          <div class="cta-row" style="margin-top:12px">
+            <a class="btn" href="mailto:hani.mahfoud.904@gmail.com?subject=Academic%20Teaching%20Application&body=السلام%20عليكم%20دكتور%2Fدكتورة%2C%0A%0Aأرغب%20بالتقديم%20على%20فرصة%20تدريس.%20هل%20يمكن%20تحديد%20موعد%20للتواصل%3F%0A%0Aمع%20الاحترام%2C%0Aهاني%20محفوض"><i class="fa-solid fa-paper-plane"></i><span data-i18n="emailAcademic">إيميل للجامعات</span></a>
+            <button class="btn" type="button" onclick="copyEmail()"><i class="fa-regular fa-copy"></i><span data-i18n="copyEmail">نسخ الإيميل</span></button>
+          </div>
         </div>
-    </div>
 
-    <div id="contact" class="content-section glass-card">
-        <h3 id="cont-title">لنبدأ العمل معاً</h3>
-        <div id="cont-content" style="text-align: center;">
-            <p id="cont-loc" style="font-size: 1.2rem; margin-bottom: 20px;">
-                <i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> العراق - البصرة
-            </p>
-            <p style="margin-bottom: 30px;">
-                <i class="fas fa-envelope" style="color:#f1c40f"></i> hani.mahfoud.904@gmail.com
-            </p>
-            
-            <a href="https://wa.me/9647776251552" target="_blank" class="whatsapp-btn">
-                <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
-                <span id="wa-text">تواصل عبر واتساب</span>
-            </a>
+        <div class="contact-item">
+          <h3><i class="fa-brands fa-whatsapp" style="color:var(--good)"></i> WhatsApp</h3>
+          <p data-i18n="waHint">اختر الرسالة الجاهزة حسب نوع الطلب.</p>
+          <div class="cta-row" style="margin-top:12px">
+            <a class="btn primary" target="_blank" rel="noopener" id="wa-academic" href="#"><i class="fa-brands fa-whatsapp"></i><span data-i18n="waAcademic">واتساب (جامعات)</span></a>
+            <a class="btn primary" target="_blank" rel="noopener" id="wa-general" href="#"><i class="fa-brands fa-whatsapp"></i><span data-i18n="waGeneral">واتساب (عام)</span></a>
+          </div>
         </div>
-    </div>
 
-    <script>
-        const translations = {
-            ar: {
-                name: "هاني اكرم محفوض",
-                job: "مهندس معالجة لغات طبيعية (NLP) وباحث دكتوراه",
-                sub: "دمج الذكاء الاصطناعي مع علوم اللغة لفهم البيانات الضخمة",
-                btnAbout: '<i class="fas fa-user"></i> من أنا',
-                btnRes: '<i class="fas fa-book-open"></i> الأبحاث',
-                btnProj: '<i class="fas fa-laptop-code"></i> المشاريع',
-                btnSkill: '<i class="fas fa-tools"></i> المهارات',
-                btnCont: '<i class="fas fa-envelope"></i> تواصل معي',
-                aboutTitle: "نبذة عني",
-                aboutText: "أنا باحث شغوف في مجال الذكاء الاصطناعي ومعالجة اللغات الطبيعية (NLP). حاصل على درجة الماجستير بامتياز في اللغويات الحاسوبية، وحالياً باحث دكتوراه أعمل على سد الفجوة بين لغة الإنسان وفهم الآلة. لدي خبرة عميقة في بناء نماذج التعلم العميق وتحليل البيانات الضخمة.",
-                resTitle: "الأبحاث العلمية المنشورة",
-                scholarLink: "Google Scholar حسابي على",
-                projTitle: "أبرز المشاريع",
-                skillTitle: "الترسانة التقنية",
-                contTitle: "لنبدأ العمل معاً",
-                contLoc: '<i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> العراق - البصرة',
-                waText: "تواصل عبر واتساب",
-                // تمت إضافة قائمة الأبحاث المفقودة هنا
-                resList: `
-                    <li><strong>Autism Detection:</strong> نموذج فعال لاكتشاف طيف التوحد باستخدام تعلم الآلة.</li>
-                    <li><strong>NER & Discourse:</strong> تحديد عناصر الخطاب في الكتابة باستخدام Longformer.</li>
-                    <li><strong>AraBERT Study:</strong> تقييم نموذج AraBERT في كشف اللهجات والقطبية.</li>`,
-                projList: `
-                    <li><strong>Sentiment Analysis:</strong> تطوير نماذج متقدمة لتحليل المشاعر للنصوص العربية باستخدام Deep Learning.</li>
-                    <li><strong>Text Classification:</strong> بناء نظام آلي لتصنيف المقالات الصحفية بدقة عالية.</li>
-                    <li><strong>AI Workshop:</strong> تقديم ورشة عمل متخصصة في تقنيات التعلم العميق في المؤتمر الدولي الـ 26 للحاسوب.</li>`,
-                skillContent: `
-                    <p><i class="fab fa-python" style="color:#f1c40f"></i> <strong>البرمجة:</strong> Python (Expert), SQL.</p>
-                    <p><i class="fas fa-brain" style="color:#e74c3c"></i> <strong>الذكاء الاصطناعي:</strong> TensorFlow, Keras, Scikit-learn.</p>
-                    <p><i class="fas fa-language" style="color:#2ecc71"></i> <strong>NLP:</strong> Transformers (BERT/AraBERT), Hazm.</p>
-                    <p><i class="fas fa-database" style="color:#3498db"></i> <strong>البيانات الضخمة:</strong> Hadoop, Spark, Hive.</p>`
-            },
-            en: {
-                name: "Hani Akram Mahfoud",
-                job: "NLP Engineer & PhD Candidate",
-                sub: "Bridging AI and Computational Linguistics for Big Data Understanding",
-                btnAbout: '<i class="fas fa-user"></i> About Me',
-                btnRes: '<i class="fas fa-book-open"></i> Research',
-                btnProj: '<i class="fas fa-laptop-code"></i> Projects',
-                btnSkill: '<i class="fas fa-tools"></i> Skills',
-                btnCont: '<i class="fas fa-envelope"></i> Contact',
-                aboutTitle: "About Me",
-                aboutText: "I am a passionate AI & NLP researcher with a Master's degree (GPA 94.15%) in Computational Linguistics. Currently a PhD candidate, I specialize in bridging the gap between human language and machine understanding using Deep Learning and Big Data technologies.",
-                resTitle: "Published Research",
-                scholarLink: "Visit Google Scholar",
-                projTitle: "Key Projects",
-                skillTitle: "Technical Stack",
-                contTitle: "Let's Collaborate",
-                contLoc: '<i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> Iraq - Basra',
-                waText: "Chat on WhatsApp",
-                resList: `
-                    <li><strong>Autism Detection:</strong> An Effective Model Of Autism Spectrum Disorder Using Machine Learning.</li>
-                    <li><strong>NER & Discourse:</strong> Identifying Discourse Elements in Writing by Longformer.</li>
-                    <li><strong>AraBERT Study:</strong> Evaluating AraBERT Model in Detecting Dialects and Sentiment Polarity.</li>`,
-                projList: `
-                    <li><strong>Sentiment Analysis:</strong> Developing advanced models for Arabic/English texts using Deep Learning.</li>
-                    <li><strong>Text Classification:</strong> Automated high-accuracy classification of newspaper articles.</li>
-                    <li><strong>Workshop:</strong> Conducted a Deep Learning for NLP workshop at the 26th Int'l Computer Conference.</li>`,
-                skillContent: `
-                    <p><i class="fab fa-python" style="color:#f1c40f"></i> <strong>Programming:</strong> Python (Expert), SQL.</p>
-                    <p><i class="fas fa-brain" style="color:#e74c3c"></i> <strong>AI Libraries:</strong> TensorFlow, Keras, PyTorch.</p>
-                    <p><i class="fas fa-language" style="color:#2ecc71"></i> <strong>NLP:</strong> Transformers (BERT), Hazm, Parsivar.</p>
-                    <p><i class="fas fa-database" style="color:#3498db"></i> <strong>Big Data:</strong> Hadoop, Spark, Hive.</p>`
-            },
-            fa: {
-                name: "هانی اکرم محفوض",
-                job: "مهندس پردازش زبان طبیعی (NLP) و دانشجوی دکتری",
-                sub: "تلفیق هوش مصنوعی با زبان‌شناسی برای درک کلان‌داده‌ها",
-                btnAbout: '<i class="fas fa-user"></i> درباره من',
-                btnRes: '<i class="fas fa-book-open"></i> پژوهش‌ها',
-                btnProj: '<i class="fas fa-laptop-code"></i> پروژه‌ها',
-                btnSkill: '<i class="fas fa-tools"></i> مهارت‌ها',
-                btnCont: '<i class="fas fa-envelope"></i> تماس',
-                aboutTitle: "درباره من",
-                aboutText: "من محقق هوش مصنوعی و پردازش زبان طبیعی (NLP) هستم. دارای مدرک کارشناسی ارشد با معدل عالی در زبان‌شناسی رایانشی و در حال حاضر دانشجوی دکتری. تخصص من در پر کردن شکاف بین زبان انسان و ماشین با استفاده از یادگیری عمیق است.",
-                resTitle: "مقاله‌های منتشر شده",
-                scholarLink: "پروفایل گوگل اسکولار",
-                projTitle: "پروژه‌های برجسته",
-                skillTitle: "مهارت‌های فنی",
-                contTitle: "تماس با من",
-                contLoc: '<i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> عراق - بصره',
-                waText: "چت در واتساپ",
-                resList: `
-                    <li><strong>تشخیص اوتیسم:</strong> مدل موثر اختلال طیف اوتیسم با استفاده از یادگیری ماشین.</li>
-                    <li><strong>طبقه‌بندی NER:</strong> شناسایی عناصر گفتمان در نوشتن با استفاده از Longformer.</li>
-                    <li><strong>مطالعه AraBERT:</strong> ارزیابی مدل AraBERT در تشخیص لهجه‌ها و قطبیت احساسات.</li>`,
-                projList: `
-                    <li><strong>تحلیل احساسات:</strong> توسعه مدل‌های پیشرفته برای متون عربی و انگلیسی.</li>
-                    <li><strong>طبقه‌بندی متن:</strong> سیستم خودکار طبقه‌بندی مقالات با دقت بالا.</li>
-                    <li><strong>کارگاه:</strong> برگزاری کارگاه یادگیری عمیق برای NLP در کنفرانس بین‌المللی کامپیوتر.</li>`,
-                skillContent: `
-                    <p><i class="fab fa-python" style="color:#f1c40f"></i> <strong>برنامه‌نویسی:</strong> Python (Expert), SQL.</p>
-                    <p><i class="fas fa-brain" style="color:#e74c3c"></i> <strong>هوش مصنوعی:</strong> TensorFlow, Keras.</p>
-                    <p><i class="fas fa-language" style="color:#2ecc71"></i> <strong>NLP:</strong> Transformers, Hazm.</p>
-                    <p><i class="fas fa-database" style="color:#3498db"></i> <strong>Big Data:</strong> Hadoop, Spark.</p>`
-            },
-            de: {
-                name: "Hani Akram Mahfoud",
-                job: "NLP-Ingenieur & Doktorand",
-                sub: "Verbindung von KI und Computerlinguistik zum Verständnis von Big Data",
-                btnAbout: '<i class="fas fa-user"></i> Über mich',
-                btnRes: '<i class="fas fa-book-open"></i> Forschung',
-                btnProj: '<i class="fas fa-laptop-code"></i> Projekte',
-                btnSkill: '<i class="fas fa-tools"></i> Skills',
-                btnCont: '<i class="fas fa-envelope"></i> Kontakt',
-                aboutTitle: "Über mich",
-                aboutText: "Ich bin ein leidenschaftlicher KI- und NLP-Forscher. Mit einem Master-Abschluss in Computerlinguistik und derzeit als Doktorand arbeite ich daran, die Lücke zwischen menschlicher Sprache und maschinellem Verständnis durch Deep Learning zu schließen.",
-                resTitle: "Veröffentlichte Forschung",
-                scholarLink: "Google Scholar Profil",
-                projTitle: "Ausgewählte Projekte",
-                skillTitle: "Technische Fähigkeiten",
-                contTitle: "Kontaktieren Sie mich",
-                contLoc: '<i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> Irak - Basra',
-                waText: "WhatsApp Chat",
-                resList: `
-                    <li><strong>Autismus-Erkennung:</strong> Ein effektives Modell der Autismus-Spektrum-Störung unter Verwendung von maschinellem Lernen.</li>
-                    <li><strong>NER & Diskurs:</strong> Identifizierung von Diskurselementen beim Schreiben durch Longformer.</li>
-                    <li><strong>AraBERT-Studie:</strong> Bewertung des AraBERT-Modells bei der Erkennung von Dialekten und Stimmungspolarität.</li>`,
-                projList: `
-                    <li><strong>Sentiment-Analyse:</strong> Entwicklung von Modellen für arabische/englische Texte.</li>
-                    <li><strong>Textklassifikation:</strong> Automatische Klassifizierung von Artikeln.</li>
-                    <li><strong>Workshop:</strong> Workshop zu Deep Learning für NLP geleitet.</li>`,
-                skillContent: `
-                    <p><i class="fab fa-python" style="color:#f1c40f"></i> <strong>Programmierung:</strong> Python, SQL.</p>
-                    <p><i class="fas fa-brain" style="color:#e74c3c"></i> <strong>KI:</strong> TensorFlow, Keras.</p>
-                    <p><i class="fas fa-language" style="color:#2ecc71"></i> <strong>NLP:</strong> BERT, Transformers.</p>
-                    <p><i class="fas fa-database" style="color:#3498db"></i> <strong>Big Data:</strong> Hadoop, Spark.</p>`
-            },
-            ro: {
-                name: "Hani Akram Mahfoud",
-                job: "Inginer NLP și Doctorand",
-                sub: "Îmbinarea Inteligenței Artificiale cu Lingvistica pentru înțelegerea Big Data",
-                btnAbout: '<i class="fas fa-user"></i> Despre Mine',
-                btnRes: '<i class="fas fa-book-open"></i> Cercetare',
-                btnProj: '<i class="fas fa-laptop-code"></i> Proiecte',
-                btnSkill: '<i class="fas fa-tools"></i> Abilități',
-                btnCont: '<i class="fas fa-envelope"></i> Contact',
-                aboutTitle: "Despre Mine",
-                aboutText: "Sunt un cercetător pasionat de IA și NLP, cu un masterat în Lingvistică Computațională. În prezent doctorand, mă specializez în reducerea decalajului dintre limbajul uman și înțelegerea mașinii folosind Deep Learning și tehnologii Big Data.",
-                resTitle: "Cercetări Publicate",
-                scholarLink: "Vizitați Google Scholar",
-                projTitle: "Proiecte Cheie",
-                skillTitle: "Stivă Tehnică",
-                contTitle: "Să Colaborăm",
-                contLoc: '<i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> Irak - Basra',
-                waText: "Chat pe WhatsApp",
-                resList: `
-                    <li><strong>Detectarea Autismului:</strong> Un model eficient al tulburării spectrului autist folosind învățarea automată.</li>
-                    <li><strong>NER & Discurs:</strong> Identificarea elementelor de discurs în scriere prin Longformer.</li>
-                    <li><strong>Studiu AraBERT:</strong> Evaluarea modelului AraBERT în detectarea dialectelor și polarității sentimentelor.</li>`,
-                projList: `
-                    <li><strong>Analiza Sentimentelor:</strong> Dezvoltarea de modele avansate pentru texte în arabă/engleză folosind Deep Learning.</li>
-                    <li><strong>Clasificarea Textului:</strong> Clasificarea automată de înaltă precizie a articolelor din ziare.</li>
-                    <li><strong>Workshop:</strong> Am condus un workshop de Deep Learning pentru NLP la a 26-a Conferință Int. de Calculatoare.</li>`,
-                skillContent: `
-                    <p><i class="fab fa-python" style="color:#f1c40f"></i> <strong>Programare:</strong> Python (Expert), SQL.</p>
-                    <p><i class="fas fa-brain" style="color:#e74c3c"></i> <strong>Biblioteci IA:</strong> TensorFlow, Keras, PyTorch.</p>
-                    <p><i class="fas fa-language" style="color:#2ecc71"></i> <strong>NLP:</strong> Transformers (BERT), Hazm, Parsivar.</p>
-                    <p><i class="fas fa-database" style="color:#3498db"></i> <strong>Big Data:</strong> Hadoop, Spark, Hive.</p>`
-            },
-            fr: {
-                name: "Hani Akram Mahfoud",
-                job: "Ingénieur NLP & Doctorant",
-                sub: "Pont entre l'IA et la Linguistique Informatique pour la compréhension du Big Data",
-                btnAbout: '<i class="fas fa-user"></i> À propos',
-                btnRes: '<i class="fas fa-book-open"></i> Recherche',
-                btnProj: '<i class="fas fa-laptop-code"></i> Projets',
-                btnSkill: '<i class="fas fa-tools"></i> Compétences',
-                btnCont: '<i class="fas fa-envelope"></i> Contact',
-                aboutTitle: "À propos de moi",
-                aboutText: "Je suis un chercheur passionné en IA et NLP avec un Master en Linguistique Informatique. Actuellement doctorant, je me spécialise dans le rapprochement entre le langage humain et la compréhension machine en utilisant le Deep Learning et le Big Data.",
-                resTitle: "Recherches Publiées",
-                scholarLink: "Visitez Google Scholar",
-                projTitle: "Projets Clés",
-                skillTitle: "Compétences Techniques",
-                contTitle: "Collaborons Ensemble",
-                contLoc: '<i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> Irak - Bassorah',
-                waText: "Discuter sur WhatsApp",
-                resList: `
-                    <li><strong>Détection de l'autisme:</strong> Un modèle efficace du trouble du spectre autistique utilisant l'apprentissage automatique.</li>
-                    <li><strong>NER & Discours:</strong> Identification des éléments de discours dans l'écriture par Longformer.</li>
-                    <li><strong>Étude AraBERT:</strong> Évaluation du modèle AraBERT dans la détection des dialectes et de la polarité des sentiments.</li>`,
-                projList: `
-                    <li><strong>Analyse des Sentiments:</strong> Développement de modèles avancés pour textes arabes/anglais utilisant le Deep Learning.</li>
-                    <li><strong>Classification de Texte:</strong> Classification automatisée de haute précision d'articles de journaux.</li>
-                    <li><strong>Atelier:</strong> Animation d'un atelier sur le Deep Learning pour NLP lors de la 26e Conférence Int. d'Informatique.</li>`,
-                skillContent: `
-                    <p><i class="fab fa-python" style="color:#f1c40f"></i> <strong>Programmation:</strong> Python (Expert), SQL.</p>
-                    <p><i class="fas fa-brain" style="color:#e74c3c"></i> <strong>Bibliothèques IA:</strong> TensorFlow, Keras, PyTorch.</p>
-                    <p><i class="fas fa-language" style="color:#2ecc71"></i> <strong>NLP:</strong> Transformers (BERT), Hazm.</p>
-                    <p><i class="fas fa-database" style="color:#3498db"></i> <strong>Big Data:</strong> Hadoop, Spark, Hive.</p>`
-            }
-        };
+        <div class="contact-item">
+          <h3><i class="fa-solid fa-location-dot" style="color:var(--danger)"></i> <span data-i18n="contactLocation">الموقع</span></h3>
+          <p id="contact-loc">العراق – البصرة</p>
+          <p class="note" data-i18n="privacyNote">خصوصية: لا أطلب بيانات حساسة عبر واتساب — نبدأ بنطاق العمل ثم نتفق على التفاصيل رسميًا.</p>
+        </div>
 
-        function changeLanguage(lang) {
-            document.documentElement.dir = (lang === 'ar' || lang === 'fa') ? 'rtl' : 'ltr';
-            document.documentElement.lang = lang;
+        <div class="contact-item">
+          <h3><i class="fa-solid fa-code" style="color:var(--brand)"></i> <span data-i18n="contactLinks">روابط</span></h3>
+          <div class="cta-row" style="margin-top:10px">
+            <a class="btn" target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=ARJ_H2YAAAAJ&hl=ar"><i class="fa-solid fa-graduation-cap"></i> Scholar</a>
+            <a class="btn" target="_blank" rel="noopener" href="https://github.com/hanimahfoud"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a class="btn" href="#" onclick="return false;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          </div>
+          <p class="note" data-i18n="linksNote">ملاحظة: عدّل رابط LinkedIn إذا تحب، أو احذفه.</p>
+        </div>
+      </div>
+    </section>
 
-            const t = translations[lang];
-            
-            document.getElementById('name').textContent = t.name;
-            document.getElementById('job-title').textContent = t.job;
-            document.getElementById('sub-title').textContent = t.sub;
-            document.getElementById('about-title').textContent = t.aboutTitle;
-            document.getElementById('about-text').textContent = t.aboutText;
-            document.getElementById('res-title').textContent = t.resTitle;
-            document.getElementById('scholar-link').textContent = t.scholarLink;
-            document.getElementById('proj-title').textContent = t.projTitle;
-            document.getElementById('skill-title').textContent = t.skillTitle;
-            document.getElementById('cont-title').textContent = t.contTitle;
-            document.getElementById('wa-text').textContent = t.waText;
+    <footer>
+      <div>© <span id="year"></span> Hani Mahfoud — <span data-i18n="footerLine">Built for Academic + Industry applications.</span></div>
+    </footer>
+  </main>
 
-            document.getElementById('btn-about').innerHTML = t.btnAbout;
-            document.getElementById('btn-res').innerHTML = t.btnRes;
-            document.getElementById('btn-proj').innerHTML = t.btnProj;
-            document.getElementById('btn-skill').innerHTML = t.btnSkill;
-            document.getElementById('btn-cont').innerHTML = t.btnCont;
-            document.getElementById('cont-loc').innerHTML = t.contLoc;
-            
-            document.getElementById('proj-list').innerHTML = t.projList;
-            document.getElementById('skill-content').innerHTML = t.skillContent;
-            document.getElementById('res-list').innerHTML = t.resList;
-        }
+  <script>
+    const COURSES = [{"title_en":"Machine Learning","title_ar":"تعلم الآلة","description_ar":"يركز المقرر على المبادئ والأساليب الأساسية لتعلم الآلة، بما يشمل التعلم المراقب وغير المراقب، وخوارزميات التصنيف والانحدار والتجميع، وأساسيات تقييم النماذج.","learning_outcomes_ar":["فهم المبادئ الأساسية لتعلم الآلة.","تنفيذ خوارزميات تعلم الآلة باستخدام أدوات برمجية مناسبة.","تقييم أداء النماذج وتفسير نتائجها."],"teaching_methods_ar":["محاضرات نظرية","تمارين عملية","مشاريع تطبيقية"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في تعلم الآلة وتطبيقاته:"},{"week":"Week 2","topic":"أنواع تعلم الآلة: مراقب وغير مراقب وشبه مراقب:"},{"week":"Week 3","topic":"تهيئة البيانات ومعالجة القيم المفقودة:"},{"week":"Week 4","topic":"تحليل البيانات واستخراج السمات:"},{"week":"Week 5","topic":"خوارزميات التصنيف: k-NN وNaive Bayes:"},{"week":"Week 6","topic":"خوارزميات التصنيف: SVM والانحدار اللوجستي:"},{"week":"Week 7","topic":"خوارزميات الانحدار: الانحدار الخطي ومتعدد المتغيرات:"},{"week":"Week 8","topic":"مفاهيم overfitting وregularization:"},{"week":"Week 9","topic":"خوارزميات التجميع: K-means وHierarchical clustering:"},{"week":"Week 10","topic":"تخفيض الأبعاد: PCA وt-SNE:"},{"week":"Week 11","topic":"تقييم النماذج: accuracy, precision, recall, F1:"},{"week":"Week 12","topic":"التحقق المتقاطع Cross-validation:"},{"week":"Week 13","topic":"مقدمة في الأشجار العشوائية Random Forest:"},{"week":"Week 14","topic":"Boosting وGradient Descent:"},{"week":"Week 15","topic":"تطبيقات عملية ومشاريع:"},{"week":"Week 16","topic":"عرض المشاريع وتقييمها:"}],"assessment_ar":["اختبارات قصيرة","واجبات عملية","مشروع نهائي"]},{"title_en":"Deep Learning","title_ar":"التعلم العميق","description_ar":"يغطي المقرر مبادئ التعلم العميق والشبكات العصبية العميقة، مثل الشبكات الالتفافية CNN، والشبكات المتكررة RNN، وطرق التدريب والتحسين باستخدام البيانات الكبيرة.","learning_outcomes_ar":["فهم بنية الشبكات العصبية العميقة.","تطوير نماذج تعلم عميق لحل مشكلات تصنيف وتنبؤ.","استخدام أطر مثل TensorFlow أو PyTorch."],"teaching_methods_ar":["محاضرات","مختبرات عملية","مشاريع تطبيقية"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في التعلم العميق والشبكات العصبية:"},{"week":"Week 2","topic":"إعادة بناء perceptron والشبكات متعددة الطبقات:"},{"week":"Week 3","topic":"دوال التنشيط وطرق الانتشار الخلفي:"},{"week":"Week 4","topic":"تحسين النماذج باستخدام Gradient Descent وAdam:"},{"week":"Week 5","topic":"مقدمة في الشبكات الالتفافية CNN:"},{"week":"Week 6","topic":"تطبيقات CNN في معالجة الصور:"},{"week":"Week 7","topic":"التعلم بالنقل Transfer Learning:"},{"week":"Week 8","topic":"مقدمة في الشبكات المتكررة RNN:"},{"week":"Week 9","topic":"شبكات LSTM وGRU:"},{"week":"Week 10","topic":"تطبيقات RNN في تحليل النصوص:"},{"week":"Week 11","topic":"مقدمة في Attention وTransformers:"},{"week":"Week 12","topic":"نماذج BERT وGPT:"},{"week":"Week 13","topic":"طرق regularization مثل Dropout وBatchNorm:"},{"week":"Week 14","topic":"التعلم غير المراقب Autoencoders وGANs:"},{"week":"Week 15","topic":"مشاريع تطبيقية:"},{"week":"Week 16","topic":"عرض المشاريع والتقييم:"}],"assessment_ar":["تمارين مختبرية","مشروع نهائي","اختبارات"]},{"title_en":"Artificial Intelligence","title_ar":"الذكاء الاصطناعي","description_ar":"يتناول المقرر المفاهيم الأساسية في الذكاء الاصطناعي، بما في ذلك البحث في فضاء الحالات، الأنظمة الخبيرة، التخطيط، تعلم الآلة، وتمثيل المعرفة.","learning_outcomes_ar":["فهم مبادئ الذكاء الاصطناعي الأساسية.","تطبيق خوارزميات البحث والتخطيط.","معرفة تطبيقات الذكاء الاصطناعي الحديثة."],"teaching_methods_ar":["محاضرات","تمارين","مشاريع صغيرة"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في الذكاء الاصطناعي وتاريخه:"},{"week":"Week 2","topic":"العوامل الذكية وأنواع البيئات:"},{"week":"Week 3","topic":"البحث غير الموجه: BFS, DFS:"},{"week":"Week 4","topic":"البحث الموجه: A* وHeuristics:"},{"week":"Week 5","topic":"تمثيل المعرفة والمنطق القضي:"},{"week":"Week 6","topic":"الاستدلال في الأنظمة الذكية:"},{"week":"Week 7","topic":"الأنظمة الخبيرة وقواعد المعرفة:"},{"week":"Week 8","topic":"التخطيط Planning في الذكاء الاصطناعي:"},{"week":"Week 9","topic":"حل المشكلات باستخدام القيود CSP:"},{"week":"Week 10","topic":"مقدمة في تعلم الآلة ضمن الذكاء الاصطناعي:"},{"week":"Week 11","topic":"الشبكات العصبية وتطبيقاتها:"},{"week":"Week 12","topic":"الذكاء الاصطناعي في معالجة اللغة الطبيعية:"},{"week":"Week 13","topic":"الذكاء الاصطناعي في الروبوتات:"},{"week":"Week 14","topic":"الأخلاقيات والتحديات في الذكاء الاصطناعي:"},{"week":"Week 15","topic":"مشاريع تطبيقية:"},{"week":"Week 16","topic":"عرض المشاريع وتقييمها:"}],"assessment_ar":["اختبارات","واجبات","مشروع"]},{"title_en":"Neural Networks","title_ar":"الشبكات العصبية","description_ar":"يركز المقرر على مفاهيم الشبكات العصبية الاصطناعية، بنيتها، خوارزميات التعلم، تطبيقاتها، وكيفية تدريبها باستخدام البيانات.","learning_outcomes_ar":["فهم بنية وعمل الشبكات العصبية.","تنفيذ نماذج الشبكات العصبية وتدريبها.","تحليل نتائج الشبكات العصبية وتحسينها."],"teaching_methods_ar":["محاضرات","تطبيقات عملية","مشروع"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في الشبكات العصبية:"},{"week":"Week 2","topic":"العصبون الاصطناعي perceptron:"},{"week":"Week 3","topic":"الشبكات متعددة الطبقات MLP:"},{"week":"Week 4","topic":"خوارزمية الانتشار الخلفي Backpropagation:"},{"week":"Week 5","topic":"دوال التنشيط:"},{"week":"Week 6","topic":"خوارزميات التدريب والتحسين:"},{"week":"Week 7","topic":"مفاهيم overfitting وunderfitting:"},{"week":"Week 8","topic":"Regularization وDropout:"},{"week":"Week 9","topic":"الشبكات الالتفافية CNN:"},{"week":"Week 10","topic":"تطبيق CNN في الصور:"},{"week":"Week 11","topic":"الشبكات المتكررة RNN:"},{"week":"Week 12","topic":"LSTM وGRU:"},{"week":"Week 13","topic":"مقدمة في الشبكات العميقة:"},{"week":"Week 14","topic":"تطبيقات الشبكات العصبية في NLP:"},{"week":"Week 15","topic":"مشاريع عملية:"},{"week":"Week 16","topic":"عرض المشاريع والتقييم:"}],"assessment_ar":["اختبارات","واجبات","مشروع"]},{"title_en":"Decision Support Systems","title_ar":"نظم دعم القرار","description_ar":"يدرس المقرر مبادئ نظم دعم القرار وأدواتها وتقنيات تحليل البيانات وبناء النماذج لدعم اتخاذ القرارات في المؤسسات.","learning_outcomes_ar":["فهم مفهوم وأهمية نظم دعم القرار.","تصميم نظم دعم قرار باستخدام تقنيات تحليل البيانات.","استخدام أدوات DSS في حل المشكلات."],"teaching_methods_ar":["محاضرات","دراسة حالات","مشاريع"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في نظم دعم القرار DSS:"},{"week":"Week 2","topic":"مكونات DSS وأنواعه:"},{"week":"Week 3","topic":"تحليل المشكلات واتخاذ القرار:"},{"week":"Week 4","topic":"نماذج اتخاذ القرار:"},{"week":"Week 5","topic":"استخدام قواعد البيانات في DSS:"},{"week":"Week 6","topic":"تحليل البيانات وOLAP:"},{"week":"Week 7","topic":"التنقيب عن البيانات في DSS:"},{"week":"Week 8","topic":"النظم الخبيرة ودعم القرار:"},{"week":"Week 9","topic":"ذكاء الأعمال BI:"},{"week":"Week 10","topic":"لوحات المؤشرات Dashboards:"},{"week":"Week 11","topic":"تقنيات التنبؤ Forecasting:"},{"week":"Week 12","topic":"دعم القرار في بيئات غير مؤكدة:"},{"week":"Week 13","topic":"تطبيقات DSS في الأعمال:"},{"week":"Week 14","topic":"تطبيقات DSS في الصحة والطاقة:"},{"week":"Week 15","topic":"مشروع تطبيقي:"},{"week":"Week 16","topic":"عرض المشروع:"}],"assessment_ar":["تقارير","مشروع","اختبارات"]},{"title_en":"Research Methodology","title_ar":"منهجية البحث","description_ar":"يغطي المقرر أسس البحث العلمي، صياغة المشكلات، تصميم الدراسات، جمع وتحليل البيانات، وكتابة التقارير والأوراق العلمية.","learning_outcomes_ar":["إعداد خطة بحث علمية واضحة.","اختيار منهجية مناسبة وتحليل البيانات.","كتابة ورقة علمية وفق معايير أكاديمية."],"teaching_methods_ar":["محاضرات","مناقشات","تطبيقات عملية"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في البحث العلمي وأهميته:"},{"week":"Week 2","topic":"صياغة مشكلة البحث وأسئلته:"},{"week":"Week 3","topic":"استعراض الأدبيات Related Work:"},{"week":"Week 4","topic":"تصميم البحث واختيار المنهج:"},{"week":"Week 5","topic":"طرق جمع البيانات:"},{"week":"Week 6","topic":"أدوات القياس والاستبيانات:"},{"week":"Week 7","topic":"التحليل الإحصائي الأساسي:"},{"week":"Week 8","topic":"استخدام البرامج الإحصائية:"},{"week":"Week 9","topic":"كتابة المقترح البحثي Proposal:"},{"week":"Week 10","topic":"أخلاقيات البحث العلمي:"},{"week":"Week 11","topic":"كتابة الورقة العلمية:"},{"week":"Week 12","topic":"أساليب التوثيق والمراجع APA/IEEE:"},{"week":"Week 13","topic":"عرض النتائج ومناقشتها:"},{"week":"Week 14","topic":"التحكيم والنشر العلمي:"},{"week":"Week 15","topic":"عرض مشاريع الطلبة:"},{"week":"Week 16","topic":"تقييم وتسليم البحث:"}],"assessment_ar":["بحوث قصيرة","عرض تقديمي","تقرير نهائي"]},{"title_en":"Seminar","title_ar":"سمينار","description_ar":"يركز المقرر على تطوير مهارات العرض والنقاش العلمي، وتحليل أوراق بحثية حديثة، وإعداد عروض تقديمية ومناقشتها ضمن فريق.","learning_outcomes_ar":["تحليل وتقييم أوراق بحثية.","تقديم عروض علمية احترافية.","المشاركة في نقاش علمي بنّاء."],"teaching_methods_ar":["عروض طلابية","مناقشات","مراجعة أوراق"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في السمينار ومهارات العرض:"},{"week":"Week 2","topic":"كيفية قراءة ورقة بحثية:"},{"week":"Week 3","topic":"اختيار موضوع/ورقة بحثية:"},{"week":"Week 4","topic":"إعداد العرض التقديمي:"},{"week":"Week 5","topic":"عرض ومناقشة ورقة 1:"},{"week":"Week 6","topic":"عرض ومناقشة ورقة 2:"},{"week":"Week 7","topic":"عرض ومناقشة ورقة 3:"},{"week":"Week 8","topic":"منتصف الفصل: تقييم العروض:"},{"week":"Week 9","topic":"عرض ومناقشة ورقة 4:"},{"week":"Week 10","topic":"عرض ومناقشة ورقة 5:"},{"week":"Week 11","topic":"عرض ومناقشة ورقة 6:"},{"week":"Week 12","topic":"عرض ومناقشة ورقة 7:"},{"week":"Week 13","topic":"عرض ومناقشة ورقة 8:"},{"week":"Week 14","topic":"تحضير العرض النهائي:"},{"week":"Week 15","topic":"العروض النهائية:"},{"week":"Week 16","topic":"تقييم شامل وتسليم:"}],"assessment_ar":["عرض ورقة","مشاركة","تقرير تحليلي"]},{"title_en":"Robotics","title_ar":"الروبوتات","description_ar":"يدرس المقرر مبادئ الروبوتات، مكوناتها، التحكم، الاستشعار، والتطبيقات الصناعية والخدمية، إضافة إلى البرمجة الأساسية للروبوت.","learning_outcomes_ar":["فهم مكونات الروبوت وأنظمة التحكم.","تصميم برامج بسيطة للتحكم بالروبوت.","تحليل تطبيقات الروبوتات في الصناعة."],"teaching_methods_ar":["محاضرات","مختبر","مشاريع"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في الروبوتات وتطبيقاتها:"},{"week":"Week 2","topic":"مكونات الروبوت (حساسات/محركات):"},{"week":"Week 3","topic":"الأنظمة الميكانيكية والكينماتيكا:"},{"week":"Week 4","topic":"أنظمة التحكم Control systems:"},{"week":"Week 5","topic":"التحكم PID:"},{"week":"Week 6","topic":"الاستشعار Sensoring:"},{"week":"Week 7","topic":"رؤية الحاسوب للروبوتات:"},{"week":"Week 8","topic":"تخطيط المسار Path planning:"},{"week":"Week 9","topic":"خوارزميات الملاحة Navigation:"},{"week":"Week 10","topic":"الروبوتات المتنقلة:"},{"week":"Week 11","topic":"روبوتات صناعية:"},{"week":"Week 12","topic":"التفاعل بين الإنسان والروبوت:"},{"week":"Week 13","topic":"مقدمة في ROS:"},{"week":"Week 14","topic":"مشاريع عملية:"},{"week":"Week 15","topic":"تنفيذ المشاريع:"},{"week":"Week 16","topic":"عرض المشاريع:"}],"assessment_ar":["مختبر","مشروع","اختبار"]},{"title_en":"Programming Languages (Python)","title_ar":"لغات البرمجة (بايثون)","description_ar":"يركز المقرر على أساسيات البرمجة باستخدام لغة Python، بما يشمل المتغيرات، الهياكل، الدوال، البرمجة الكائنية، والتطبيقات العملية.","learning_outcomes_ar":["كتابة برامج Python بشكل صحيح.","استخدام البرمجة الكائنية OOP.","تطوير تطبيقات بسيطة وتحليلها."],"teaching_methods_ar":["محاضرات","مختبر","واجبات"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في البرمجة وPython:"},{"week":"Week 2","topic":"المتغيرات وأنواع البيانات:"},{"week":"Week 3","topic":"الشروط والحلقات:"},{"week":"Week 4","topic":"الدوال Functions:"},{"week":"Week 5","topic":"القوائم والقواميس:"},{"week":"Week 6","topic":"التعامل مع الملفات:"},{"week":"Week 7","topic":"الاستثناءات Exceptions:"},{"week":"Week 8","topic":"مقدمة في OOP:"},{"week":"Week 9","topic":"الكلاسات والوراثة:"},{"week":"Week 10","topic":"المكتبات الأساسية في Python:"},{"week":"Week 11","topic":"استخدام NumPy:"},{"week":"Week 12","topic":"استخدام Pandas:"},{"week":"Week 13","topic":"الرسم باستخدام Matplotlib:"},{"week":"Week 14","topic":"مشروع عملي:"},{"week":"Week 15","topic":"تنفيذ المشروع:"},{"week":"Week 16","topic":"عرض المشروع وتقييمه:"}],"assessment_ar":["واجبات","اختبارات قصيرة","مشروع"]},{"title_en":"Computational Linguistics","title_ar":"اللغويات الحاسوبية","description_ar":"يتناول المقرر العلاقة بين علم اللغة وعلوم الحاسوب، وتحليل اللغة الطبيعية حاسوبيًا، وبناء نماذج لمعالجة النصوص.","learning_outcomes_ar":["فهم أساسيات اللغويات الحاسوبية.","تحليل اللغة باستخدام أدوات حاسوبية.","معرفة تطبيقات مثل الترجمة الآلية والتحليل الصرفي."],"teaching_methods_ar":["محاضرات","تمارين","مشاريع"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في اللغويات الحاسوبية:"},{"week":"Week 2","topic":"النحو والصرف في اللغة:"},{"week":"Week 3","topic":"التحليل الصرفي Morphological analysis:"},{"week":"Week 4","topic":"التحليل النحوي Parsing:"},{"week":"Week 5","topic":"النماذج الإحصائية للغة:"},{"week":"Week 6","topic":"نماذج n-gram:"},{"week":"Week 7","topic":"تمثيل النصوص Vector space:"},{"week":"Week 8","topic":"Word embeddings:"},{"week":"Week 9","topic":"مقدمة في NLP:"},{"week":"Week 10","topic":"التعرف على الكيانات NER:"},{"week":"Week 11","topic":"تحليل المشاعر:"},{"week":"Week 12","topic":"الترجمة الآلية:"},{"week":"Week 13","topic":"تلخيص النصوص:"},{"week":"Week 14","topic":"تطبيقات في العربية:"},{"week":"Week 15","topic":"مشروع عملي:"},{"week":"Week 16","topic":"عرض المشروع:"}],"assessment_ar":["اختبارات","واجبات","مشروع"]},{"title_en":"Natural Language Processing (NLP)","title_ar":"معالجة اللغة الطبيعية","description_ar":"يغطي المقرر تقنيات معالجة اللغة الطبيعية مثل تحليل النصوص، التصنيف، استخراج المعلومات، نماذج اللغة، والتطبيقات الحديثة في المجال.","learning_outcomes_ar":["فهم تقنيات NLP الأساسية والمتقدمة.","تنفيذ خوارزميات NLP على نصوص واقعية.","تقييم نماذج NLP وتحسينها."],"teaching_methods_ar":["محاضرات","مختبر","مشروع"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في NLP:"},{"week":"Week 2","topic":"تنظيف النصوص ومعالجتها:"},{"week":"Week 3","topic":"Tokenization وStemming:"},{"week":"Week 4","topic":"TF-IDF وتمثيل النصوص:"},{"week":"Week 5","topic":"تصنيف النصوص Text Classification:"},{"week":"Week 6","topic":"Naive Bayes وSVM للنصوص:"},{"week":"Week 7","topic":"Word embeddings:"},{"week":"Week 8","topic":"RNN وLSTM في NLP:"},{"week":"Week 9","topic":"Attention وTransformers:"},{"week":"Week 10","topic":"BERT وتطبيقاته:"},{"week":"Week 11","topic":"NER واستخراج معلومات:"},{"week":"Week 12","topic":"تحليل مشاعر:"},{"week":"Week 13","topic":"الترجمة الآلية:"},{"week":"Week 14","topic":"تلخيص النصوص:"},{"week":"Week 15","topic":"مشروع NLP:"},{"week":"Week 16","topic":"عرض المشروع:"}],"assessment_ar":["مختبر","اختبار","مشروع"]},{"title_en":"Text Analysis","title_ar":"تحليل النصوص","description_ar":"يركز المقرر على أساليب تحليل النصوص واستخراج الأنماط والمعرفة منها باستخدام تقنيات إحصائية وتعلم الآلة.","learning_outcomes_ar":["تحليل النصوص واستخراج السمات.","تطبيق تقنيات التصنيف والتجميع على النصوص.","فهم تطبيقات تحليل النصوص في الواقع."],"teaching_methods_ar":["محاضرات","تطبيقات","مشروع"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في تحليل النصوص:"},{"week":"Week 2","topic":"تنظيف النصوص والمعالجة المسبقة:"},{"week":"Week 3","topic":"استخراج السمات Feature extraction:"},{"week":"Week 4","topic":"تمثيل النصوص TF-IDF:"},{"week":"Week 5","topic":"تحليل الترددات والكلمات المفتاحية:"},{"week":"Week 6","topic":"تحليل المشاعر:"},{"week":"Week 7","topic":"تصنيف النصوص:"},{"week":"Week 8","topic":"التجميع Clustering للنصوص:"},{"week":"Week 9","topic":"Topic modeling:"},{"week":"Week 10","topic":"LDA وتحليل المواضيع:"},{"week":"Week 11","topic":"تحليل الشبكات الدلالية:"},{"week":"Week 12","topic":"استخراج الكيانات NER:"},{"week":"Week 13","topic":"تلخيص النصوص:"},{"week":"Week 14","topic":"تطبيقات عملية:"},{"week":"Week 15","topic":"مشروع عملي:"},{"week":"Week 16","topic":"عرض المشروع:"}],"assessment_ar":["واجبات","اختبار","مشروع"]},{"title_en":"Machine Translation","title_ar":"الترجمة الآلية","description_ar":"يغطي المقرر تقنيات الترجمة الآلية من النظم القاعدية إلى النماذج العصبية الحديثة، وتقييم الترجمات وتحسينها.","learning_outcomes_ar":["فهم أنواع الترجمة الآلية.","تطوير نموذج ترجمة بسيط.","تقييم جودة الترجمة وتحسينها."],"teaching_methods_ar":["محاضرات","مختبر","مشروع"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في الترجمة الآلية:"},{"week":"Week 2","topic":"الترجمة القاعدية Rule-based MT:"},{"week":"Week 3","topic":"الترجمة الإحصائية SMT:"},{"week":"Week 4","topic":"نماذج phrase-based:"},{"week":"Week 5","topic":"الترجمة العصبية NMT:"},{"week":"Week 6","topic":"Encoder-Decoder models:"},{"week":"Week 7","topic":"Attention mechanism:"},{"week":"Week 8","topic":"Transformers في الترجمة:"},{"week":"Week 9","topic":"تجهيز البيانات الموازية:"},{"week":"Week 10","topic":"تدريب نموذج ترجمة:"},{"week":"Week 11","topic":"تقييم BLEU وMETEOR:"},{"week":"Week 12","topic":"تحسين النماذج fine-tuning:"},{"week":"Week 13","topic":"الترجمة متعددة اللغات:"},{"week":"Week 14","topic":"تطبيقات الترجمة في الصناعة:"},{"week":"Week 15","topic":"مشروع ترجمة:"},{"week":"Week 16","topic":"عرض المشروع:"}],"assessment_ar":["اختبارات","مشروع","تقارير"]},{"title_en":"Natural Language Processing Applications Programming","title_ar":"برمجة تطبيقات معالجة اللغة الطبيعية","description_ar":"يركز على بناء تطبيقات عملية في NLP مثل روبوتات المحادثة، أنظمة التوصية النصية، محركات بحث، وتطبيقات تحليل النصوص باستخدام مكتبات حديثة.","learning_outcomes_ar":["تطوير تطبيقات NLP عملية.","استخدام مكتبات NLP مثل NLTK, spaCy, transformers.","بناء مشروع كامل ونشره بشكل أولي."],"teaching_methods_ar":["مختبر عملي","مشاريع","محاضرات قصيرة"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في بناء تطبيقات NLP:"},{"week":"Week 2","topic":"بيئة العمل ومكتبات NLP:"},{"week":"Week 3","topic":"تنظيف النصوص وتقطيعها:"},{"week":"Week 4","topic":"استخراج السمات وTF-IDF:"},{"week":"Week 5","topic":"تصنيف نصوص في تطبيق:"},{"week":"Week 6","topic":"تحليل مشاعر كتطبيق:"},{"week":"Week 7","topic":"NER كتطبيق:"},{"week":"Week 8","topic":"بناء Chatbot بسيط:"},{"week":"Week 9","topic":"استخدام Transformers في التطبيق:"},{"week":"Week 10","topic":"تلخيص نصوص:"},{"week":"Week 11","topic":"بناء محرك بحث نصي:"},{"week":"Week 12","topic":"ربط NLP مع واجهة ويب:"},{"week":"Week 13","topic":"API لتطبيق NLP:"},{"week":"Week 14","topic":"مشروع نهائي:"},{"week":"Week 15","topic":"تنفيذ المشروع:"},{"week":"Week 16","topic":"عرض المشروع:"}],"assessment_ar":["تمارين مختبر","مشروع نهائي","تقييم عملي"]},{"title_en":"Expert Systems","title_ar":"الأنظمة الخبيرة","description_ar":"يتناول المقرر تصميم وبناء الأنظمة الخبيرة القائمة على قواعد المعرفة والاستدلال، وتطبيقها في مجالات مختلفة لدعم القرار.","learning_outcomes_ar":["فهم مكونات الأنظمة الخبيرة.","بناء قاعدة معرفة وقواعد استدلال.","تنفيذ نظام خبير بسيط."],"teaching_methods_ar":["محاضرات","تطبيقات","مشروع"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في الأنظمة الخبيرة:"},{"week":"Week 2","topic":"مكونات النظام الخبير:"},{"week":"Week 3","topic":"بناء قاعدة المعرفة:"},{"week":"Week 4","topic":"أنواع قواعد الاستدلال:"},{"week":"Week 5","topic":"Forward/Backward chaining:"},{"week":"Week 6","topic":"تمثيل المعرفة:"},{"week":"Week 7","topic":"أدوات بناء الأنظمة الخبيرة:"},{"week":"Week 8","topic":"التعامل مع عدم اليقين:"},{"week":"Week 9","topic":"Fuzzy expert systems:"},{"week":"Week 10","topic":"تطبيقات الأنظمة الخبيرة:"},{"week":"Week 11","topic":"تطوير نظام خبير بسيط:"},{"week":"Week 12","topic":"اختبار وتقييم النظام:"},{"week":"Week 13","topic":"تحسين النظام:"},{"week":"Week 14","topic":"مشروع تطبيقي:"},{"week":"Week 15","topic":"تنفيذ المشروع:"},{"week":"Week 16","topic":"عرض المشروع:"}],"assessment_ar":["اختبارات","واجبات","مشروع"]},{"title_en":"Databases","title_ar":"قواعد البيانات","description_ar":"يغطي المقرر أساسيات قواعد البيانات، النموذج العلاقي، تصميم قواعد البيانات، لغة SQL، التطبيع، ومفاهيم المعاملات والأمان.","learning_outcomes_ar":["تصميم قواعد بيانات علائقية.","كتابة استعلامات SQL بكفاءة.","فهم مفاهيم التطبيع والمعاملات."],"teaching_methods_ar":["محاضرات","مختبر","تمارين"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في قواعد البيانات:"},{"week":"Week 2","topic":"النموذج العلاقي:"},{"week":"Week 3","topic":"تصميم ERD:"},{"week":"Week 4","topic":"تحويل ER إلى جداول:"},{"week":"Week 5","topic":"لغة SQL أساسيات:"},{"week":"Week 6","topic":"استعلامات متقدمة:"},{"week":"Week 7","topic":"الربط Join:"},{"week":"Week 8","topic":"التطبيع Normalization:"},{"week":"Week 9","topic":"المعاملات Transactions:"},{"week":"Week 10","topic":"الأمن والصلاحيات:"},{"week":"Week 11","topic":"الفهارس Indexing:"},{"week":"Week 12","topic":"مقدمة في NoSQL:"},{"week":"Week 13","topic":"تطبيق عملي:"},{"week":"Week 14","topic":"مشروع قاعدة بيانات:"},{"week":"Week 15","topic":"تنفيذ المشروع:"},{"week":"Week 16","topic":"عرض المشروع:"}],"assessment_ar":["مختبر","اختبارات","مشروع"]},{"title_en":"Data Mining","title_ar":"تنقيب البيانات","description_ar":"يركز المقرر على اكتشاف الأنماط والمعرفة من البيانات باستخدام تقنيات التصنيف والتجميع والارتباط، وتطبيقات تنقيب البيانات في مجالات مختلفة.","learning_outcomes_ar":["فهم مفاهيم تنقيب البيانات الأساسية.","تطبيق خوارزميات تنقيب البيانات على مجموعات بيانات.","تفسير النتائج واستخراج المعرفة."],"teaching_methods_ar":["محاضرات","مختبر","مشاريع"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في تنقيب البيانات:"},{"week":"Week 2","topic":"عمليات إعداد البيانات:"},{"week":"Week 3","topic":"تصنيف البيانات:"},{"week":"Week 4","topic":"Decision Trees:"},{"week":"Week 5","topic":"Naive Bayes وk-NN:"},{"week":"Week 6","topic":"SVM:"},{"week":"Week 7","topic":"التجميع Clustering:"},{"week":"Week 8","topic":"K-means:"},{"week":"Week 9","topic":"Association Rules:"},{"week":"Week 10","topic":"Apriori algorithm:"},{"week":"Week 11","topic":"تقييم النماذج:"},{"week":"Week 12","topic":"Text Mining:"},{"week":"Week 13","topic":"Web Mining:"},{"week":"Week 14","topic":"مشروع تطبيقي:"},{"week":"Week 15","topic":"تنفيذ المشروع:"},{"week":"Week 16","topic":"عرض المشروع:"}],"assessment_ar":["واجبات","اختبار","مشروع"]},{"title_en":"Semantic Web","title_ar":"الويب الدلالي","description_ar":"يغطي المقرر مفاهيم الويب الدلالي، الأنطولوجيا، RDF, OWL، SPARQL، وكيفية تمثيل المعرفة وربط البيانات على الويب.","learning_outcomes_ar":["فهم تقنيات الويب الدلالي.","بناء أنطولوجيا بسيطة.","استخدام SPARQL للاستعلام عن البيانات."],"teaching_methods_ar":["محاضرات","تمارين","مشروع"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في الويب الدلالي:"},{"week":"Week 2","topic":"RDF وتمثيل البيانات:"},{"week":"Week 3","topic":"Triple stores:"},{"week":"Week 4","topic":"SPARQL أساسيات:"},{"week":"Week 5","topic":"SPARQL متقدم:"},{"week":"Week 6","topic":"أنطولوجيا Ontology:"},{"week":"Week 7","topic":"OWL:"},{"week":"Week 8","topic":"بناء أنطولوجيا عملي:"},{"week":"Week 9","topic":"Linked Data:"},{"week":"Week 10","topic":"Reasoning:"},{"week":"Week 11","topic":"تطبيقات الويب الدلالي:"},{"week":"Week 12","topic":"Semantic Search:"},{"week":"Week 13","topic":"Knowledge graphs:"},{"week":"Week 14","topic":"مشروع:"},{"week":"Week 15","topic":"تنفيذ المشروع:"},{"week":"Week 16","topic":"عرض المشروع:"}],"assessment_ar":["واجبات","مشروع","اختبار"]},{"title_en":"Search Engines and Web Crawling","title_ar":"محركات البحث وزحف الويب","description_ar":"يركز المقرر على مبادئ محركات البحث، فهرسة الويب، خوارزميات الترتيب، وتقنيات زحف الويب وجمع البيانات.","learning_outcomes_ar":["فهم بنية محركات البحث.","بناء زاحف ويب بسيط.","تطبيق مفاهيم الفهرسة والترتيب."],"teaching_methods_ar":["محاضرات","مختبر","مشروع"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في محركات البحث:"},{"week":"Week 2","topic":"زحف الويب Web crawling:"},{"week":"Week 3","topic":"بناء crawler بسيط:"},{"week":"Week 4","topic":"جمع البيانات وتخزينها:"},{"week":"Week 5","topic":"الفهرسة Indexing:"},{"week":"Week 6","topic":"معالجة الاستعلام Query processing:"},{"week":"Week 7","topic":"نماذج الاسترجاع IR:"},{"week":"Week 8","topic":"خوارزميات الترتيب Ranking:"},{"week":"Week 9","topic":"PageRank:"},{"week":"Week 10","topic":"تحسين البحث:"},{"week":"Week 11","topic":"Search personalization:"},{"week":"Week 12","topic":"تطبيقات Search engines:"},{"week":"Week 13","topic":"مشروع محرك بحث:"},{"week":"Week 14","topic":"تنفيذ المشروع:"},{"week":"Week 15","topic":"اختبار المشروع:"},{"week":"Week 16","topic":"عرض المشروع:"}],"assessment_ar":["مختبر","مشروع","اختبارات"]},{"title_en":"Computer Architecture","title_ar":"عمارة الحاسوب","description_ar":"يغطي المقرر مكونات الحاسوب الأساسية، وحدة المعالجة، الذاكرة، الإدخال/الإخراج، أنظمة الحافلات، ومبادئ الأداء والتوازي.","learning_outcomes_ar":["فهم بنية المعالج والذاكرة.","تحليل أداء الأنظمة الحاسوبية.","معرفة أساسيات التوازي والمعمارية الحديثة."],"teaching_methods_ar":["محاضرات","تمارين","مختبر"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في عمارة الحاسوب:"},{"week":"Week 2","topic":"تمثيل البيانات:"},{"week":"Week 3","topic":"المعالج CPU ومكوناته:"},{"week":"Week 4","topic":"دورة التعليمات Instruction cycle:"},{"week":"Week 5","topic":"الذاكرة الرئيسية:"},{"week":"Week 6","topic":"Cache memory:"},{"week":"Week 7","topic":"I/O systems:"},{"week":"Week 8","topic":"Bus architectures:"},{"week":"Week 9","topic":"Pipelining:"},{"week":"Week 10","topic":"Parallel architectures:"},{"week":"Week 11","topic":"RISC vs CISC:"},{"week":"Week 12","topic":"Performance evaluation:"},{"week":"Week 13","topic":"Modern processors:"},{"week":"Week 14","topic":"Exercises and lab:"},{"week":"Week 15","topic":"Review:"},{"week":"Week 16","topic":"Final assessment:"}],"assessment_ar":["اختبارات","واجبات","امتحان نهائي"]},{"title_en":"Software Architecture","title_ar":"هندسة البرمجيات المعمارية","description_ar":"يركز المقرر على تصميم معمارية البرمجيات، الأنماط المعمارية، التوثيق، جودة البرمجيات، وتصميم الأنظمة الكبيرة القابلة للتوسع والصيانة.","learning_outcomes_ar":["فهم الأنماط المعمارية الأساسية.","تصميم معمارية نظام برمجي كبير.","تقييم جودة المعمارية وخصائصها."],"teaching_methods_ar":["محاضرات","دراسة حالات","مشروع"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في Software Architecture:"},{"week":"Week 2","topic":"صفات الجودة Quality attributes:"},{"week":"Week 3","topic":"Architectural patterns:"},{"week":"Week 4","topic":"Layered architecture:"},{"week":"Week 5","topic":"Microservices:"},{"week":"Week 6","topic":"Event-driven architecture:"},{"week":"Week 7","topic":"Design for scalability:"},{"week":"Week 8","topic":"وثائق المعمارية:"},{"week":"Week 9","topic":"UML وC4 model:"},{"week":"Week 10","topic":"Security architecture:"},{"week":"Week 11","topic":"Testing architecture:"},{"week":"Week 12","topic":"DevOps وتأثيره:"},{"week":"Week 13","topic":"Case studies:"},{"week":"Week 14","topic":"مشروع معماري:"},{"week":"Week 15","topic":"تنفيذ المشروع:"},{"week":"Week 16","topic":"عرض المشروع:"}],"assessment_ar":["تقارير","مشروع","اختبار"]},{"title_en":"Data Structures","title_ar":"هياكل البيانات","description_ar":"يغطي المقرر هياكل البيانات الأساسية مثل القوائم، المكدسات، الطوابير، الأشجار، الرسوم البيانية، والجداول التجزئية، مع تحليل التعقيد الزمني.","learning_outcomes_ar":["استخدام هياكل البيانات بشكل صحيح.","تحليل تعقيد الخوارزميات.","حل مشاكل باستخدام هياكل بيانات مناسبة."],"teaching_methods_ar":["محاضرات","تمارين","مختبر"],"weekly_plan_ar":[{"week":"Week 1","topic":"مقدمة في هياكل البيانات:"},{"week":"Week 2","topic":"القوائم Linked Lists:"},{"week":"Week 3","topic":"Stacks:"},{"week":"Week 4","topic":"Queues:"},{"week":"Week 5","topic":"Trees أساسيات:"},{"week":"Week 6","topic":"Binary Trees:"},{"week":"Week 7","topic":"BST:"},{"week":"Week 8","topic":"Heaps:"},{"week":"Week 9","topic":"Graphs:"},{"week":"Week 10","topic":"BFS/DFS:"},{"week":"Week 11","topic":"Hash tables:"},{"week":"Week 12","topic":"Sorting algorithms:"},{"week":"Week 13","topic":"Searching algorithms:"},{"week":"Week 14","topic":"تحليل التعقيد Big-O:"},{"week":"Week 15","topic":"تمارين ومراجعة:"},{"week":"Week 16","topic":"تقييم نهائي:"}],"assessment_ar":["اختبارات","واجبات","امتحان نهائي"]}];
 
-        function showSection(id) {
-            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active-section'));
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-btn'));
-            
-            document.getElementById(id).classList.add('active-section');
-            document.getElementById('btn-' + (id === 'about' ? 'about' : id === 'contact' ? 'cont' : id === 'projects' ? 'proj' : id === 'researches' ? 'res' : 'skill')).classList.add('active-btn');
-        }
-    </script>
+    const COURSE_TAGS = {
+      "Machine Learning": ["ai","data"],
+      "Deep Learning": ["ai","data"],
+      "Artificial Intelligence": ["ai"],
+      "Neural Networks": ["ai"],
+      "Decision Support Systems": ["ai","data"],
+      "Research Methodology": ["research"],
+      "Seminar": ["research"],
+      "Robotics": ["ai","systems"],
+      "Programming Languages (Python)": ["systems","data"],
+      "Computational Linguistics": ["nlp"],
+      "Natural Language Processing (NLP)": ["nlp"],
+      "Text Analysis": ["nlp"],
+      "Machine Translation": ["nlp"],
+      "Natural Language Processing Applications Programming": ["nlp","systems"],
+      "Expert Systems": ["ai"],
+      "Databases": ["data","systems"],
+      "Data Mining": ["data","ai"],
+      "Semantic Web": ["data","systems"],
+      "Search Engines and Web Crawling": ["data","systems"],
+      "Computer Architecture": ["systems"],
+      "Software Architecture": ["systems"],
+      "Data Structures": ["systems"]
+    };
+
+    const translations = {
+      ar: {
+        modeAcademic: "أكاديمي",
+        modeIndustry: "صناعي",
+        ctaAcademic: "ملف الجامعات",
+        ctaIndustry: "ملف الشركات/النفط",
+        ctaContact: "تواصل سريع",
+        ctaScholar: "Google Scholar",
+        metaWhatsapp: "متاح عبر واتساب",
+
+        navHome: "الرئيسية",
+        navAcademic: "للجامعات",
+        navIndustry: "للشركات/النفط",
+        navCourses: "المواد والمخططات",
+        navProjects: "مشاريع",
+        navPublications: "أبحاث",
+        navContact: "تواصل",
+
+        homeTitle: "ملخص سريع",
+        homeHint: "اختر المسار المناسب من الأعلى",
+        homeAcademicBox: "للجامعات",
+        homeAcademicText: "قسم جاهز للتقديم للتدريس: فلسفة تدريس، مواد مع مخطط 16 أسبوع، مخرجات تعلم، وطرق تدريس — كلها داخل الموقع.",
+        homeIndustryBox: "للشركات/النفط",
+        homeIndustryText: "عرض عملي يركز على حلول AI/NLP: تنبؤ، كشف شذوذ، تحليل تقارير، لوحات مؤشرات، مع طريقة عمل واضحة (Pilot → PoC → Deployment).",
+        homeAboutTitle: "من أنا",
+        btnBrowseCourses: "تصفح المواد",
+        btnBrowseProjects: "شوف المشاريع",
+        btnBrowsePubs: "شوف الأبحاث",
+        tagSyllabi: "مخططات",
+        tagTeaching: "تدريس",
+        tagSearchable: "قابل للبحث",
+        tagUseCases: "Use-cases",
+        tagConf: "سرية",
+        tagDocs: "توثيق",
+
+        academicTitle: "ملف التقديم للجامعات",
+        academicHint: "Teaching-ready",
+        teachPhiloTitle: "فلسفة التدريس",
+        teachPhiloText: "تدريس قائم على المشاريع: شرح المفاهيم + تطبيق عملي + تقييم عادل. التركيز على التفكير النقدي، بناء نماذج قابلة للتفسير، وتوثيق العمل بشكل مهني.",
+        teachPoint1: "مشاريع صغيرة أسبوعيًا + مشروع نهائي",
+        teachPoint2: "Rubrics واضحة للتقييم",
+        teachPoint3: "دمج أدوات رقمية (LMS/Assignments/Quizzes)",
+        teachOfferTitle: "مواد أستطيع تدريسها",
+        teachOfferText: "مجموعة مواد أساسية ومتقدمة — مع مخطط 16 أسبوع لكل مادة (موجود بالكامل في قسم المواد).",
+        btnOpenSyllabi: "فتح المخططات",
+        btnFilterResearch: "مواد البحث والسمينار",
+        academicNote: "ملاحظة: تقدر تبحث داخل المواد وتفلترها حسب المجال (AI / NLP / Data / Systems / Research).",
+        academicCredTitle: "مخرجات أكاديمية سريعة",
+        academicPubs: "أبحاث",
+        academicPubsText: "قائمة منشورات + رابط Scholar.",
+        goPubs: "اذهب للأبحاث",
+        academicProjects: "مشاريع",
+        academicProjectsText: "نماذج تطبيقية في NLP/ML قابلة للعرض كأمثلة تعليمية.",
+        goProjects: "اذهب للمشاريع",
+        academicSupervision: "إشراف/مشاريع طلاب",
+        academicSupervisionText: "أفكار مشاريع تخرج: تصنيف نصوص، استخراج كيانات، تلخيص، RAG.",
+        goContact: "تواصل",
+
+        industryTitle: "ملف التقديم للشركات/النفط",
+        industryHint: "Outcomes & delivery",
+        servicesTitle: "الخدمات",
+        usecasesTitle: "Use-cases للنفط والطاقة",
+        industryNote: "جاهز للعمل تحت NDA وسرية بيانات، مع تسليمات واضحة وتوثيق.",
+        deliveryTitle: "طريقة العمل (واضحة وسريعة)",
+        del1: "1) فهم النطاق",
+        del2: "2) Pilot / PoC",
+        del3: "3) تقييم وتحسين",
+        del4: "4) تسليم",
+        del5: "توثيق + تسليم نهائي",
+        ctaWhatsAppIndustry: "راسلني واتساب (Industry)",
+        ctaEmailIndustry: "إيميل سريع",
+        svc1: "تحليل نصوص وتقارير (Arabic/English/Persian) — تصنيف/تلخيص/استخراج كيانات",
+        svc2: "Time-series Forecasting & Anomaly Detection (مناسب للقياسات/الحساسات)",
+        svc3: "لوحات مؤشرات KPI + تقارير دورية + توثيق",
+        svc4: "نماذج ML/DL: تدريب، تقييم، تحسين، ونشر أولي (PoC)",
+        uc1: "Predictive Maintenance (تنبؤ أعطال/توقفات غير مخططة)",
+        uc2: "Anomaly Detection لقراءات الضغط/الحرارة/الاهتزاز",
+        uc3: "HSE: تحليل تقارير السلامة وNear-miss واستخراج مؤشرات",
+        uc4: "Document Intelligence: تلخيص تقارير/محاضر، واستخراج معلومات تلقائيًا",
+
+        coursesTitle: "المواد والمخططات التدريسية",
+        coursesHint: "مخطط 16 أسبوع + مخرجات + طرق تدريس",
+        coursesNote: "ملاحظة: إذا كنت في وضع اللغة EN، واجهة الموقع تصير إنكليزي لكن تفاصيل المخططات تبقى عربية (لأن المصدر عربي) — وإذا تحب أضيف ترجمة إنكليزية لاحقًا.",
+        filterAll: "الكل",
+        filterResearch: "بحث",
+
+        projectsTitle: "مشاريع (Case Studies)",
+        projectsHint: "مشكلة → حل → أثر",
+        proj1desc: "تطوير نموذج لتحليل المشاعر للنصوص العربية. (ضع هنا الداتا/النتائج/الرابط عند التحديث)",
+        proj2desc: "تصنيف مقالات/وثائق بدقة عالية. (أضف metric مثل F1/Accuracy لاحقًا)",
+        proj3desc: "ورش تدريبية في تقنيات التعلم العميق وNLP. (أضف عنوان الورشة/المؤتمر/المحتوى)",
+
+        pubsTitle: "الأبحاث والمنشورات",
+        pubsHint: "صياغة مرجعية + روابط",
+        pubsNote: "تقدر تضيف لكل ورقة: السنة + اسم المجلة/المؤتمر + DOI/PDF + BibTeX (وأرتبه لك داخل نفس القسم).",
+
+        contactTitle: "تواصل معي",
+        contactHint: "اختر أسرع طريقة",
+        contactEmail: "البريد الإلكتروني",
+        emailAcademic: "إيميل للجامعات",
+        copyEmail: "نسخ الإيميل",
+        waHint: "اختر الرسالة الجاهزة حسب نوع الطلب.",
+        waAcademic: "واتساب (جامعات)",
+        waGeneral: "واتساب (عام)",
+        contactLocation: "الموقع",
+        privacyNote: "خصوصية: لا أطلب بيانات حساسة عبر واتساب — نبدأ بنطاق العمل ثم نتفق على التفاصيل رسميًا.",
+        contactLinks: "روابط",
+        linksNote: "ملاحظة: عدّل رابط LinkedIn إذا تحب، أو احذفه.",
+
+        footerLine: "مصمم للتقديم الأكاديمي والصناعي."
+      },
+      en: {
+        modeAcademic: "Academic",
+        modeIndustry: "Industry",
+        ctaAcademic: "Academic Dossier",
+        ctaIndustry: "Industry / Oil & Gas",
+        ctaContact: "Quick Contact",
+        ctaScholar: "Google Scholar",
+        metaWhatsapp: "Available on WhatsApp",
+
+        navHome: "Home",
+        navAcademic: "Academic",
+        navIndustry: "Industry",
+        navCourses: "Courses & Syllabi",
+        navProjects: "Projects",
+        navPublications: "Publications",
+        navContact: "Contact",
+
+        homeTitle: "Quick Overview",
+        homeHint: "Pick a path from the tabs",
+        homeAcademicBox: "For Universities",
+        homeAcademicText: "Teaching-ready: philosophy, full 16-week syllabi, learning outcomes, and teaching methods — all on-site.",
+        homeIndustryBox: "For Companies / Oil & Gas",
+        homeIndustryText: "Practical AI/NLP solutions: forecasting, anomaly detection, report analytics, dashboards, and clear delivery process.",
+        homeAboutTitle: "About",
+        btnBrowseCourses: "Browse courses",
+        btnBrowseProjects: "View projects",
+        btnBrowsePubs: "View publications",
+        tagSyllabi: "Syllabi",
+        tagTeaching: "Teaching",
+        tagSearchable: "Searchable",
+        tagUseCases: "Use cases",
+        tagConf: "Confidentiality",
+        tagDocs: "Documentation",
+
+        academicTitle: "Academic Application (Teaching)",
+        academicHint: "Teaching-ready",
+        teachPhiloTitle: "Teaching Philosophy",
+        teachPhiloText: "Project-based teaching: concepts → hands-on practice → fair evaluation. Focus on critical thinking, explainable models, and professional documentation.",
+        teachPoint1: "Weekly mini-projects + final project",
+        teachPoint2: "Clear rubrics",
+        teachPoint3: "Digital tools (LMS/Assignments/Quizzes)",
+        teachOfferTitle: "Courses I Can Teach",
+        teachOfferText: "Core + advanced courses with complete 16-week plans (see Courses section).",
+        btnOpenSyllabi: "Open syllabi",
+        btnFilterResearch: "Research/Seminar",
+        academicNote: "Tip: search and filter courses (AI / NLP / Data / Systems / Research).",
+        academicCredTitle: "Academic Highlights",
+        academicPubs: "Publications",
+        academicPubsText: "Selected papers + Scholar link.",
+        goPubs: "Go to publications",
+        academicProjects: "Projects",
+        academicProjectsText: "Applied ML/NLP projects suitable as teaching examples.",
+        goProjects: "Go to projects",
+        academicSupervision: "Student Projects",
+        academicSupervisionText: "Capstone ideas: text classification, NER, summarization, RAG.",
+        goContact: "Contact",
+
+        industryTitle: "Industry Application (Oil & Gas friendly)",
+        industryHint: "Outcomes & delivery",
+        servicesTitle: "Services",
+        usecasesTitle: "Oil & Energy use-cases",
+        industryNote: "NDA-ready, clear deliverables, strong documentation.",
+        deliveryTitle: "Delivery process",
+        del1: "1) Scope",
+        del2: "2) Pilot / PoC",
+        del3: "3) Evaluate",
+        del4: "4) Deliver",
+        del5: "Docs + Handover",
+        ctaWhatsAppIndustry: "WhatsApp (Industry)",
+        ctaEmailIndustry: "Quick email",
+        svc1: "Text analytics (Arabic/English/Persian): classification, summarization, NER",
+        svc2: "Time-series forecasting & anomaly detection (sensors/measurements)",
+        svc3: "KPI dashboards + reporting + documentation",
+        svc4: "ML/DL model building, evaluation, optimization, PoC deployment",
+        uc1: "Predictive maintenance (unplanned downtime)",
+        uc2: "Anomaly detection for pressure/temperature/vibration",
+        uc3: "HSE analytics (near-miss, safety reports)",
+        uc4: "Document intelligence (minutes, reports, extraction)",
+
+        coursesTitle: "Courses & Teaching Syllabi",
+        coursesHint: "16-week plan + outcomes + methods",
+        coursesNote: "Note: UI becomes English, but detailed syllabi remain Arabic (source is Arabic). I can add English translations later.",
+        filterAll: "All",
+        filterResearch: "Research",
+
+        projectsTitle: "Projects (Case Studies)",
+        projectsHint: "Problem → Approach → Impact",
+        proj1desc: "Arabic sentiment analysis model. (Add dataset/metrics/links when ready)",
+        proj2desc: "High-accuracy document classification. (Add metrics like F1/Accuracy)",
+        proj3desc: "Workshops on DL/NLP. (Add event details)",
+
+        pubsTitle: "Publications",
+        pubsHint: "References + links",
+        pubsNote: "You can add year, venue, DOI/PDF, and BibTeX for each paper (I can format it here).",
+
+        contactTitle: "Contact",
+        contactHint: "Pick the fastest way",
+        contactEmail: "Email",
+        emailAcademic: "Academic email",
+        copyEmail: "Copy email",
+        waHint: "Pick a ready message based on your request.",
+        waAcademic: "WhatsApp (Academic)",
+        waGeneral: "WhatsApp (General)",
+        contactLocation: "Location",
+        privacyNote: "Privacy: no sensitive data on WhatsApp — we start with scope then proceed formally.",
+        contactLinks: "Links",
+        linksNote: "Update/remove LinkedIn link as needed.",
+
+        footerLine: "Built for Academic + Industry applications."
+      }
+    };
+
+    ["fa","de","ro","fr"].forEach(l => translations[l] = translations.en);
+
+    let currentLang = "ar";
+    let currentMode = "academic";
+    let currentTab  = "home";
+    let courseFilter = "all";
+
+    function qs(id){ return document.getElementById(id); }
+    function safeT(lang){ return translations[lang] || translations.en; }
+
+    function applyI18n(){
+      const t = safeT(currentLang);
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        if(t[key]) el.textContent = t[key];
+      });
+      const search = qs("courseSearch");
+      if(search){
+        search.placeholder = (currentLang==="en") ? "Search courses…" : "ابحث باسم المادة…";
+      }
+    }
+
+    function changeLanguage(lang){
+      currentLang = lang;
+      const rtl = (lang === "ar" || lang === "fa");
+      document.documentElement.dir = rtl ? "rtl" : "ltr";
+      document.documentElement.lang = lang;
+
+      if(lang==="en"){
+        qs("name").textContent = "Hani Akram Mahfoud";
+        qs("job-title").textContent = "AI & NLP Researcher | Teaching-ready | Industry-focused";
+        qs("sub-title").textContent = "One website for university teaching applications + company (including oil & gas) applications — full syllabi included on-site.";
+        qs("meta-loc").textContent = "Iraq – Basra";
+        qs("contact-loc").textContent = "Iraq – Basra";
+      } else if(lang==="fa"){
+        qs("name").textContent = "هانی اکرم محفوض";
+        qs("job-title").textContent = "پژوهشگر هوش مصنوعی و NLP | آماده تدریس | متمرکز بر صنعت";
+        qs("sub-title").textContent = "یک وبسایت برای دانشگاه + صنعت (از جمله نفت و گاز) — با سرفصل‌های کامل داخل سایت.";
+        qs("meta-loc").textContent = "عراق – بصره";
+        qs("contact-loc").textContent = "عراق – بصره";
+      } else {
+        qs("name").textContent = "هاني اكرم محفوض";
+        qs("job-title").textContent = "مهندس معالجة لغات طبيعية (NLP) وباحث دكتوراه";
+        qs("sub-title").textContent = "موقع واحد يخدم: التقديم للتدريس الجامعي + التقديم للشركات (ومنها النفط) — مع مخططات تدريس كاملة داخل الموقع.";
+        qs("meta-loc").textContent = "العراق – البصرة";
+        qs("contact-loc").textContent = "العراق – البصرة";
+      }
+
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      window.history.replaceState({}, "", url);
+
+      applyI18n();
+      renderCourses();
+      buildWhatsAppLinks();
+    }
+
+    function openTab(tabId){
+      currentTab = tabId;
+      document.querySelectorAll("section.panel").forEach(s=> s.classList.remove("active"));
+      document.querySelectorAll("nav.tabs .tab").forEach(t=> t.setAttribute("aria-selected","false"));
+      qs(tabId).classList.add("active");
+      qs("tab-"+tabId).setAttribute("aria-selected","true");
+      history.replaceState({}, "", "#"+tabId);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function setMode(mode){
+      currentMode = mode;
+      qs("mode-academic").classList.toggle("active", mode==="academic");
+      qs("mode-industry").classList.toggle("active", mode==="industry");
+      if(mode==="academic") openTab("academic"); else openTab("industry");
+      buildWhatsAppLinks();
+    }
+
+    function setCourseFilter(f){
+      courseFilter = f;
+      document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.filter===f));
+      renderCourses();
+    }
+
+    function scrollToCourses(filter){
+      openTab("courses");
+      setCourseFilter(filter);
+    }
+
+    function normalize(s){
+      return (s||"").toLowerCase().replace(/\s+/g," ").trim();
+    }
+
+    function courseTitle(course){
+      if(currentLang === "en") return (course.title_en || course.title_ar);
+      if(currentLang === "fa") return (course.title_ar || course.title_en);
+      return course.title_ar || course.title_en;
+    }
+
+    function courseKey(course){
+      return course.title_en || "";
+    }
+
+    function snippet(text, n=170){
+      const s = (text||"").replace(/\s+/g," ").trim();
+      if(s.length<=n) return s;
+      return s.slice(0,n-1)+"…";
+    }
+
+    function stripTrailingColon(s){
+      return (s||"").replace(/\s*:\s*$/,"").trim();
+    }
+
+    function renderCourses(){
+      const q = normalize(qs("courseSearch")?.value);
+      const box = qs("coursesList");
+      if(!box) return;
+
+      let list = COURSES.slice();
+      if(q){
+        list = list.filter(c => normalize(c.title_ar).includes(q) || normalize(c.title_en).includes(q) || normalize(c.description_ar).includes(q));
+      }
+      if(courseFilter !== "all"){
+        list = list.filter(c => (COURSE_TAGS[courseKey(c)] || []).includes(courseFilter));
+      }
+
+      if(!list.length){
+        box.innerHTML = '<div class="mini col-12"><h3><i class="fa-solid fa-face-meh" style="color:var(--warn)"></i> No results</h3><p class="note">جرّب كلمة بحث ثانية أو غيّر الفلتر.</p></div>';
+        return;
+      }
+
+      box.innerHTML = list.map(c => {
+        const tags = (COURSE_TAGS[courseKey(c)] || []).map(t => `<span class="tag gray">${t.toUpperCase()}</span>`).join("");
+        const weeks = (c.weekly_plan_ar||[]).map(w => `<tr><td style="white-space:nowrap; width:90px"><strong>${w.week}</strong></td><td>${stripTrailingColon(w.topic)}</td></tr>`).join("");
+        const methods = (c.teaching_methods_ar||[]).map(x => `<li>${x}</li>`).join("") || `<li>—</li>`;
+        const outcomes = (c.learning_outcomes_ar||[]).map(x => `<li>${x}</li>`).join("") || `<li>—</li>`;
+        const assessment = (c.assessment_ar||[]).map(x => `<li>${x}</li>`).join("") || "";
+
+        return `
+          <div class="course-card col-6">
+            <div class="course-head">
+              <h3>${courseTitle(c)}</h3>
+              <div class="tags">${tags}</div>
+            </div>
+            <div class="course-desc">${snippet(c.description_ar, 220)}</div>
+
+            <details class="syllabus">
+              <summary>
+                <span>${currentLang==="en" ? "View full syllabus" : "عرض المخطط الكامل"}</span>
+                <span style="color:rgba(255,255,255,.65)">${currentLang==="en" ? "16 weeks" : "16 أسبوع"}</span>
+              </summary>
+
+              <div class="syll-body">
+                <div class="syll-block">
+                  <h4>${currentLang==="en" ? "Description" : "وصف المادة"}</h4>
+                  <p style="color:var(--muted)">${c.description_ar || "—"}</p>
+                </div>
+
+                <div class="syll-block">
+                  <h4>${currentLang==="en" ? "Learning Outcomes" : "مخرجات التعلم"}</h4>
+                  <ul>${outcomes}</ul>
+                </div>
+
+                <div class="syll-block">
+                  <h4>${currentLang==="en" ? "Teaching Methods" : "طرق التدريس"}</h4>
+                  <ul>${methods}</ul>
+                </div>
+
+                <div class="syll-block">
+                  <h4>${currentLang==="en" ? "Weekly Plan (16 weeks)" : "الخطة الأسبوعية (16 أسبوع)"}</h4>
+                  <table class="table" role="table" aria-label="Weekly plan">
+                    <thead><tr><th>${currentLang==="en" ? "Week" : "الأسبوع"}</th><th>${currentLang==="en" ? "Topic" : "الموضوع"}</th></tr></thead>
+                    <tbody>${weeks}</tbody>
+                  </table>
+                </div>
+
+                ${assessment ? `
+                <div class="syll-block">
+                  <h4>${currentLang==="en" ? "Assessment" : "التقييم"}</h4>
+                  <ul>${assessment}</ul>
+                </div>` : ``}
+              </div>
+            </details>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function buildWhatsAppLinks(){
+      const base = "https://wa.me/9647776251552";
+      const msgAcademicAr = "السلام عليكم دكتور/دكتورة، أنا هاني محفوض. أرغب بالتقديم على فرصة تدريس. ممكن نتفق على موعد/إجراءات التقديم؟";
+      const msgAcademicEn = "Hello, I'm Hani Mahfoud. I'd like to apply for a teaching position. Could we discuss the application steps and schedule a short call?";
+      const msgIndustryAr = "مرحباً، أنا هاني محفوض. عندي اهتمام بالتقديم/التعاون على مشروع AI/Data للشركة. use-case: ... البيانات المتاحة: ... المدة: ...";
+      const msgIndustryEn = "Hello, I'm Hani Mahfoud. I'd like to discuss an AI/Data use-case for your company. Use-case: ... Data: ... Timeline: ...";
+      const msgGeneralAr  = "مرحباً، أنا هاني محفوض. شلون أگدر أساعدك؟ اكتبلي نوع الطلب (جامعات/شركة) وتفاصيل مختصرة.";
+      const msgGeneralEn  = "Hi, I'm Hani Mahfoud. Tell me your request (academic/industry) and brief details.";
+
+      const waAcademic = base + "?text=" + encodeURIComponent(currentLang==="en" ? msgAcademicEn : msgAcademicAr);
+      const waIndustry = base + "?text=" + encodeURIComponent(currentLang==="en" ? msgIndustryEn : msgIndustryAr);
+      const waGeneral  = base + "?text=" + encodeURIComponent(currentLang==="en" ? msgGeneralEn  : msgGeneralAr);
+
+      const a1 = qs("wa-academic"); if(a1) a1.href = waAcademic;
+      const a2 = qs("wa-industry"); if(a2) a2.href = waIndustry;
+      const a3 = qs("wa-general");  if(a3) a3.href = waGeneral;
+    }
+
+    function copyEmail(){
+      const email = "hani.mahfoud.904@gmail.com";
+      navigator.clipboard?.writeText(email).then(()=>{
+        toast(currentLang==="en" ? "Email copied!" : "تم نسخ الإيميل ✅");
+      }).catch(()=>{
+        prompt(currentLang==="en" ? "Copy email:" : "انسخ الإيميل:", email);
+      });
+    }
+
+    function toast(msg){
+      const el = document.createElement("div");
+      el.textContent = msg;
+      el.style.position="fixed";
+      el.style.bottom="18px";
+      el.style.insetInlineStart="18px";
+      el.style.padding="10px 12px";
+      el.style.borderRadius="12px";
+      el.style.background="rgba(0,0,0,.6)";
+      el.style.border="1px solid rgba(255,255,255,.14)";
+      el.style.backdropFilter="blur(10px)";
+      el.style.color="white";
+      el.style.fontWeight="800";
+      el.style.zIndex="9999";
+      document.body.appendChild(el);
+      setTimeout(()=>{ el.remove(); }, 1800);
+    }
+
+    (function init(){
+      qs("year").textContent = new Date().getFullYear();
+      const url = new URL(window.location.href);
+      const qlang = url.searchParams.get("lang");
+      if(qlang) currentLang = qlang;
+
+      const hash = (window.location.hash || "").replace("#","");
+      if(hash && qs(hash)) currentTab = hash;
+
+      changeLanguage(currentLang);
+      buildWhatsAppLinks();
+      renderCourses();
+      openTab(currentTab);
+
+      const qmode = url.searchParams.get("mode");
+      if(qmode === "industry" || qmode === "academic") setMode(qmode);
+      else setMode("academic");
+    })();
+  </script>
 </body>
 </html>
