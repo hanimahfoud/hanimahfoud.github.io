@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>هاني أكرم محفوض - ملف مهني وأكاديمي</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#eef6ff;margin:0}
+header{background:#0284c7;color:#fff;padding:20px;text-align:center}
+nav{background:#bae6fd;padding:10px;text-align:center}
+nav button{margin:5px;padding:10px 16px;border:0;border-radius:20px;font-weight:bold;cursor:pointer}
+section{display:none;padding:20px}
+section.active{display:block}
+</style>
+</head>
+<body>
+
+<header>
+<h1>هاني أكرم محفوض</h1>
+<p>AI • NLP • Data Analytics</p>
+</header>
+
+<nav>
+<button onclick="show('overview')">الملخص</button>
+<button onclick="show('teaching')">التدريس</button>
+<button onclick="show('experience')">الخبرة</button>
+<button onclick="show('portfolio')">الأبحاث والمشاريع</button>
+</nav>
+
+<section id="overview" class="active">
+<h2>ملخص مهني</h2>
+<p>خبرة في الذكاء الاصطناعي، معالجة اللغة الطبيعية، وتحليل البيانات.</p>
+</section>
+
+<section id="teaching">
+<h2>التدريس</h2>
+<div id="syllabus">جاري التحميل...</div>
+</section>
+
+<section id="experience">
+<h2>الخبرة المهنية</h2>
+<ul>
+<li>تحليل بيانات تشغيلية</li>
+<li>NLP عربي</li>
+<li>نماذج تنبؤية ولوحات مؤشرات</li>
+</ul>
+</section>
+
+<section id="portfolio">
+<h2>الأبحاث والمشاريع</h2>
+<p>مشاريع وبحوث في AI و NLP وتطبيقات صناعية.</p>
+</section>
+
+<script>
+function show(id){
+ document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+}
+
+fetch('syllabus.json')
+ .then(r=>r.json())
+ .then(data=>{
+   let html='';
+   data.courses.forEach(c=>{
+     html += `<h3>${c.title_ar}</h3><ul>`;
+     c.weeks.forEach(w=>{
+       html += `<li>${w.title}</li>`;
+     });
+     html += '</ul>';
+   });
+   document.getElementById('syllabus').innerHTML = html;
+ })
+ .catch(()=>{
+   document.getElementById('syllabus').innerText = 'فشل تحميل السيلابس';
+ });
+</script>
+
+</body>
+</html>
