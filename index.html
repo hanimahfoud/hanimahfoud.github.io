@@ -1,0 +1,1638 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Prevent browser/extension auto-dark surprises -->
+  <meta name="darkreader-lock" />
+  <meta name="color-scheme" content="dark" />
+
+  <title>Hani Mahfoud | Teaching & Professional Portfolio</title>
+  <meta name="description" content="Teaching portfolio and professional profile: AI, NLP, big data, and applied research. Courses (16-week plans), projects, publications, and contact." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hani Mahfoud | Portfolio" />
+  <meta property="og:description" content="Teaching portfolio + professional experience: AI, NLP, Big Data. Full course syllabi included." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+
+  <style>
+    :root{
+      --bg1:#0f2027; --bg2:#203a43; --bg3:#2c5364;
+      --primary:#00d2ff; --secondary:#3a7bd5;
+      --glass: rgba(255,255,255,.08);
+      --glass2: rgba(0,0,0,.25);
+      --border: rgba(255,255,255,.18);
+      --text: #fff; --muted: rgba(255,255,255,.72);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family: 'Poppins','Cairo',system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(90deg, var(--bg1), var(--bg2), var(--bg3));
+      color: var(--text);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    .container{width:min(1100px, 94%); margin:0 auto}
+    .glass{
+      background: var(--glass);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    /* Top bar */
+    .topbar{
+      position: sticky;
+      top: 12px;
+      width:min(1100px, 94%);
+      z-index: 999;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      padding:10px 12px;
+      margin: 12px auto 0;
+      backdrop-filter: blur(14px);
+    }
+    .topbar .left{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .topbar .right{
+      display:flex; gap:10px; align-items:center;
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .topbar .right::-webkit-scrollbar{display:none}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.28);
+      border: 1px solid rgba(255,255,255,.16);
+      color: rgba(255,255,255,.9);
+      font-size:.88rem;
+    }
+    .lang-btn, .mini-btn{
+      appearance:none;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      color: #fff !important;
+      -webkit-text-fill-color: #fff;
+      padding:8px 12px;
+      border-radius: 999px;
+      cursor:pointer;
+      font-weight:700;
+      font-size:.82rem;
+      transition:.2s ease;
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .lang-btn:hover, .mini-btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.14)}
+    .lang-btn.active{background: rgba(0,210,255,.2); border-color: rgba(0,210,255,.45)}
+    .mini-btn{font-weight:600}
+    .mini-btn i{color: var(--primary)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* Hero */
+    header.hero{
+      padding: 34px 0 24px;
+      text-align:center;
+    }
+    .profile{
+      width: 170px; height: 170px; margin:0 auto 18px;
+      border-radius: 50%;
+      overflow:hidden;
+      border: 4px solid rgba(255,255,255,.18);
+      box-shadow: 0 0 24px rgba(0,210,255,.32);
+    }
+    .profile img{width:100%; height:100%; object-fit:cover}
+    h1{font-size: clamp(1.9rem, 3vw, 2.7rem); letter-spacing:.5px}
+    .role{margin-top:8px; color: var(--primary); font-weight:800}
+    .tagline{margin:10px auto 0; color: var(--muted); max-width: 820px; line-height:1.7}
+    .cta{
+      margin-top: 18px;
+      display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+    }
+    .cta .primary{
+      background: linear-gradient(45deg, rgba(0,210,255,.28), rgba(58,123,213,.28));
+      border-color: rgba(0,210,255,.45);
+    }
+
+    /* Highlights */
+    .highlights{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap:10px;
+      padding: 14px;
+    }
+    .hcard{
+      padding:14px 14px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.14);
+      text-align:left;
+    }
+    html[dir="rtl"] .hcard{text-align:right}
+    .hnum{font-size:1.35rem; font-weight:900}
+    .hlab{color: rgba(255,255,255,.78); font-size:.88rem; margin-top:4px}
+    @media (max-width: 900px){ .highlights{grid-template-columns: repeat(2, minmax(0, 1fr));} }
+    @media (max-width: 520px){ .highlights{grid-template-columns: 1fr;} }
+
+    /* Nav */
+    nav.nav{
+      position: sticky;
+      top: calc(var(--topbarH, 72px) + 18px);
+      z-index: 200;
+      margin: 18px auto 0;
+      padding: 10px;
+    }
+    .nav-row{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+    }
+    .nav-btn{
+      appearance:none;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.22);
+      color: #fff !important;
+      -webkit-text-fill-color: #fff;
+      padding: 12px 16px;
+      border-radius: 14px;
+      cursor:pointer;
+      font-size: 1rem;
+      transition: .2s ease;
+      display:flex; align-items:center; gap:10px;
+      user-select:none;
+    }
+    .nav-btn i{color: var(--primary)}
+    .nav-btn:hover{transform: translateY(-2px); background: rgba(255,255,255,.12)}
+    .nav-btn.active{background: rgba(255,255,255,.16); border-color: rgba(0,210,255,.35)}
+    .nav-btn:focus-visible, .lang-btn:focus-visible, .mini-btn:focus-visible{
+      outline: 3px solid rgba(0,210,255,.5);
+      outline-offset: 2px;
+    }
+
+    /* Sections */
+    section.panel{display:none; margin: 16px auto 30px; padding: 26px}
+    section.panel.active{display:block; animation: fadeUp .35s ease}
+    @keyframes fadeUp{from{opacity:0; transform: translateY(12px)} to{opacity:1; transform: translateY(0)}}
+    .title{
+      display:flex; align-items:center; gap:10px; justify-content:center;
+      color: var(--primary);
+      font-size: 1.55rem;
+      margin-bottom: 14px;
+      border-bottom: 2px solid rgba(255,255,255,.1);
+      padding-bottom: 10px;
+    }
+    .title i{color: var(--primary)}
+    .p{line-height:1.85; color: rgba(255,255,255,.92)}
+    .muted{color: var(--muted)}
+    .grid2{display:grid; grid-template-columns: 1.1fr .9fr; gap:14px}
+    @media (max-width: 920px){ .grid2{grid-template-columns:1fr} }
+
+    .card{
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    ul.clean{list-style:none; margin-top: 10px}
+    ul.clean li{position:relative; padding-inline-start: 24px; margin: 10px 0; line-height:1.75}
+    ul.clean li::before{
+      content:"▹"; position:absolute; inset-inline-start:0; color: var(--primary); top:0;
+    }
+
+    .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin-top: 12px}
+    .pill{
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      font-size:.86rem;
+      color: rgba(255,255,255,.9);
+    }
+
+    /* Teaching */
+    .teach-tools{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:space-between; align-items:center;
+      margin: 10px 0 14px;
+    }
+    .search{
+      flex: 1;
+      min-width: 220px;
+      display:flex; align-items:center; gap:10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.22);
+    }
+    .search input{
+      width:100%;
+      background: transparent;
+      border: none;
+      outline:none;
+      color:#fff;
+      font-size: 1rem;
+    }
+    .search i{color: rgba(255,255,255,.75)}
+    .course-list{display:grid; grid-template-columns: 1fr; gap: 10px}
+    details.course{
+      border-radius: 16px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.14);
+      overflow:hidden;
+    }
+    details.course summary{
+      cursor:pointer;
+      list-style:none;
+      padding: 14px 16px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    details.course summary::-webkit-details-marker{display:none}
+    .c-left{display:flex; flex-direction:column; gap:6px}
+    .c-title{font-weight:900; font-size:1.05rem}
+    .c-desc{color: rgba(255,255,255,.78); line-height:1.6}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(0,210,255,.14);
+      border: 1px solid rgba(0,210,255,.22);
+      color: rgba(255,255,255,.92);
+      white-space:nowrap;
+      font-size:.85rem;
+      height: fit-content;
+    }
+    .course-body{padding: 0 16px 16px}
+    .subhead{margin-top: 14px; color: rgba(255,255,255,.92); font-weight:900}
+    .week{padding: 10px 12px; margin-top: 10px; border-radius: 14px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.06)}
+    .week strong{color: rgba(255,255,255,.96)}
+    .week ul{list-style:none; margin-top: 8px}
+    .week li{padding-inline-start: 22px; margin: 6px 0; position:relative; line-height:1.7}
+    .week li::before{content:"•"; position:absolute; inset-inline-start:0; color: var(--primary)}
+
+    .hint{margin-top:10px; font-size:.9rem; color: rgba(255,255,255,.76)}
+    .toast{
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,.72);
+      border: 1px solid rgba(255,255,255,.16);
+      color:#fff;
+      padding: 10px 14px;
+      border-radius: 999px;
+      z-index: 9999;
+      display:none;
+      gap:10px; align-items:center;
+      max-width: min(900px, 92%);
+    }
+    .toast.show{display:flex}
+    .toast i{color: var(--primary)}
+
+    /* Footer */
+    footer{padding: 20px 0 30px; text-align:center; color: rgba(255,255,255,.65); font-size:.9rem}
+
+    /* Print */
+    @media print{
+      .topbar, nav.nav, .cta, .toast{display:none !important}
+      body{background:#fff !important; color:#111 !important}
+      .glass, .card, details.course{background:#fff !important; border:1px solid #ddd !important; box-shadow:none !important}
+      .title{color:#111 !important; border-bottom:1px solid #ddd !important}
+      a{color:#111 !important; text-decoration:none !important}
+    }
+    @media (forced-colors: active){
+      .nav-btn, .lang-btn, .mini-btn, .chip { forced-color-adjust: none; background: Canvas; color: CanvasText !important; border: 1px solid CanvasText; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar glass">
+    <div class="left">
+      <span class="chip" id="audienceChip"><i class="fa-solid fa-briefcase"></i> <span></span></span>
+      </div>
+
+    <div class="right" aria-label="Language switcher">
+      <button class="lang-btn" data-lang="ar" type="button">عربي</button>
+      <button class="lang-btn" data-lang="en" type="button">EN</button>
+      <button class="lang-btn" data-lang="fa" type="button">فارسی</button>
+      <button class="lang-btn" data-lang="de" type="button">DE</button>
+      <button class="lang-btn" data-lang="fr" type="button">FR</button>
+      <button class="lang-btn" data-lang="ro" type="button">RO</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container">
+      <div class="profile">
+        <img src="hani-profile.jpg" alt="Hani Mahfoud" />
+      </div>
+
+      <h1 id="name"></h1>
+      <div class="role" id="role"></div>
+      <p class="tagline" id="tagline"></p>
+
+      <div class="cta">
+        <button class="mini-btn primary" type="button" data-jump="teaching"><i class="fa-solid fa-chalkboard-user"></i> <span id="ctaTeach"></span></button>
+        <button class="mini-btn primary" type="button" data-jump="experience"><i class="fa-solid fa-helmet-safety"></i> <span id="ctaExp"></span></button>
+        <button class="mini-btn" type="button" data-jump="contact"><i class="fa-solid fa-envelope"></i> <span id="ctaContact"></span></button>
+      </div>
+
+      <div class="highlights glass" aria-label="Key highlights">
+        <div class="hcard">
+          <div class="hnum" id="hCourses">—</div>
+          <div class="hlab" id="hCoursesLbl"></div>
+        </div>
+        <div class="hcard">
+          <div class="hnum" id="hProjects">—</div>
+          <div class="hlab" id="hProjectsLbl"></div>
+        </div>
+        <div class="hcard">
+          <div class="hnum" id="hPubs">—</div>
+          <div class="hlab" id="hPubsLbl"></div>
+        </div>
+        <div class="hcard">
+          <div class="hnum" id="hLangs">—</div>
+          <div class="hlab" id="hLangsLbl"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav glass container" aria-label="Primary">
+    <div class="nav-row">
+      <button class="nav-btn active" data-panel="overview" type="button"><i class="fa-solid fa-bullseye"></i> <span data-i18n="nav_overview"></span></button>
+      <button class="nav-btn" data-panel="teaching" type="button"><i class="fa-solid fa-chalkboard-user"></i> <span data-i18n="nav_teaching"></span></button>
+      <button class="nav-btn" data-panel="experience" type="button"><i class="fa-solid fa-briefcase"></i> <span data-i18n="nav_experience"></span></button>
+      <button class="nav-btn" data-panel="research" type="button"><i class="fa-solid fa-book-open"></i> <span data-i18n="nav_research"></span></button>
+      <button class="nav-btn" data-panel="projects" type="button"><i class="fa-solid fa-laptop-code"></i> <span data-i18n="nav_projects"></span></button>
+      <button class="nav-btn" data-panel="skills" type="button"><i class="fa-solid fa-screwdriver-wrench"></i> <span data-i18n="nav_skills"></span></button>
+      <button class="nav-btn" data-panel="contact" type="button"><i class="fa-solid fa-envelope"></i> <span data-i18n="nav_contact"></span></button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Overview -->
+    <section id="overview" class="panel glass active">
+      <div class="title"><i class="fa-solid fa-bullseye"></i> <span data-i18n="ov_title"></span></div>
+
+      <div class="grid2">
+        <div class="card">
+          <p class="p" id="ovPitch"></p>
+          <div class="pillrow" id="ovPills"></div>
+        </div>
+
+        <div class="card">
+          <div class="subhead" data-i18n="ov_1min"></div>
+          <ul class="clean" id="ov1min"></ul>
+
+          <div class="subhead" style="margin-top:14px" data-i18n="ov_for"></div>
+          <ul class="clean" id="ovFor"></ul>
+        </div>
+      </div>
+
+      <p class="hint" data-i18n="ov_hint"></p>
+    </section>
+
+    <!-- Teaching -->
+    <section id="teaching" class="panel glass">
+      <div class="title"><i class="fa-solid fa-chalkboard-user"></i> <span data-i18n="teach_title"></span></div>
+
+      <div class="grid2">
+        <div class="card">
+          <p class="p" id="teachIntro"></p>
+          <div class="pillrow" id="teachPills"></div>
+        </div>
+        <div class="card">
+          <div class="subhead" data-i18n="teach_focus"></div>
+          <ul class="clean" id="teachFocus"></ul>
+          <div class="subhead" style="margin-top:14px" data-i18n="teach_delivery"></div>
+          <ul class="clean" id="teachDelivery"></ul>
+        </div>
+      </div>
+
+      <div class="teach-tools">
+        <div class="search" role="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <label class="sr-only" for="courseSearch">Search</label>
+          <input id="courseSearch" type="search" placeholder="Search courses..." />
+        </div>
+        <button class="mini-btn" id="expandAllBtn" type="button"><i class="fa-solid fa-list"></i> <span data-i18n="teach_expand"></span></button>
+      </div>
+
+      <div id="courseList" class="course-list"></div>
+
+      <p class="hint" id="teachTranslateHint"></p>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="panel glass">
+      <div class="title"><i class="fa-solid fa-briefcase"></i> <span data-i18n="exp_title"></span></div>
+
+      <div class="grid2">
+        <div class="card">
+          <p class="p" id="expIntro"></p>
+          <div class="subhead" data-i18n="exp_strengths"></div>
+          <ul class="clean" id="expStrengths"></ul>
+        </div>
+
+        <div class="card">
+          <div class="subhead" data-i18n="exp_domains"></div>
+          <ul class="clean" id="expDomains"></ul>
+
+          <div class="subhead" style="margin-top:14px" data-i18n="exp_examples"></div>
+          <ul class="clean" id="expExamples"></ul>
+        </div>
+      </div>
+
+      <p class="hint" data-i18n="exp_note"></p>
+    </section>
+
+    <!-- Research -->
+    <section id="research" class="panel glass">
+      <div class="title"><i class="fa-solid fa-book-open"></i> <span data-i18n="res_title"></span></div>
+
+      <div class="grid2">
+        <div class="card">
+          <p class="p" id="resIntro"></p>
+          <ul class="clean" id="resList"></ul>
+        </div>
+
+        <div class="card">
+          <div class="subhead" data-i18n="res_links"></div>
+          <ul class="clean">
+            <li><a id="scholarLink" target="_blank" rel="noreferrer"><i class="fa-solid fa-graduation-cap" style="color:var(--primary)"></i> <span data-i18n="res_scholar"></span></a></li>
+          </ul>
+          <div class="subhead" style="margin-top:14px" data-i18n="res_keywords"></div>
+          <div class="pillrow" id="resPills"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="panel glass">
+      <div class="title"><i class="fa-solid fa-laptop-code"></i> <span data-i18n="proj_title"></span></div>
+
+      <div class="grid2">
+        <div class="card">
+          <p class="p" id="projIntro"></p>
+          <ul class="clean" id="projList"></ul>
+        </div>
+        <div class="card">
+          <div class="subhead" data-i18n="proj_stack"></div>
+          <div class="pillrow" id="projPills"></div>
+          <div class="subhead" style="margin-top:14px" data-i18n="proj_value"></div>
+          <ul class="clean" id="projValue"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="panel glass">
+      <div class="title"><i class="fa-solid fa-screwdriver-wrench"></i> <span data-i18n="skills_title"></span></div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="subhead" data-i18n="skills_core"></div>
+          <ul class="clean" id="skillsCore"></ul>
+          <div class="subhead" style="margin-top:14px" data-i18n="skills_tools"></div>
+          <div class="pillrow" id="skillsPills"></div>
+        </div>
+        <div class="card">
+          <div class="subhead" data-i18n="skills_soft"></div>
+          <ul class="clean" id="skillsSoft"></ul>
+          <div class="subhead" style="margin-top:14px" data-i18n="skills_langs"></div>
+          <ul class="clean" id="skillsLangs"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="panel glass">
+      <div class="title"><i class="fa-solid fa-envelope"></i> <span data-i18n="contact_title"></span></div>
+
+      <div class="grid2">
+        <div class="card">
+          <p class="p" id="contactIntro"></p>
+          <ul class="clean" id="contactList"></ul>
+        </div>
+
+        <div class="card" style="text-align:center">
+          <div class="subhead" data-i18n="contact_fast"></div>
+          <div style="margin-top:12px; display:flex; justify-content:center; gap:10px; flex-wrap:wrap">
+            <a class="mini-btn primary" id="waBtn" target="_blank" rel="noreferrer"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="contact_whatsapp"></span></a>
+            <a class="mini-btn" id="mailBtn"><i class="fa-solid fa-envelope"></i> <span data-i18n="contact_email"></span></a>
+          </div>
+          <p class="hint" style="margin-top:10px" data-i18n="contact_hint"></p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="muted">
+      <span id="footerText"></span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast"><i class="fa-solid fa-language"></i> <span id="toastText"></span></div>
+
+<script>
+/* ========= Data ========= */
+const PROFILE = {
+  name: { ar: "هاني اكرم محفوض", en: "Hani Akram Mahfoud" },
+  role: {
+    ar: "ملف تدريسي + خبرة مهنية | ذكاء اصطناعي • NLP • بيانات ضخمة",
+    en: "Teaching + Professional Portfolio | AI • NLP • Big Data"
+  },
+  tagline: {
+    ar: "أركز على بناء حلول ذكية قابلة للتطبيق في التعليم والبحث والصناعة—من معالجة اللغة الطبيعية إلى تحليل البيانات التشغيلية والتنبؤ.",
+    en: "I build applied AI solutions for education, research, and industry—ranging from NLP to operational analytics and forecasting."
+  },
+  location: { ar: "العراق — البصرة", en: "Iraq — Basra" },
+  email: "hani.mahfoud.904@gmail.com",
+  whatsapp: "https://wa.me/9647776251552",
+  scholar: "https://scholar.google.com/citations?user=ARJ_H2YAAAAJ&hl=ar"
+};
+
+const BASE_CONTENT = {
+  overview: {
+    pitch: {
+      ar: "ملفي هذا مصمَّم ليكون مناسبًا لِلجان التوظيف في الجامعات ومدراء التوظيف في الشركات بنفس الوقت: ستجد هنا خبرتي التدريسية (مع مخططات 16 أسبوع كاملة للمواد)، وخبرتي المهنية في بناء حلول ذكاء اصطناعي قابلة للنشر، إضافةً إلى الأبحاث والمشاريع والمهارات.",
+      en: "This portfolio is designed for both university hiring committees and industry recruiters: it includes full 16‑week course plans, applied professional experience in deployable AI solutions, plus research, projects, and skills."
+    },
+    pills: ["AI", "NLP", "Big Data", "Applied Research", "Teaching Portfolio", "Industrial Analytics"],
+    oneMin: {
+      ar: [
+        "أحوّل مشاكل البيانات/النصوص إلى حلول قابلة للتطبيق (نماذج + تقييم + نشر).",
+        "أدرّس مواد AI/NLP/Data Science بخطط دراسية جاهزة ومخرجات تعلم واضحة.",
+        "أوازن بين الدقة العلمية والنتيجة العملية (KPIs) — لأن الورق وحده ما يدوّر المصنع 😄."
+      ],
+      en: [
+        "I turn data/text problems into usable solutions (models + evaluation + deployment).",
+        "I teach AI/NLP/Data Science with ready-to-run syllabi and clear learning outcomes.",
+        "I balance research rigor with practical KPIs — because production cares about results."
+      ]
+    },
+    for: {
+      ar: [
+        "للجامعات: مخططات تدريس تفصيلية + منهجية تدريس وتقييم + مواضيع بحثية.",
+        "للشركات: خبرة في التحليل والتنبؤ والكشف عن الشذوذ وNLP للوثائق والتقارير."
+      ],
+      en: [
+        "Universities: detailed teaching plans + delivery & assessment + research directions.",
+        "Companies: analytics, forecasting, anomaly detection, and NLP for technical docs & reports."
+      ]
+    }
+  },
+
+  teaching: {
+    intro: {
+      ar: "تحت هذا القسم ستجد المواد التي أستطيع تدريسها (22 مادة) مع مخطط تدريسي مقترح لمدة 16 أسبوع لكل مادة، بالإضافة إلى طرق التدريس ومخرجات التعلم.",
+      en: "Here you’ll find the courses I can teach (22 courses) with a full 16‑week outline for each course, plus delivery methods and learning outcomes."
+    },
+    pills: ["22 Courses", "16-week plans", "Outcomes", "Teaching methods", "Hands-on labs"],
+    focus: {
+      ar: [
+        "مفاهيم أساسية + تطبيقات عملية + مشروع ختامي.",
+        "Rubrics واضحة للتقييم، وتمارين أسبوعية، ومناقشات.",
+        "أمثلة مرتبطة بالبيانات الواقعية (نصوص/سجلات/مؤشرات)."
+      ],
+      en: [
+        "Strong foundations + hands-on practice + a capstone project.",
+        "Clear rubrics, weekly exercises, and discussion-driven learning.",
+        "Real-world datasets (text/records/metrics) whenever possible."
+      ]
+    },
+    delivery: {
+      ar: [
+        "محاضرات نظرية + مختبرات عملية باستخدام Python.",
+        "تكليفات قصيرة أسبوعية + مشروع.",
+        "تقييم: واجبات/كويز/ميد/نهائي (حسب سياسة القسم)."
+      ],
+      en: [
+        "Lectures + practical labs using Python.",
+        "Weekly mini-assignments + a project.",
+        "Assessment: homework/quizzes/midterm/final (as per department policy)."
+      ]
+    },
+    translateHint: {
+      ar: "ملاحظة: عند فتح أي مادة، سيتم عرض المخطط بالعربي، ويمكن ترجمة التفاصيل تلقائيًا حسب اللغة (إذا كانت خدمة الترجمة متاحة).",
+      en: "Note: When you open a course, the Arabic syllabus is shown. Details can be auto-translated based on your language (if translation service is available)."
+    }
+  },
+
+  experience: {
+    intro: {
+      ar: "خبرتي المهنية تجمع بين هندسة البيانات والذكاء الاصطناعي وفهم بيئات التشغيل الميدانية. أشتغل على ربط مؤشرات التشغيل (ضغط/حرارة/تدفق/تيار… إلخ) مع حالة المعدات، وبناء تقارير وتحليلات تساعد على تقليل التوقفات وتحسين الأداء—بأسلوب عام يناسب قطاعات الطاقة والعمليات الصناعية.",
+      en: "My professional profile bridges data engineering, applied AI, and an understanding of field/operational environments. I connect operational signals (pressure/temperature/flow/current, etc.) to equipment health, and deliver reports + analytics that reduce downtime and improve performance—kept domain-general for energy/process industries."
+    },
+
+    strengths: {
+      ar: [
+        "مراقبة تشغيلية عبر أنظمة SCADA: قراءة القيم، فهم الإنذارات، تمييز الحرِج من الثانوي، ورفع تقارير سريعة عند الانحراف.",
+        "قراءة وتفسير بيانات الحساسات الميدانية: Pressure/Temperature/Flow ضمن النطاق التشغيلي الطبيعي وتوثيق الحالات غير الطبيعية بتوصيات.",
+        "اكتشاف الانحرافات قبل ظهور إنذار: مقارنة الأداء الحالي مع الأيام السابقة وربط القيم بظروف التشغيل لتحديد مؤشرات عطل مبكر.",
+        "إعداد تقارير تشغيل يومية باللغة الإنجليزية (Daily Operation Reports): ملخص الوردية، أعلى/أقل قيم، الإنذارات، الإجراءات، وتوصيات اليوم التالي.",
+        "جاهزية العمل بنظام المناوبات والبيئات الميدانية مع الالتزام بتعليمات السلامة HSE وتسليم منظم للمناوبة التالية.",
+        "تحويل بيانات التشغيل إلى ذكاء تشغيلي (Operational Intelligence): تنظيف البيانات، كشف الشذوذ، صيانة تنبؤية، وتنبؤ بالإنتاج/الأحمال.",
+        "تصميم Dashboards للإدارة: اتجاهات الضغط عبر الزمن، أداء المعدات يوميًا، مقارنة الورديات، وخريطة للإنذارات المتكررة باستخدام Python + Power BI."
+      ],
+      en: [
+        "SCADA-driven monitoring: interpret values, triage alarms, and issue rapid reports for deviations.",
+        "Field sensor interpretation: pressure/temperature/flow within normal operating range, documenting abnormal cases with recommendations.",
+        "Early deviation detection before alarms: compare current vs historical performance and link signals to operating conditions to spot early failure indicators.",
+        "English daily operation reports: shift summary, max/min values, alarms, actions taken, and next-day recommendations.",
+        "Shift-ready and field-compliant with HSE discipline and structured handover to the next engineer.",
+        "Operational intelligence from data: cleaning, anomaly detection, predictive maintenance, and production/load forecasting.",
+        "Management dashboards: pressure trends, daily equipment performance, shift comparisons, and recurring-alarm maps using Python + Power BI."
+      ]
+    },
+
+    domains: {
+      ar: [
+        "عمليات تشغيل/صيانة المعدات (Pumps/Valves/Lines) وتحليل أداء المعدات.",
+        "تحليل سجلات التشغيل (Logs) والإنذارات (Alarms) لتقليل التوقفات.",
+        "Time-series & Forecasting: إنتاج/طلب/تدفق/أحمال وتفسير تأثير المتغيرات.",
+        "Document Intelligence: تلخيص وتصنيف وبحث دلالي داخل الوثائق الفنية والسياسات والتقارير.",
+        "إدارة معرفة مؤسسية: Knowledge Graph وبحث دلالي للوثائق."
+      ],
+      en: [
+        "Equipment operations/maintenance analytics (pumps/valves/lines) and performance interpretation.",
+        "Alarm/log analytics to reduce downtime.",
+        "Time-series & forecasting: production/demand/flow/load with driver analysis.",
+        "Document intelligence: summarization, classification, semantic search for technical docs and reports.",
+        "Enterprise knowledge management: knowledge graphs and semantic retrieval."
+      ]
+    },
+
+    examples: {
+      ar: [
+        "سيناريو انحراف: ارتفاع ضغط خط إنتاج خلال دقائق → تحليل السبب المحتمل (انسداد/صمام/مضخة/حساس) ورفع تقرير عاجل لتجنب توقف.",
+        "سيناريو حساسات: ضغط/حرارة/تدفق خارج المدى الطبيعي → تشخيص أولي + توثيق + توصيات فنية.",
+        "سيناريو عطل مبكر: انخفاض إنتاجية مضخة مع ارتفاع حرارة/تيار → توصية صيانة وقائية Preventive Maintenance.",
+        "نموذج تنبؤي: توقع فشل معدّة خلال 48 ساعة بنسبة احتمال مرتفعة لتقليل Time Down.",
+        "Dashboards تشغيلية: مؤشرات أداء يومية، مقارنة الورديات، وتحليل الإنذارات المتكررة لدعم القرار."
+      ],
+      en: [
+        "Deviation scenario: line pressure spikes within minutes → root-cause hypotheses (blockage/valve/pump/sensor) + rapid escalation report to prevent shutdown.",
+        "Sensor scenario: pressure/temperature/flow out of normal range → initial diagnosis + documentation + recommendations.",
+        "Early failure scenario: pump output drops with higher temperature/current → preventive maintenance recommendation.",
+        "Predictive model: estimate equipment failure within 48 hours with high probability to reduce downtime.",
+        "Operational dashboards: daily KPIs, shift comparison, and recurring-alarm analysis for faster decisions."
+      ]
+    },
+
+    note: {
+      ar: "إذا تعطيني اسم الوظيفة المستهدف + نوع القسم + (سنوات/أماكن) — أحول هذا القسم إلى صياغة سيرة ذاتية رسمية (Achievements بأرقام) بدون ذكر اسم القطاع بشكل مباشر.",
+      en: "If you share a target role + department + dates, I’ll convert this into a formal CV-style experience section with quantified achievements—without naming the sector explicitly."
+    }
+  },
+
+  research: {
+    intro: {
+      ar: "مختارات من الأبحاث/العمل العلمي:",
+      en: "Selected research/publications:"
+    },
+    list: [
+      { k: "Autism Detection", ar: "نموذج فعّال لاكتشاف طيف التوحد باستخدام تعلم الآلة.", en: "An effective autism spectrum disorder detection model using machine learning." },
+      { k: "NER & Discourse", ar: "تحديد عناصر الخطاب في الكتابة باستخدام Longformer.", en: "Identifying discourse elements in writing using Longformer." },
+      { k: "AraBERT Study", ar: "تقييم AraBERT في كشف اللهجات والقطبية.", en: "Evaluating AraBERT for dialect detection and sentiment polarity." }
+    ],
+    pills: ["Transformers", "Arabic NLP", "Dialect", "Text Mining", "Time-series"]
+  },
+
+  projects: {
+    intro: {
+      ar: "مختارات من المشاريع:",
+      en: "Selected projects:"
+    },
+    list: [
+      { k: "Sentiment Analysis", ar: "نماذج متقدمة لتحليل المشاعر للنصوص العربية.", en: "Advanced sentiment analysis models for Arabic text." },
+      { k: "Text Classification", ar: "نظام آلي لتصنيف المقالات بدقة عالية.", en: "High-accuracy automated text classification." },
+      { k: "AI Workshop", ar: "تقديم ورشة متخصصة في تقنيات التعلم العميق.", en: "Delivered a specialized deep learning workshop." }
+    ],
+    stack: ["Python", "SQL", "scikit-learn", "TensorFlow/Keras", "PyTorch", "Transformers"],
+    value: {
+      ar: ["تحسين الدقة والتغطية (Precision/Recall).", "تقليل الوقت عبر أتمتة التحليل.", "قابلية نشر كنظام أو خدمة."],
+      en: ["Improve precision/recall and coverage.", "Reduce time via automation.", "Ship as a system or service."]
+    }
+  },
+
+  skills: {
+    core: {
+      ar: ["Python / SQL", "Machine Learning & Deep Learning", "NLP (Transformers/AraBERT)", "Big Data basics (Spark/Hadoop)", "Experimentation & evaluation"],
+      en: ["Python / SQL", "Machine Learning & Deep Learning", "NLP (Transformers/AraBERT)", "Big Data basics (Spark/Hadoop)", "Experimentation & evaluation"]
+    },
+    tools: ["TensorFlow", "Keras", "PyTorch", "scikit-learn", "HuggingFace", "Git", "Docker (basic)", "FastAPI (basic)"],
+    soft: {
+      ar: ["تدريس وشرح منهجي", "كتابة أكاديمية", "عرض وتقديم", "عمل جماعي"],
+      en: ["Structured teaching", "Academic writing", "Presentation & communication", "Team collaboration"]
+    },
+    langs: {
+      ar: ["Arabic (Native)", "English (Professional)", "Persian (Working)", "German/French/Romanian (Basic/Readable)"],
+      en: ["Arabic (Native)", "English (Professional)", "Persian (Working)", "German/French/Romanian (Basic/Readable)"]
+    }
+  },
+
+  contact: {
+    intro: {
+      ar: "للتواصل السريع (مقابلات/تعاون/تدريس):",
+      en: "For interviews, collaboration, or teaching opportunities:"
+    }
+  }
+};
+
+/* ========= UI Translations ========= */
+const UI = {
+  ar: {
+    audience: "موجّه للتوظيف (جامعات + شركات)",    ctaTeach: "استعرض ملف التدريس",
+    ctaExp: "استعرض الخبرة المهنية",
+    ctaContact: "تواصل",
+    nav_overview: "ملخص مهني",
+    nav_teaching: "التدريس والمواد",
+    nav_experience: "الخبرة المهنية",
+    nav_research: "البحوث والمنشورات",
+    nav_projects: "المشاريع والحلول",
+    nav_skills: "المهارات",
+    nav_contact: "تواصل",
+    ov_title: "ملخص مهني",
+    ov_1min: "خلاصة خلال دقيقة",
+    ov_for: "لمن هذا الملف؟",
+    ov_hint: "نصيحة: إذا كنت لجنة توظيف—ابدأ بالتدريس. وإذا كنت شركة—ابدأ بالخبرة المهنية.",
+    teach_title: "التدريس والمواد",
+    teach_focus: "أسلوبي في التدريس",
+    teach_delivery: "آلية تقديم المادة",
+    teach_expand: "فتح/غلق الكل",
+    exp_title: "الخبرة المهنية",
+    exp_strengths: "نقاط القوة",
+    exp_domains: "مجالات تطبيق",
+    exp_examples: "أمثلة تطبيقية",
+    exp_note: "ملاحظة: يمكن تخصيص هذا القسم بالكامل حسب الجهة المستهدفة.",
+    res_title: "البحوث والمنشورات",
+    res_links: "روابط",
+    res_scholar: "Google Scholar",
+    res_keywords: "Keywords",
+    proj_title: "المشاريع والحلول",
+    proj_stack: "Tech Stack",
+    proj_value: "القيمة المضافة",
+    skills_title: "المهارات",
+    skills_core: "المهارات الأساسية",
+    skills_tools: "أدوات وتقنيات",
+    skills_soft: "مهارات داعمة",
+    skills_langs: "اللغات",
+    contact_title: "تواصل",
+    contact_fast: "تواصل سريع",
+    contact_whatsapp: "واتساب",
+    contact_email: "إرسال بريد",
+    contact_hint: "ملاحظة: لا يوجد PDF هنا—تقدر تحفظ الصفحة كـ PDF مباشرة من المتصفح.",
+    hCoursesLbl: "مادة (خطة 16 أسبوع)",
+    hProjectsLbl: "مشاريع مختارة",
+    hPubsLbl: "أبحاث مختارة",
+    hLangsLbl: "لغات واجهة",
+    footer: "© " + new Date().getFullYear() + " — Hani Mahfoud. Built for hiring committees & recruiters.",
+    courseSearch: "ابحث عن مادة...",
+    teachTranslateHint: BASE_CONTENT.teaching.translateHint.ar,
+    toastTranslated: "تمت الترجمة (إذا متاحة) ✓"
+  },
+  en: {
+    audience: "Hiring-ready (Universities + Companies)",    ctaTeach: "View Teaching Portfolio",
+    ctaExp: "View Professional Experience",
+    ctaContact: "Contact",
+    nav_overview: "Overview",
+    nav_teaching: "Teaching Portfolio",
+    nav_experience: "Professional Experience",
+    nav_research: "Research & Publications",
+    nav_projects: "Projects & Solutions",
+    nav_skills: "Skills",
+    nav_contact: "Contact",
+    ov_title: "Overview",
+    ov_1min: "One-minute summary",
+    ov_for: "Who is this for?",
+    ov_hint: "Tip: Hiring committee? Start with Teaching. Recruiter? Start with Experience.",
+    teach_title: "Teaching Portfolio",
+    teach_focus: "Teaching approach",
+    teach_delivery: "Delivery & assessment",
+    teach_expand: "Expand/Collapse all",
+    exp_title: "Professional Experience",
+    exp_strengths: "Strengths",
+    exp_domains: "Domains",
+    exp_examples: "Example use cases",
+    exp_note: "Note: This section can be fully tailored to a target role/company.",
+    res_title: "Research & Publications",
+    res_links: "Links",
+    res_scholar: "Google Scholar",
+    res_keywords: "Keywords",
+    proj_title: "Projects & Solutions",
+    proj_stack: "Tech Stack",
+    proj_value: "Value delivered",
+    skills_title: "Skills",
+    skills_core: "Core skills",
+    skills_tools: "Tools & tech",
+    skills_soft: "Soft skills",
+    skills_langs: "Languages",
+    contact_title: "Contact",
+    contact_fast: "Fast contact",
+    contact_whatsapp: "WhatsApp",
+    contact_email: "Send email",
+    contact_hint: "No PDFs uploaded here — you can save this page as PDF directly from your browser.",
+    hCoursesLbl: "Courses (16-week plans)",
+    hProjectsLbl: "Selected projects",
+    hPubsLbl: "Selected publications",
+    hLangsLbl: "UI languages",
+    footer: "© " + new Date().getFullYear() + " — Hani Mahfoud. Built for hiring committees & recruiters.",
+    courseSearch: "Search courses...",
+    teachTranslateHint: BASE_CONTENT.teaching.translateHint.en,
+    toastTranslated: "Translated (if available) ✓"
+  },
+  fa: {
+    audience: "مناسب استخدام (دانشگاه + شرکت)",    ctaTeach: "نمونه تدریس",
+    ctaExp: "تجربه حرفه‌ای",
+    ctaContact: "تماس",
+    nav_overview: "خلاصه",
+    nav_teaching: "نمونه تدریس",
+    nav_experience: "تجربه حرفه‌ای",
+    nav_research: "پژوهش‌ها",
+    nav_projects: "پروژه‌ها",
+    nav_skills: "مهارت‌ها",
+    nav_contact: "تماس",
+    ov_title: "خلاصه",
+    ov_1min: "خلاصه یک دقیقه‌ای",
+    ov_for: "برای چه کسانی؟",
+    ov_hint: "نکته: اگر دانشگاهی هستید از بخش تدریس شروع کنید.",
+    teach_title: "نمونه تدریس",
+    teach_focus: "روش تدریس",
+    teach_delivery: "ارائه و ارزیابی",
+    teach_expand: "باز/بسته همه",
+    exp_title: "تجربه حرفه‌ای",
+    exp_strengths: "نقاط قوت",
+    exp_domains: "حوزه‌ها",
+    exp_examples: "نمونه‌ها",
+    exp_note: "این بخش قابل سفارشی‌سازی کامل است.",
+    res_title: "پژوهش‌ها",
+    res_links: "لینک‌ها",
+    res_scholar: "گوگل اسکولار",
+    res_keywords: "کلیدواژه‌ها",
+    proj_title: "پروژه‌ها",
+    proj_stack: "فناوری‌ها",
+    proj_value: "ارزش",
+    skills_title: "مهارت‌ها",
+    skills_core: "مهارت‌های اصلی",
+    skills_tools: "ابزارها",
+    skills_soft: "مهارت‌های نرم",
+    skills_langs: "زبان‌ها",
+    contact_title: "تماس",
+    contact_fast: "تماس سریع",
+    contact_whatsapp: "واتساپ",
+    contact_email: "ایمیل",
+    contact_hint: "می‌توانید همین صفحه را به PDF ذخیره کنید.",
+    hCoursesLbl: "دروس (۱۶ هفته)",
+    hProjectsLbl: "پروژه‌ها",
+    hPubsLbl: "مقالات",
+    hLangsLbl: "زبان‌ها",
+    footer: "© " + new Date().getFullYear() + " — Hani Mahfoud.",
+    courseSearch: "جستجوی درس...",
+    teachTranslateHint: BASE_CONTENT.teaching.translateHint.en,
+    toastTranslated: "ترجمه شد (در صورت امکان) ✓"
+  },
+  de: {
+    audience: "Für Bewerbungen (Uni + Industrie)",    ctaTeach: "Lehrprofil",
+    ctaExp: "Berufserfahrung",
+    ctaContact: "Kontakt",
+    nav_overview: "Überblick",
+    nav_teaching: "Lehrprofil",
+    nav_experience: "Berufserfahrung",
+    nav_research: "Forschung",
+    nav_projects: "Projekte",
+    nav_skills: "Skills",
+    nav_contact: "Kontakt",
+    ov_title: "Überblick",
+    ov_1min: "1‑Minute‑Zusammenfassung",
+    ov_for: "Für wen?",
+    ov_hint: "Tipp: Uni? Mit Lehre starten. Unternehmen? Mit Erfahrung starten.",
+    teach_title: "Lehrprofil",
+    teach_focus: "Lehransatz",
+    teach_delivery: "Durchführung & Bewertung",
+    teach_expand: "Alle öffnen/schließen",
+    exp_title: "Berufserfahrung",
+    exp_strengths: "Stärken",
+    exp_domains: "Domänen",
+    exp_examples: "Beispiele",
+    exp_note: "Hinweis: Dieser Abschnitt ist vollständig anpassbar.",
+    res_title: "Forschung",
+    res_links: "Links",
+    res_scholar: "Google Scholar",
+    res_keywords: "Keywords",
+    proj_title: "Projekte",
+    proj_stack: "Tech‑Stack",
+    proj_value: "Mehrwert",
+    skills_title: "Skills",
+    skills_core: "Kernskills",
+    skills_tools: "Tools",
+    skills_soft: "Soft Skills",
+    skills_langs: "Sprachen",
+    contact_title: "Kontakt",
+    contact_fast: "Schnellkontakt",
+    contact_whatsapp: "WhatsApp",
+    contact_email: "E‑Mail",
+    contact_hint: "Diese Seite kann direkt als PDF gespeichert werden.",
+    hCoursesLbl: "Kurse (16 Wochen)",
+    hProjectsLbl: "Projekte",
+    hPubsLbl: "Publikationen",
+    hLangsLbl: "Sprachen",
+    footer: "© " + new Date().getFullYear() + " — Hani Mahfoud.",
+    courseSearch: "Kurse suchen...",
+    teachTranslateHint: BASE_CONTENT.teaching.translateHint.en,
+    toastTranslated: "Übersetzt (wenn verfügbar) ✓"
+  },
+  fr: {
+    audience: "Prêt à l'embauche (Université + Entreprise)",    ctaTeach: "Portfolio d’enseignement",
+    ctaExp: "Expérience pro",
+    ctaContact: "Contact",
+    nav_overview: "Aperçu",
+    nav_teaching: "Enseignement",
+    nav_experience: "Expérience",
+    nav_research: "Recherche",
+    nav_projects: "Projets",
+    nav_skills: "Compétences",
+    nav_contact: "Contact",
+    ov_title: "Aperçu",
+    ov_1min: "Résumé (1 minute)",
+    ov_for: "Pour qui ?",
+    ov_hint: "Astuce : Université → commencez par l’enseignement. Entreprise → par l’expérience.",
+    teach_title: "Portfolio d’enseignement",
+    teach_focus: "Approche",
+    teach_delivery: "Organisation & évaluation",
+    teach_expand: "Tout ouvrir/fermer",
+    exp_title: "Expérience professionnelle",
+    exp_strengths: "Points forts",
+    exp_domains: "Domaines",
+    exp_examples: "Exemples",
+    exp_note: "Remarque : section personnalisable.",
+    res_title: "Recherche",
+    res_links: "Liens",
+    res_scholar: "Google Scholar",
+    res_keywords: "Mots‑clés",
+    proj_title: "Projets",
+    proj_stack: "Tech Stack",
+    proj_value: "Valeur",
+    skills_title: "Compétences",
+    skills_core: "Compétences clés",
+    skills_tools: "Outils",
+    skills_soft: "Soft skills",
+    skills_langs: "Langues",
+    contact_title: "Contact",
+    contact_fast: "Contact rapide",
+    contact_whatsapp: "WhatsApp",
+    contact_email: "E‑mail",
+    contact_hint: "Vous pouvez enregistrer cette page en PDF.",
+    hCoursesLbl: "Cours (16 semaines)",
+    hProjectsLbl: "Projets",
+    hPubsLbl: "Publications",
+    hLangsLbl: "Langues",
+    footer: "© " + new Date().getFullYear() + " — Hani Mahfoud.",
+    courseSearch: "Rechercher un cours...",
+    teachTranslateHint: BASE_CONTENT.teaching.translateHint.en,
+    toastTranslated: "Traduit (si disponible) ✓"
+  },
+  ro: {
+    audience: "Pregătit pentru angajare (Universități + Companii)",    ctaTeach: "Portofoliu didactic",
+    ctaExp: "Experiență profesională",
+    ctaContact: "Contact",
+    nav_overview: "Prezentare",
+    nav_teaching: "Predare",
+    nav_experience: "Experiență",
+    nav_research: "Cercetare",
+    nav_projects: "Proiecte",
+    nav_skills: "Abilități",
+    nav_contact: "Contact",
+    ov_title: "Prezentare",
+    ov_1min: "Rezumat 1 minut",
+    ov_for: "Pentru cine?",
+    ov_hint: "Sfat: Universitate → Predare. Companie → Experiență.",
+    teach_title: "Portofoliu didactic",
+    teach_focus: "Abordare",
+    teach_delivery: "Livrare & evaluare",
+    teach_expand: "Deschide/închide toate",
+    exp_title: "Experiență profesională",
+    exp_strengths: "Puncte forte",
+    exp_domains: "Domenii",
+    exp_examples: "Exemple",
+    exp_note: "Notă: secțiune personalizabilă.",
+    res_title: "Cercetare",
+    res_links: "Linkuri",
+    res_scholar: "Google Scholar",
+    res_keywords: "Cuvinte‑cheie",
+    proj_title: "Proiecte",
+    proj_stack: "Tech Stack",
+    proj_value: "Valoare",
+    skills_title: "Abilități",
+    skills_core: "Abilități de bază",
+    skills_tools: "Instrumente",
+    skills_soft: "Abilități soft",
+    skills_langs: "Limbi",
+    contact_title: "Contact",
+    contact_fast: "Contact rapid",
+    contact_whatsapp: "WhatsApp",
+    contact_email: "Email",
+    contact_hint: "Poți salva pagina ca PDF.",
+    hCoursesLbl: "Cursuri (16 săpt.)",
+    hProjectsLbl: "Proiecte",
+    hPubsLbl: "Publicații",
+    hLangsLbl: "Limbi",
+    footer: "© " + new Date().getFullYear() + " — Hani Mahfoud.",
+    courseSearch: "Caută curs...",
+    teachTranslateHint: BASE_CONTENT.teaching.translateHint.en,
+    toastTranslated: "Tradus (dacă este disponibil) ✓"
+  }
+};
+
+/* ========= State ========= */
+let syllabusData = null;
+let currentLang = "en";
+let expandAll = false;
+
+/* ========= Helpers ========= */
+
+function syncTopbarHeight(){
+  const tb = document.querySelector(".topbar");
+  if(!tb) return;
+  const h = tb.getBoundingClientRect().height;
+  document.documentElement.style.setProperty("--topbarH", h + "px");
+}
+window.addEventListener("resize", ()=>syncTopbarHeight());
+
+function setDirLang(lang){
+  const rtl = (lang === "ar" || lang === "fa");
+  document.documentElement.dir = rtl ? "rtl" : "ltr";
+  document.documentElement.lang = lang;
+}
+
+function showToast(msg){
+  const t = document.getElementById("toast");
+  const tt = document.getElementById("toastText");
+  tt.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(showToast._to);
+  showToast._to = setTimeout(()=>t.classList.remove("show"), 2200);
+}
+
+function fnv1a(str){
+  let h = 0x811c9dc5;
+  for (let i=0;i<str.length;i++){
+    h ^= str.charCodeAt(i);
+    h = (h + ((h<<1)+(h<<4)+(h<<7)+(h<<8)+(h<<24))) >>> 0;
+  }
+  return ("0000000" + h.toString(16)).slice(-8);
+}
+
+async function translateText(text, targetLang, sourceLang){
+  const trimmed = (text || "").trim();
+  if(!trimmed) return text;
+
+  // Normalize langs
+  const sl = (sourceLang || "en").toLowerCase();
+  const tl = (targetLang || "en").toLowerCase();
+  if(sl === tl) return text;
+
+  const cacheKey = "tr::" + sl + "::" + tl + "::" + fnv1a(trimmed);
+  const cached = localStorage.getItem(cacheKey);
+  if(cached) return cached;
+
+  const store = (out)=>{
+    if(out && typeof out === "string" && out.trim()){
+      localStorage.setItem(cacheKey, out);
+      return out;
+    }
+    return null;
+  };
+
+  // 1) MyMemory (often CORS-friendly)
+  try{
+    const url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(trimmed) + "&langpair=" + encodeURIComponent(sl + "|" + tl);
+    const res = await fetch(url, {method:"GET"});
+    if(res.ok){
+      const data = await res.json();
+      const out = data?.responseData?.translatedText;
+      const saved = store(out);
+      if(saved) return saved;
+    }
+  }catch(e){}
+
+  // 2) Google translate unofficial endpoint (best-effort)
+  try{
+    const url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=" + encodeURIComponent(sl) + "&tl=" + encodeURIComponent(tl) + "&dt=t&q=" + encodeURIComponent(trimmed);
+    const res = await fetch(url, {method:"GET"});
+    if(res.ok){
+      const data = await res.json();
+      const out = Array.isArray(data?.[0]) ? data[0].map(x=>x?.[0]).filter(Boolean).join("") : null;
+      const saved = store(out);
+      if(saved) return saved;
+    }
+  }catch(e){}
+
+  // 3) LibreTranslate endpoints (best-effort)
+  const endpoints = [
+    "https://libretranslate.de/translate",
+    "https://translate.argosopentech.com/translate",
+    "https://libretranslate.com/translate"
+  ];
+  for(const url of endpoints){
+    try{
+      const res = await fetch(url, {
+        method:"POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({q: trimmed, source: sl, target: tl, format: "text"})
+      });
+      if(!res.ok) continue;
+      const data = await res.json();
+      const out = (data && (data.translatedText || data.translation)) ? (data.translatedText || data.translation) : null;
+      const saved = store(out);
+      if(saved) return saved;
+    }catch(e){}
+  }
+
+  return text;
+}
+
+async function autoLangText(obj, lang){
+(obj, lang){
+  // obj = {ar:..., en:...} or string
+  if(typeof obj === "string") return obj;
+  if(obj[lang]) return obj[lang];
+  // fallback: translate from en if possible
+  const src = obj.en || obj.ar || "";
+  const sourceLang = obj.en ? "en" : "ar";
+  if(lang === sourceLang) return src;
+  return await translateText(src, lang, sourceLang);
+}
+
+function setActivePanel(panelId){
+  document.querySelectorAll("section.panel").forEach(s=>s.classList.remove("active"));
+  const panel = document.getElementById(panelId);
+  if(panel) panel.classList.add("active");
+  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll(`.nav-btn[data-panel="${panelId}"]`).forEach(b=>b.classList.add("active"));
+}
+
+function jumpTo(panelId){
+  setActivePanel(panelId);
+  // scroll into view nicely
+  const top = document.querySelector("nav.nav");
+  top?.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+/* ========= Rendering ========= */
+function applyUI(lang){
+  const ui = UI[lang] || UI.en;
+
+  // topbar
+  document.querySelector("#audienceChip span").textContent = ui.audience;  // CTA
+  document.getElementById("ctaTeach").textContent = ui.ctaTeach;
+  document.getElementById("ctaExp").textContent = ui.ctaExp;
+  document.getElementById("ctaContact").textContent = ui.ctaContact;
+
+  // i18n spans
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(ui[key]) el.textContent = ui[key];
+  });
+
+  // highlights labels
+  document.getElementById("hCoursesLbl").textContent = ui.hCoursesLbl;
+  document.getElementById("hProjectsLbl").textContent = ui.hProjectsLbl;
+  document.getElementById("hPubsLbl").textContent = ui.hPubsLbl;
+  document.getElementById("hLangsLbl").textContent = ui.hLangsLbl;
+
+  // footer
+  document.getElementById("footerText").textContent = ui.footer;
+
+  // teaching hints / search placeholder
+  document.getElementById("courseSearch").placeholder = ui.courseSearch;
+  document.getElementById("teachTranslateHint").textContent = ui.teachTranslateHint;
+}
+
+async function renderStaticContent(lang){
+  // Header
+  document.getElementById("name").textContent = await autoLangText(PROFILE.name, lang);
+  document.getElementById("role").textContent = await autoLangText(PROFILE.role, lang);
+  document.getElementById("tagline").textContent = await autoLangText(PROFILE.tagline, lang);
+
+  // Highlights
+  document.getElementById("hCourses").textContent = syllabusData ? (syllabusData.courses.length + "+") : "—";
+  document.getElementById("hProjects").textContent = "3";
+  document.getElementById("hPubs").textContent = "3";
+  document.getElementById("hLangs").textContent = "6";
+
+  // Overview
+  document.getElementById("ovPitch").textContent = await autoLangText(BASE_CONTENT.overview.pitch, lang);
+  const pills = document.getElementById("ovPills");
+  pills.innerHTML = "";
+  BASE_CONTENT.overview.pills.forEach(p=>{
+    const s=document.createElement("span");
+    s.className="pill"; s.textContent=p;
+    pills.appendChild(s);
+  });
+
+  const oneMin = document.getElementById("ov1min");
+  oneMin.innerHTML="";
+  const oneMinArr = (lang==="ar") ? BASE_CONTENT.overview.oneMin.ar
+    : (lang==="en") ? BASE_CONTENT.overview.oneMin.en
+    : await Promise.all(BASE_CONTENT.overview.oneMin.en.map(x=>translateText(x, lang, "en")));
+  oneMinArr.forEach(t=>{
+    const li=document.createElement("li"); li.textContent=t; oneMin.appendChild(li);
+  });
+
+  const ovFor = document.getElementById("ovFor");
+  ovFor.innerHTML="";
+  const ovForArr = (lang==="ar") ? BASE_CONTENT.overview.for.ar
+    : (lang==="en") ? BASE_CONTENT.overview.for.en
+    : await Promise.all(BASE_CONTENT.overview.for.en.map(x=>translateText(x, lang, "en")));
+  ovForArr.forEach(t=>{
+    const li=document.createElement("li"); li.textContent=t; ovFor.appendChild(li);
+  });
+
+  // Teaching
+  document.getElementById("teachIntro").textContent = await autoLangText(BASE_CONTENT.teaching.intro, lang);
+  const teachPills = document.getElementById("teachPills");
+  teachPills.innerHTML="";
+  BASE_CONTENT.teaching.pills.forEach(p=>{
+    const s=document.createElement("span"); s.className="pill"; s.textContent=p; teachPills.appendChild(s);
+  });
+
+  const teachFocus = document.getElementById("teachFocus");
+  teachFocus.innerHTML="";
+  const teachFocusArr = (lang==="ar") ? BASE_CONTENT.teaching.focus.ar
+    : (lang==="en") ? BASE_CONTENT.teaching.focus.en
+    : await Promise.all(BASE_CONTENT.teaching.focus.en.map(x=>translateText(x, lang, "en")));
+  teachFocusArr.forEach(t=>{ const li=document.createElement("li"); li.textContent=t; teachFocus.appendChild(li); });
+
+  const teachDelivery = document.getElementById("teachDelivery");
+  teachDelivery.innerHTML="";
+  const teachDeliveryArr = (lang==="ar") ? BASE_CONTENT.teaching.delivery.ar
+    : (lang==="en") ? BASE_CONTENT.teaching.delivery.en
+    : await Promise.all(BASE_CONTENT.teaching.delivery.en.map(x=>translateText(x, lang, "en")));
+  teachDeliveryArr.forEach(t=>{ const li=document.createElement("li"); li.textContent=t; teachDelivery.appendChild(li); });
+
+  // Experience
+  document.getElementById("expIntro").textContent = await autoLangText(BASE_CONTENT.experience.intro, lang);
+
+  const expStrengths = document.getElementById("expStrengths");
+  expStrengths.innerHTML="";
+  const expStrengthArr = (lang==="ar") ? BASE_CONTENT.experience.strengths.ar
+    : (lang==="en") ? BASE_CONTENT.experience.strengths.en
+    : await Promise.all(BASE_CONTENT.experience.strengths.en.map(x=>translateText(x, lang, "en")));
+  expStrengthArr.forEach(t=>{ const li=document.createElement("li"); li.textContent=t; expStrengths.appendChild(li); });
+
+  const expDomains = document.getElementById("expDomains");
+  expDomains.innerHTML="";
+  const expDomArr = (lang==="ar") ? BASE_CONTENT.experience.domains.ar
+    : (lang==="en") ? BASE_CONTENT.experience.domains.en
+    : await Promise.all(BASE_CONTENT.experience.domains.en.map(x=>translateText(x, lang, "en")));
+  expDomArr.forEach(t=>{ const li=document.createElement("li"); li.textContent=t; expDomains.appendChild(li); });
+
+  const expExamples = document.getElementById("expExamples");
+  expExamples.innerHTML="";
+  const expExArr = (lang==="ar") ? BASE_CONTENT.experience.examples.ar
+    : (lang==="en") ? BASE_CONTENT.experience.examples.en
+    : await Promise.all(BASE_CONTENT.experience.examples.en.map(x=>translateText(x, lang, "en")));
+  expExArr.forEach(t=>{ const li=document.createElement("li"); li.textContent=t; expExamples.appendChild(li); });
+
+  // Research
+  document.getElementById("resIntro").textContent = await autoLangText(BASE_CONTENT.research.intro, lang);
+  const resList=document.getElementById("resList");
+  resList.innerHTML="";
+  for(const it of BASE_CONTENT.research.list){
+    const li=document.createElement("li");
+    const k = it.k + ": ";
+    const body = (lang==="ar") ? it.ar : (lang==="en") ? it.en : await translateText(it.en, lang, "en");
+    li.textContent = k + body;
+    resList.appendChild(li);
+  }
+  document.getElementById("scholarLink").href = PROFILE.scholar;
+
+  const resPills=document.getElementById("resPills");
+  resPills.innerHTML="";
+  BASE_CONTENT.research.pills.forEach(p=>{ const s=document.createElement("span"); s.className="pill"; s.textContent=p; resPills.appendChild(s); });
+
+  // Projects
+  document.getElementById("projIntro").textContent = await autoLangText(BASE_CONTENT.projects.intro, lang);
+  const projList=document.getElementById("projList");
+  projList.innerHTML="";
+  for(const it of BASE_CONTENT.projects.list){
+    const li=document.createElement("li");
+    const k = it.k + ": ";
+    const body = (lang==="ar") ? it.ar : (lang==="en") ? it.en : await translateText(it.en, lang, "en");
+    li.textContent = k + body;
+    projList.appendChild(li);
+  }
+  const projPills=document.getElementById("projPills");
+  projPills.innerHTML="";
+  BASE_CONTENT.projects.stack.forEach(p=>{ const s=document.createElement("span"); s.className="pill"; s.textContent=p; projPills.appendChild(s); });
+
+  const projValue=document.getElementById("projValue");
+  projValue.innerHTML="";
+  const pvArr = (lang==="ar") ? BASE_CONTENT.projects.value.ar : (lang==="en") ? BASE_CONTENT.projects.value.en
+    : await Promise.all(BASE_CONTENT.projects.value.en.map(x=>translateText(x, lang, "en")));
+  pvArr.forEach(t=>{ const li=document.createElement("li"); li.textContent=t; projValue.appendChild(li); });
+
+  // Skills
+  const skillsCore=document.getElementById("skillsCore");
+  skillsCore.innerHTML="";
+  const scArr = (lang==="ar") ? BASE_CONTENT.skills.core.ar : BASE_CONTENT.skills.core.en;
+  for(const s of scArr){
+    const li=document.createElement("li");
+    li.textContent = (lang==="ar" || lang==="en") ? s : await translateText(s, lang, "en");
+    skillsCore.appendChild(li);
+  }
+
+  const skillsPills=document.getElementById("skillsPills");
+  skillsPills.innerHTML="";
+  BASE_CONTENT.skills.tools.forEach(p=>{ const s=document.createElement("span"); s.className="pill"; s.textContent=p; skillsPills.appendChild(s); });
+
+  const skillsSoft=document.getElementById("skillsSoft");
+  skillsSoft.innerHTML="";
+  const ssArr = (lang==="ar") ? BASE_CONTENT.skills.soft.ar : BASE_CONTENT.skills.soft.en;
+  for(const s of ssArr){
+    const li=document.createElement("li");
+    li.textContent = (lang==="ar" || lang==="en") ? s : await translateText(s, lang, "en");
+    skillsSoft.appendChild(li);
+  }
+
+  const skillsLangs=document.getElementById("skillsLangs");
+  skillsLangs.innerHTML="";
+  const slArr = (lang==="ar") ? BASE_CONTENT.skills.langs.ar : BASE_CONTENT.skills.langs.en;
+  for(const s of slArr){
+    const li=document.createElement("li");
+    li.textContent = (lang==="ar" || lang==="en") ? s : await translateText(s, lang, "en");
+    skillsLangs.appendChild(li);
+  }
+
+  // Contact
+  document.getElementById("contactIntro").textContent = await autoLangText(BASE_CONTENT.contact.intro, lang);
+  const contactList=document.getElementById("contactList");
+  contactList.innerHTML="";
+  const loc = await autoLangText(PROFILE.location, lang);
+  const li1=document.createElement("li"); li1.textContent = loc; contactList.appendChild(li1);
+  const li2=document.createElement("li"); li2.textContent = PROFILE.email; contactList.appendChild(li2);
+
+  document.getElementById("waBtn").href = PROFILE.whatsapp;
+  document.getElementById("mailBtn").href = "mailto:" + PROFILE.email;
+
+  // Experience note is i18n'ed via UI; keep as paragraph
+  // (already set)
+}
+
+function courseMatches(course, q){
+  const s = (course.title_en + " " + course.title_ar).toLowerCase();
+  return s.includes(q);
+}
+
+async function renderCourses(lang){
+  const list = document.getElementById("courseList");
+  const q = (document.getElementById("courseSearch").value || "").trim().toLowerCase();
+  list.innerHTML = "";
+
+  const ui = UI[lang] || UI.en;
+
+  const courses = (syllabusData && syllabusData.courses) ? syllabusData.courses : [];
+  const filtered = q ? courses.filter(c => courseMatches(c, q)) : courses;
+
+  for(let idx=0; idx<filtered.length; idx++){
+    const c = filtered[idx];
+    const details = document.createElement("details");
+    details.className = "course";
+    details.dataset.index = String(idx);
+
+    if(expandAll) details.open = true;
+
+    const summary = document.createElement("summary");
+
+    const left = document.createElement("div");
+    left.className = "c-left";
+
+    const title = document.createElement("div");
+    title.className = "c-title";
+    title.textContent = (lang === "ar" || lang === "fa") ? c.title_ar + " / " + c.title_en : c.title_en + " / " + c.title_ar;
+
+    const desc = document.createElement("div");
+    desc.className = "c-desc";
+    // Show English summary for non-ar by default
+    let descText = (lang === "ar") ? c.description_ar : c.description_en;
+    // For other langs translate the English summary (fast)
+    if(lang !== "ar" && lang !== "en"){
+      descText = await translateText(c.description_en, lang, "en");
+    }
+    desc.textContent = descText;
+
+    left.appendChild(title);
+    left.appendChild(desc);
+
+    const badge = document.createElement("div");
+    badge.className="badge";
+    badge.innerHTML = `<i class="fa-solid fa-calendar-week"></i> 16`;
+
+    summary.appendChild(left);
+    summary.appendChild(badge);
+
+    const body = document.createElement("div");
+    body.className = "course-body";
+    body.innerHTML = `
+      <div class="subhead">${lang==="ar" ? "طرق التدريس" : (lang==="en" ? "Teaching methods" : "Teaching methods")}</div>
+      <div class="p muted" data-field="methods">—</div>
+
+      <div class="subhead">${lang==="ar" ? "مخرجات التعلم" : (lang==="en" ? "Learning outcomes" : "Learning outcomes")}</div>
+      <ul class="clean" data-field="outcomes"></ul>
+
+      <div class="subhead">${lang==="ar" ? "الخطة الأسبوعية (16 أسبوع)" : (lang==="en" ? "Weekly plan (16 weeks)" : "Weekly plan (16 weeks)")}</div>
+      <div data-field="weeks"></div>
+      <p class="hint">${ui.teachTranslateHint}</p>
+    `;
+
+    details.appendChild(summary);
+    details.appendChild(body);
+    list.appendChild(details);
+
+    // Lazy fill inside; translate only when opened (to avoid heavy calls)
+    const fill = async()=>{
+      const methodsEl = body.querySelector('[data-field="methods"]');
+      const outcomesEl = body.querySelector('[data-field="outcomes"]');
+      const weeksEl = body.querySelector('[data-field="weeks"]');
+
+      // methods
+      let methodsText = c.teaching_methods_ar || "";
+      if(lang === "en"){
+        // best-effort translate from Arabic to English (cache)
+        methodsText = await translateText(methodsText, "en", "ar");
+      } else if(lang !== "ar"){
+        methodsText = await translateText(await translateText(methodsText, "en", "ar"), lang, "en");
+      }
+      methodsEl.textContent = methodsText || "—";
+
+      // outcomes
+      outcomesEl.innerHTML = "";
+      const outs = Array.isArray(c.outcomes_ar) ? c.outcomes_ar : [];
+      // Batch translate outcomes in one go to reduce requests
+      let outTexts = outs;
+      if(lang !== "ar"){
+        const joined = outs.join("\n###\n");
+        let translated = await translateText(joined, (lang==="en")? "en" : lang, "ar");
+        if(lang !== "en"){
+          // If translation service only does ar->lang well, keep it; else fallback through en is ok
+        }
+        outTexts = (translated || joined).split("\n###\n").map(s=>s.trim()).filter(Boolean);
+      }
+      outTexts.forEach(t=>{
+        const li=document.createElement("li"); li.textContent=t; outcomesEl.appendChild(li);
+      });
+
+      // weeks (batch translation per week block)
+      weeksEl.innerHTML = "";
+      const weeks = Array.isArray(c.outline_ar) ? c.outline_ar : [];
+      for(const w of weeks){
+        const wk = document.createElement("div");
+        wk.className="week";
+        // Prepare block to translate
+        let titleText = `Week ${w.week}: ${w.title}`;
+        let items = w.items || [];
+
+        if(lang === "ar"){
+          titleText = `الأسبوع ${w.week}: ${w.title}`;
+        } else if(lang === "en"){
+          titleText = await translateText(`الأسبوع ${w.week}: ${w.title}`, "en", "ar");
+        } else {
+          // ar -> lang directly (best-effort)
+          titleText = await translateText(`الأسبوع ${w.week}: ${w.title}`, lang, "ar");
+        }
+
+        const ul=document.createElement("ul");
+        let itTexts = items;
+
+        if(lang !== "ar"){
+          const joined = items.join("\n###\n");
+          const translated = await translateText(joined, lang, "ar");
+          itTexts = (translated || joined).split("\n###\n").map(s=>s.trim()).filter(Boolean);
+        }
+
+        wk.innerHTML = `<strong>${titleText}</strong>`;
+        itTexts.forEach(t=>{
+          const li=document.createElement("li"); li.textContent=t; ul.appendChild(li);
+        });
+        wk.appendChild(ul);
+        weeksEl.appendChild(wk);
+      }
+
+      showToast((UI[lang] || UI.en).toastTranslated);
+    };
+
+    details.addEventListener("toggle", async()=>{
+      if(details.open && !details.dataset.filled){
+        details.dataset.filled = "1";
+        await fill();
+      }
+    });
+
+    // If expandAll is on, fill immediately
+    if(details.open){
+      details.dataset.filled = "1";
+      fill();
+    }
+  }
+
+  if(!filtered.length){
+    const empty = document.createElement("div");
+    empty.className="card";
+    empty.textContent = (lang==="ar") ? "لا توجد نتائج." : "No results.";
+    list.appendChild(empty);
+  }
+}
+
+/* ========= Init ========= */
+function detectLanguage(){
+  const saved = localStorage.getItem("lang");
+  if(saved && UI[saved]) return saved;
+
+  const nav = (navigator.language || "en").toLowerCase();
+  if(nav.startsWith("ar")) return "ar";
+  if(nav.startsWith("fa")) return "fa";
+  if(nav.startsWith("de")) return "de";
+  if(nav.startsWith("fr")) return "fr";
+  if(nav.startsWith("ro")) return "ro";
+  return "en";
+}
+
+async function loadSyllabus(){
+  // Must be placed in repo root as syllabus.json
+  const res = await fetch("syllabus.json", {cache:"no-store"});
+  if(!res.ok) throw new Error("Could not load syllabus.json");
+  return await res.json();
+}
+
+async function setLanguage(lang){
+  currentLang = UI[lang] ? lang : "en";
+  localStorage.setItem("lang", currentLang);
+  setDirLang(currentLang);
+  applyUI(currentLang);
+
+  // Activate buttons
+  document.querySelectorAll(".lang-btn").forEach(b=>b.classList.toggle("active", b.dataset.lang === currentLang));
+
+  await renderStaticContent(currentLang);
+  await renderCourses(currentLang);
+}
+
+(async function boot(){
+  syncTopbarHeight();
+  try{
+    syllabusData = await loadSyllabus();
+  }catch(e){
+    syllabusData = {courses: []};
+  }
+
+  // event bindings
+  document.querySelectorAll(".nav-btn").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const id = btn.dataset.panel;
+      setActivePanel(id);
+      window.scrollTo({top: 0, behavior:"smooth"});
+    });
+  });
+
+  document.querySelectorAll(".lang-btn").forEach(btn=>{
+    btn.addEventListener("click", ()=>setLanguage(btn.dataset.lang));
+  });
+
+  document.querySelectorAll("[data-jump]").forEach(btn=>{
+    btn.addEventListener("click", ()=>jumpTo(btn.dataset.jump));
+  });  document.getElementById("courseSearch").addEventListener("input", ()=>renderCourses(currentLang));
+
+  document.getElementById("expandAllBtn").addEventListener("click", async()=>{
+    expandAll = !expandAll;
+    await renderCourses(currentLang);
+  });
+
+  const startLang = detectLanguage();
+  await setLanguage(startLang);
+
+  // default: show overview
+  setActivePanel("overview");
+})();
+</script>
+
+</body>
+</html>
