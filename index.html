@@ -275,59 +275,67 @@
     .chipline{display:flex; gap:10px; margin-top: 12px;}
 
     /* ===== Botpress: custom always-visible launcher ===== */
-    .bp-launcher{
-      position: fixed;
-      z-index: 3000; 
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      bottom: 20px;
-      right: 24px;
-      pointer-events: auto;
-    }
-    html[dir="rtl"] .bp-launcher{
-      right: auto;
-      left: 24px;
-    }
-    #bp-toggle-chat{
-      width: 54px;
-      height: 54px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--card-bg);
-      color: var(--text);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 12px 30px rgba(0,0,0,.22);
-      transition: transform .15s ease, filter .15s ease;
-    }
-    #bp-toggle-chat:hover{ transform: translateY(-1px); filter: brightness(1.06); }
-    #bp-toggle-chat:active{ transform: translateY(0px) scale(.98); }
-    #bp-toggle-chat i{ font-size: 1.15rem; color: var(--primary); }
-    #bp-chat-hint{
-      border: 1px solid var(--border);
-      background: var(--card-bg);
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-family: var(--font-body);
-      box-shadow: 0 12px 30px rgba(0,0,0,.18);
-      user-select: none;
-      cursor: pointer;
-      max-width: min(70vw, 260px);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    @media (max-width: 760px){
-      .bp-launcher{ right: 16px; bottom: 20px; }
-      html[dir="rtl"] .bp-launcher{ left: 16px; }
-      #bp-toggle-chat{ width: 52px; height: 52px; }
-      #bp-chat-hint{ padding: 9px 11px; font-size: .95rem; }
-    }
+/* التصميم الجديد المدمج للزر */
+.bp-launcher {
+    position: fixed;
+    z-index: 3000; 
+    bottom: 25px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    /* دمج العنصرين في خلفية واحدة */
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 50px; /* شكل الكبسولة */
+    padding: 5px 15px 5px 5px; /* مسافات داخلية متوازنة */
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 10px;
+}
+
+html[dir="rtl"] .bp-launcher {
+    right: auto;
+    left: 25px;
+    padding: 5px 5px 5px 15px; /* عكس المسافات للغة العربية */
+}
+
+/* تنسيق الدائرة الصغيرة داخل الكبسولة */
+#bp-toggle-chat {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary); /* لون أزرق من ثيم الموقع */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: none; /* إزالة الظل الداخلي */
+}
+
+#bp-toggle-chat i {
+    font-size: 1rem;
+    color: #ffffff !important; /* أيقونة بيضاء لتباين أفضل */
+}
+
+/* تنسيق النص (اسألني) */
+#bp-chat-hint {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+/* تأثيرات التفاعل */
+.bp-launcher:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-color: var(--primary);
+}
   </style>
 
   <script src="https://cdn.botpress.cloud/webchat/v3.5/inject.js"></script>
