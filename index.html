@@ -65,6 +65,7 @@
       min-height:100vh;
       overflow-x:hidden;
       line-height: 1.6;
+      padding-bottom: 80px; /* Space for Botpress launcher */
     }
     h1, h2, h3, .title, .subtitle, .subhead {
       font-family: var(--font-head);
@@ -101,9 +102,10 @@
       box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
     .topbar .right{
-      display:flex; gap:10px; align-items:center;
+      display:flex; gap:8px; align-items:center;
       overflow-x:auto; scrollbar-width: none;
     }
+    .topbar .right::-webkit-scrollbar{display:none}
 
     .chip{
       display:inline-flex; align-items:center; gap:8px;
@@ -128,6 +130,7 @@
       font-size:.85rem;
       transition:.2s ease;
       font-family: var(--font-body);
+      white-space: nowrap;
     }
     .lang-btn:hover, .mini-btn:hover{background: rgba(30, 58, 138, .05);}
     .lang-btn.active{background: var(--primary); color: #fff; border-color: var(--primary);}
@@ -154,7 +157,7 @@
     .profile img{width:100%; height:100%; object-fit:cover}
     h1{font-size: 2.2rem; color: var(--secondary); margin-bottom: 5px;}
     .role{color: var(--primary); font-weight:600; font-size: 1.1rem; font-family: var(--font-body);}
-    .tagline{margin:15px auto 0; color: var(--muted); max-width: 700px; font-size: 1rem;}
+    .tagline{margin:15px auto 0; color: var(--muted); max-width: 700px; font-size: 1rem; line-height: 1.7;}
     .cta{margin-top: 25px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;}
 
     /* Highlights */
@@ -178,6 +181,7 @@
     .nav-row{
       display:flex; gap:20px; flex-wrap:nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 1px;
     }
+    .nav-row::-webkit-scrollbar{display:none}
     .nav-btn{
       appearance:none; border: none; background: transparent;
       color: var(--muted);
@@ -246,10 +250,11 @@
     details.course summary::-webkit-details-marker{display:none}
     .c-title{font-family: var(--font-head); font-weight:700; font-size:1.1rem; color: var(--secondary);}
     .c-desc{color: var(--muted); font-size: 0.95rem; margin-top: 4px;}
-    .badge{font-size:.8rem; background: var(--bg2); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border); color: var(--muted);}
+    .badge{font-size:.8rem; background: var(--bg2); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border); color: var(--muted); white-space: nowrap;}
     
     .course-body{padding: 0 16px 16px; border-top: 1px solid var(--border); margin-top: 10px; padding-top: 16px;}
     .week{padding: 12px; margin-bottom: 12px; background: var(--bg1); border-left: 3px solid var(--primary); border-radius: 0 4px 4px 0;}
+    html[dir="rtl"] .week { border-left: none; border-right: 3px solid var(--primary); }
     .week strong{font-family: var(--font-head); color: var(--secondary);}
 
     pre.code{background: var(--bg1); border:1px solid var(--border); padding:16px; border-radius:var(--radius); overflow-x:auto; font-family: monospace; font-size: 0.9rem;}
@@ -264,13 +269,67 @@
     }
     .toast.show{display:flex; animation: fadeIn 0.3s;}
     
-    /* Missing utility classes */
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
     .hint{font-size: 0.85rem; color: var(--muted); margin-top: 8px; font-style: italic;}
     .actions{display:flex; gap:10px; margin-top: 16px;}
     .chipline{display:flex; gap:10px; margin-top: 12px;}
 
+    /* ===== Botpress: custom always-visible launcher ===== */
+    .bp-launcher{
+      position: fixed;
+      z-index: 3000; 
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      bottom: 20px;
+      right: 24px;
+      pointer-events: auto;
+    }
+    html[dir="rtl"] .bp-launcher{
+      right: auto;
+      left: 24px;
+    }
+    #bp-toggle-chat{
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+      transition: transform .15s ease, filter .15s ease;
+    }
+    #bp-toggle-chat:hover{ transform: translateY(-1px); filter: brightness(1.06); }
+    #bp-toggle-chat:active{ transform: translateY(0px) scale(.98); }
+    #bp-toggle-chat i{ font-size: 1.15rem; color: var(--primary); }
+    #bp-chat-hint{
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-family: var(--font-body);
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+      user-select: none;
+      cursor: pointer;
+      max-width: min(70vw, 260px);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    @media (max-width: 760px){
+      .bp-launcher{ right: 16px; bottom: 20px; }
+      html[dir="rtl"] .bp-launcher{ left: 16px; }
+      #bp-toggle-chat{ width: 52px; height: 52px; }
+      #bp-chat-hint{ padding: 9px 11px; font-size: .95rem; }
+    }
   </style>
+
   <script src="https://cdn.botpress.cloud/webchat/v3.5/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/12/20/05/20251220051223-VBGRYYHU.js" defer></script>
 </head>
@@ -283,6 +342,10 @@
     <div class="right" aria-label="Controls">
       <button class="lang-btn" data-lang="ar" type="button">عربي</button>
       <button class="lang-btn" data-lang="en" type="button">EN</button>
+      <button class="lang-btn" data-lang="fa" type="button">فارسی</button>
+      <button class="lang-btn" data-lang="de" type="button">DE</button>
+      <button class="lang-btn" data-lang="fr" type="button">FR</button>
+      <button class="lang-btn" data-lang="ro" type="button">RO</button>
       <button class="theme-toggle" id="themeBtn" aria-label="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
     </div>
   </div>
@@ -482,8 +545,15 @@
 
   <div class="toast" id="toast"><i class="fa-solid fa-check"></i> <span id="toastText"></span></div>
 
+  <div class="bp-launcher" aria-label="Site chat launcher">
+    <button id="bp-toggle-chat" type="button" aria-label="Open chat">
+      <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+    </button>
+    <span id="bp-chat-hint" role="button" tabindex="0" aria-label="Open chat">اسألني</span>
+  </div>
+
 <script>
-/* ========= Profile Data Restructured for Academia ========= */
+/* ========= Profile Data ========= */
 const PROFILE = {
   name: { ar: "هاني أكرم محفوض", en: "Hani Akram Mahfoud" },
   role: {
@@ -556,8 +626,8 @@ const BASE_CONTENT = {
       en: ["Theoretical lectures supported by live Python implementations.", "Continuous assessment: short papers, periodic quizzes, and scientific discussions.", "Structured office hours and direct student mentorship."]
     },
     translateHint: {
-      ar: "ملاحظة: الخطط الأكاديمية متوفرة باللغة العربية، وسيتم ترجمتها برمجياً عند تغيير لغة الواجهة.",
-      en: "Note: Academic syllabi are natively in Arabic and are translated algorithmically when the UI language is changed."
+      ar: "ملاحظة: الخطط الأكاديمية يتم ترجمتها آلياً عند توسيع المساق لتسريع تحميل الموقع.",
+      en: "Note: Academic syllabi are translated on-the-fly when expanded to optimize load times."
     }
   },
   experience: {
@@ -718,6 +788,182 @@ const UI = {
     hPubsLbl: "Publications",
     footer: "© " + new Date().getFullYear() + " — Hani Mahfoud. Designed for academic and research committees.",
     toastTranslated: "Auto-translated ✓"
+  },
+  fa: {
+    audience: "کمیته‌های علمی و پژوهشی",
+    nav_academic: "پروفایل آکادمیک",
+    nav_research: "پژوهش‌ها",
+    nav_teaching: "طرح درس‌ها",
+    nav_experience: "تجربه صنعتی",
+    nav_projects: "پروژه‌ها",
+    nav_skills: "مهارت‌ها",
+    nav_contact: "تماس",
+    acad_title: "پروفایل آکادمیک",
+    acad_teaching_title: "تدریس و برنامه درسی",
+    acad_research_title: "حوزه پژوهشی",
+    acad_cta_teaching: "مشاهده طرح درس‌ها",
+    acad_cta_research: "مشاهده مقالات",
+    ov_title: "روش‌شناسی و فلسفه",
+    res_title: "پژوهش‌ها و مقالات",
+    res_links: "لینک‌های آکادمیک",
+    res_scholar: "گوگل اسکولار",
+    res_keywords: "کلمات کلیدی",
+    teach_title: "طرح درس‌ها (برنامه ۱۶ هفته‌ای)",
+    teach_focus: "روش‌شناسی آکادمیک",
+    teach_delivery: "ارائه و ارزیابی",
+    teach_expand: "باز/بسته کردن همه",
+    exp_title: "تجربه کاربردی و صنعتی",
+    exp_strengths: "دستاوردهای عملیاتی",
+    exp_domains: "حوزه‌های صنعتی",
+    exp_examples: "نمونه‌های کاربردی",
+    proj_title: "پروژه‌های فنی",
+    proj_stack: "فناوری‌ها",
+    proj_value: "ارزش علمی و عملی",
+    skills_title: "مهارت‌های فنی و آکادمیک",
+    skills_core: "حوزه‌های اصلی",
+    skills_tools: "نرم‌افزارها و ابزارها",
+    skills_soft: "مهارت‌های پژوهشی",
+    skills_langs: "زبان‌ها",
+    contact_title: "تماس با من",
+    contact_email: "ارسال ایمیل",
+    contact_whatsapp: "پیام در واتساپ",
+    hCoursesLbl: "طرح درس",
+    hProjectsLbl: "پروژه‌ها",
+    hPubsLbl: "مقالات",
+    footer: "© " + new Date().getFullYear() + " — Hani Mahfoud.",
+    toastTranslated: "ترجمه خودکار ✓"
+  },
+  de: {
+    audience: "Akademische Komitees",
+    nav_academic: "Akademisches Profil",
+    nav_research: "Forschung",
+    nav_teaching: "Lehrpläne",
+    nav_experience: "Industrieerfahrung",
+    nav_projects: "Projekte",
+    nav_skills: "Kompetenzen",
+    nav_contact: "Kontakt",
+    acad_title: "Akademisches Profil",
+    acad_teaching_title: "Lehre & Curriculum",
+    acad_research_title: "Forschungsschwerpunkte",
+    acad_cta_teaching: "Lehrpläne ansehen",
+    acad_cta_research: "Publikationen ansehen",
+    ov_title: "Methodik & Philosophie",
+    res_title: "Forschung & Publikationen",
+    res_links: "Akademische Profile",
+    res_scholar: "Google Scholar",
+    res_keywords: "Schlüsselwörter",
+    teach_title: "Lehrpläne (16-Wochen-Pläne)",
+    teach_focus: "Akademische Methodik",
+    teach_delivery: "Durchführung & Bewertung",
+    teach_expand: "Alle erweitern/reduzieren",
+    exp_title: "Angewandte Industrieerfahrung",
+    exp_strengths: "Operative Beiträge",
+    exp_domains: "Industrielle Domänen",
+    exp_examples: "Angewandte Beispiele",
+    proj_title: "Technische Projekte",
+    proj_stack: "Technologie-Stack",
+    proj_value: "Wissenschaftlicher & Praktischer Wert",
+    skills_title: "Technische & Akademische Fähigkeiten",
+    skills_core: "Kerndisziplinen",
+    skills_tools: "Software & Werkzeuge",
+    skills_soft: "Akademische Soft Skills",
+    skills_langs: "Sprachen",
+    contact_title: "Kontakt aufnehmen",
+    contact_email: "E-Mail senden",
+    contact_whatsapp: "Nachricht über WhatsApp",
+    hCoursesLbl: "Lehrpläne",
+    hProjectsLbl: "Projekte",
+    hPubsLbl: "Publikationen",
+    footer: "© " + new Date().getFullYear() + " — Hani Mahfoud.",
+    toastTranslated: "Automatisch übersetzt ✓"
+  },
+  fr: {
+    audience: "Comités Académiques",
+    nav_academic: "Profil Académique",
+    nav_research: "Recherche",
+    nav_teaching: "Plans de Cours",
+    nav_experience: "Exp. Industrielle",
+    nav_projects: "Projets",
+    nav_skills: "Compétences",
+    nav_contact: "Contact",
+    acad_title: "Profil Académique",
+    acad_teaching_title: "Enseignement & Curriculum",
+    acad_research_title: "Axes de Recherche",
+    acad_cta_teaching: "Voir les Plans de Cours",
+    acad_cta_research: "Voir les Publications",
+    ov_title: "Méthodologie & Philosophie",
+    res_title: "Recherche & Publications",
+    res_links: "Profils Académiques",
+    res_scholar: "Google Scholar",
+    res_keywords: "Mots-clés",
+    teach_title: "Plans de Cours (16 Semaines)",
+    teach_focus: "Méthodologie Académique",
+    teach_delivery: "Évaluation & Organisation",
+    teach_expand: "Développer/Réduire Tout",
+    exp_title: "Expérience Industrielle Appliquée",
+    exp_strengths: "Contributions Opérationnelles",
+    exp_domains: "Domaines Industriels",
+    exp_examples: "Exemples Appliqués",
+    proj_title: "Projets Techniques",
+    proj_stack: "Technologies",
+    proj_value: "Valeur Scientifique & Pratique",
+    skills_title: "Compétences Techniques & Académiques",
+    skills_core: "Disciplines Principales",
+    skills_tools: "Logiciels & Outils",
+    skills_soft: "Compétences Transversales",
+    skills_langs: "Langues",
+    contact_title: "Me Contacter",
+    contact_email: "Envoyer un e-mail",
+    contact_whatsapp: "Message via WhatsApp",
+    hCoursesLbl: "Plans de Cours",
+    hProjectsLbl: "Projets",
+    hPubsLbl: "Publications",
+    footer: "© " + new Date().getFullYear() + " — Hani Mahfoud.",
+    toastTranslated: "Traduit automatiquement ✓"
+  },
+  ro: {
+    audience: "Comitete Academice",
+    nav_academic: "Profil Academic",
+    nav_research: "Cercetare",
+    nav_teaching: "Programe Curs",
+    nav_experience: "Exp. Industrială",
+    nav_projects: "Proiecte",
+    nav_skills: "Abilități",
+    nav_contact: "Contact",
+    acad_title: "Profil Academic",
+    acad_teaching_title: "Predare & Curriculum",
+    acad_research_title: "Axe de Cercetare",
+    acad_cta_teaching: "Vezi Programele",
+    acad_cta_research: "Vezi Publicațiile",
+    ov_title: "Metodologie & Filosofie",
+    res_title: "Cercetare & Publicații",
+    res_links: "Profiluri Academice",
+    res_scholar: "Google Scholar",
+    res_keywords: "Cuvinte-cheie",
+    teach_title: "Programe de Curs (16 Săptămâni)",
+    teach_focus: "Metodologie Academică",
+    teach_delivery: "Livrare & Evaluare",
+    teach_expand: "Extinde/Restrânge",
+    exp_title: "Experiență Industrială Aplicată",
+    exp_strengths: "Contribuții Operaționale",
+    exp_domains: "Domenii Industriale",
+    exp_examples: "Exemple Aplicate",
+    proj_title: "Proiecte Tehnice",
+    proj_stack: "Tehnologii",
+    proj_value: "Valoare Științifică & Practică",
+    skills_title: "Abilități Tehnice & Academice",
+    skills_core: "Discipline de Bază",
+    skills_tools: "Software & Instrumente",
+    skills_soft: "Abilități Academice",
+    skills_langs: "Limbi",
+    contact_title: "Contact",
+    contact_email: "Trimite Email",
+    contact_whatsapp: "Mesaj WhatsApp",
+    hCoursesLbl: "Programe Curs",
+    hProjectsLbl: "Proiecte",
+    hPubsLbl: "Publicații",
+    footer: "© " + new Date().getFullYear() + " — Hani Mahfoud.",
+    toastTranslated: "Tradus automat ✓"
   }
 };
 
@@ -725,18 +971,100 @@ let syllabusData = null;
 let currentLang = "en";
 let expandAll = false;
 
-// Basic translation helper for dynamic content (fallback)
-async function t(text, targetLang, sourceLang = "en") {
-  if (targetLang === sourceLang) return text;
-  // Very simplified translation simulation for rendering speed; 
-  // In a real env, keep the original robust translation APIs if needed.
-  return text; 
+/* ========= Translation Engine (From Original Code) ========= */
+
+function fnv1a(str){
+  let h = 0x811c9dc5;
+  for (let i=0;i<str.length;i++){
+    h ^= str.charCodeAt(i);
+    h = (h + ((h<<1)+(h<<4)+(h<<7)+(h<<8)+(h<<24))) >>> 0;
+  }
+  return ("0000000" + h.toString(16)).slice(-8);
 }
 
-function autoText(obj, lang) {
-  if (typeof obj === 'string') return obj;
-  return obj[lang] || obj.en || obj.ar || "";
+function showToast(msg){
+  const t = document.getElementById("toast");
+  const tt = document.getElementById("toastText");
+  tt.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(showToast._to);
+  showToast._to = setTimeout(()=>t.classList.remove("show"), 2200);
 }
+
+async function translateText(text, targetLang, sourceLang){
+  const trimmed = (text || "").trim();
+  if(!trimmed) return text;
+
+  const sl = (sourceLang || "en").toLowerCase();
+  const tl = (targetLang || "en").toLowerCase();
+  if(sl === tl) return text;
+
+  const cacheKey = "tr::" + sl + "::" + tl + "::" + fnv1a(trimmed);
+  const cached = localStorage.getItem(cacheKey);
+  if(cached) return cached;
+
+  const store = (out)=>{
+    if(out && typeof out === "string" && out.trim()){
+      localStorage.setItem(cacheKey, out);
+      return out;
+    }
+    return null;
+  };
+
+  try{
+    const url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(trimmed) + "&langpair=" + encodeURIComponent(sl + "|" + tl);
+    const res = await fetch(url, {method:"GET"});
+    if(res.ok){
+      const data = await res.json();
+      const out = data?.responseData?.translatedText;
+      const saved = store(out);
+      if(saved) return saved;
+    }
+  }catch(e){}
+
+  try{
+    const url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=" + encodeURIComponent(sl) + "&tl=" + encodeURIComponent(tl) + "&dt=t&q=" + encodeURIComponent(trimmed);
+    const res = await fetch(url, {method:"GET"});
+    if(res.ok){
+      const data = await res.json();
+      const out = Array.isArray(data?.[0]) ? data[0].map(x=>x?.[0]).filter(Boolean).join("") : null;
+      const saved = store(out);
+      if(saved) return saved;
+    }
+  }catch(e){}
+
+  const endpoints = [
+    "https://libretranslate.de/translate",
+    "https://translate.argosopentech.com/translate",
+    "https://libretranslate.com/translate"
+  ];
+  for(const url of endpoints){
+    try{
+      const res = await fetch(url, {
+        method:"POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({q: trimmed, source: sl, target: tl, format: "text"})
+      });
+      if(!res.ok) continue;
+      const data = await res.json();
+      const out = (data && (data.translatedText || data.translation)) ? (data.translatedText || data.translation) : null;
+      const saved = store(out);
+      if(saved) return saved;
+    }catch(e){}
+  }
+  return text;
+}
+
+async function autoLangText(obj, lang){
+  if(typeof obj === "string") return obj;
+  if(obj[lang]) return obj[lang];
+  const src = obj.en || obj.ar || "";
+  const sourceLang = obj.en ? "en" : "ar";
+  if(lang === sourceLang) return src;
+  return await translateText(src, lang, sourceLang);
+}
+
+/* ========= UI Logic ========= */
 
 function updateTheme(dark) {
   document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
@@ -760,10 +1088,10 @@ function setActivePanel(panelId) {
 async function renderContent(lang) {
   const ui = UI[lang] || UI.en;
   
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.dir = (lang === 'ar' || lang === 'fa') ? 'rtl' : 'ltr';
   document.documentElement.lang = lang;
   
-  // UI Labels
+  // Update UI Labels
   document.getElementById('audienceChip').querySelector('span').textContent = ui.audience;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
@@ -777,9 +1105,9 @@ async function renderContent(lang) {
   document.getElementById("teachTranslateHint").textContent = BASE_CONTENT.teaching.translateHint[lang] || BASE_CONTENT.teaching.translateHint.en;
   
   // Profile
-  document.getElementById('name').textContent = autoText(PROFILE.name, lang);
-  document.getElementById('role').textContent = autoText(PROFILE.role, lang);
-  document.getElementById('tagline').textContent = autoText(PROFILE.tagline, lang);
+  document.getElementById('name').textContent = await autoLangText(PROFILE.name, lang);
+  document.getElementById('role').textContent = await autoLangText(PROFILE.role, lang);
+  document.getElementById('tagline').textContent = await autoLangText(PROFILE.tagline, lang);
   
   // Highlights
   document.getElementById("hCourses").textContent = syllabusData ? syllabusData.courses.length : "22";
@@ -787,72 +1115,80 @@ async function renderContent(lang) {
   document.getElementById("hPubs").textContent = "3+";
   
   // Academic
-  document.getElementById('acadTeachingP').textContent = autoText(BASE_CONTENT.academic.teaching_p, lang);
-  document.getElementById('acadResearchP').textContent = autoText(BASE_CONTENT.academic.research_p, lang);
+  document.getElementById('acadTeachingP').textContent = await autoLangText(BASE_CONTENT.academic.teaching_p, lang);
+  document.getElementById('acadResearchP').textContent = await autoLangText(BASE_CONTENT.academic.research_p, lang);
   
-  const fillList = (id, dataObj) => {
+  const fillList = async (id, dataObj) => {
     const el = document.getElementById(id);
     if(!el) return;
     el.innerHTML = '';
-    const arr = autoText(dataObj, lang);
+    
+    let arr = (lang === "ar") ? dataObj.ar : dataObj.en;
+    if (lang !== "ar" && lang !== "en") {
+      arr = await Promise.all(dataObj.en.map(x => translateText(x, lang, "en")));
+    }
+    
     if(Array.isArray(arr)) arr.forEach(txt => {
       const li = document.createElement('li'); li.textContent = txt; el.appendChild(li);
     });
   };
   
-  fillList('acadTeachingBullets', BASE_CONTENT.academic.teaching_bullets);
-  fillList('acadResearchBullets', BASE_CONTENT.academic.research_bullets);
+  await fillList('acadTeachingBullets', BASE_CONTENT.academic.teaching_bullets);
+  await fillList('acadResearchBullets', BASE_CONTENT.academic.research_bullets);
   
-  document.getElementById('ovPitch').textContent = autoText(BASE_CONTENT.overview.pitch, lang);
+  document.getElementById('ovPitch').textContent = await autoLangText(BASE_CONTENT.overview.pitch, lang);
   const pills = document.getElementById("ovPills"); pills.innerHTML = "";
   BASE_CONTENT.overview.pills.forEach(p=>{ const s=document.createElement("span"); s.className="pill"; s.textContent=p; pills.appendChild(s); });
 
   // Research
-  document.getElementById('resIntroTitle').textContent = autoText(BASE_CONTENT.research.intro, lang);
+  document.getElementById('resIntroTitle').textContent = await autoLangText(BASE_CONTENT.research.intro, lang);
   const resList=document.getElementById("resList"); resList.innerHTML="";
-  BASE_CONTENT.research.list.forEach(it => {
+  for (const it of BASE_CONTENT.research.list) {
     const li=document.createElement("li");
-    li.innerHTML = `<strong>${it.k}:</strong> ${autoText(it, lang)}`;
+    const bodyText = await autoLangText(it, lang);
+    li.innerHTML = `<strong>${it.k}:</strong> ${bodyText}`;
     resList.appendChild(li);
-  });
+  }
   const resPills=document.getElementById("resPills"); resPills.innerHTML="";
   BASE_CONTENT.research.pills.forEach(p=>{ const s=document.createElement("span"); s.className="pill"; s.textContent=p; resPills.appendChild(s); });
   document.getElementById("scholarLink").href = PROFILE.scholar;
 
   // Teaching
-  document.getElementById('teachIntro').textContent = autoText(BASE_CONTENT.teaching.intro, lang);
-  fillList('teachFocus', BASE_CONTENT.teaching.focus);
-  fillList('teachDelivery', BASE_CONTENT.teaching.delivery);
+  document.getElementById('teachIntro').textContent = await autoLangText(BASE_CONTENT.teaching.intro, lang);
+  await fillList('teachFocus', BASE_CONTENT.teaching.focus);
+  await fillList('teachDelivery', BASE_CONTENT.teaching.delivery);
 
   // Experience
-  document.getElementById('expIntro').textContent = autoText(BASE_CONTENT.experience.intro, lang);
-  fillList('expStrengths', BASE_CONTENT.experience.strengths);
-  fillList('expDomains', BASE_CONTENT.experience.domains);
-  fillList('expExamples', BASE_CONTENT.experience.examples);
+  document.getElementById('expIntro').textContent = await autoLangText(BASE_CONTENT.experience.intro, lang);
+  await fillList('expStrengths', BASE_CONTENT.experience.strengths);
+  await fillList('expDomains', BASE_CONTENT.experience.domains);
+  await fillList('expExamples', BASE_CONTENT.experience.examples);
 
   // Projects
-  document.getElementById('projIntroTitle').textContent = autoText(BASE_CONTENT.projects.intro, lang);
+  document.getElementById('projIntroTitle').textContent = await autoLangText(BASE_CONTENT.projects.intro, lang);
   const projList=document.getElementById("projList"); projList.innerHTML="";
-  BASE_CONTENT.projects.list.forEach(it => {
+  for (const it of BASE_CONTENT.projects.list) {
     const li=document.createElement("li");
-    li.innerHTML = `<strong>${it.k}:</strong> ${autoText(it, lang)}`;
+    const bodyText = await autoLangText(it, lang);
+    li.innerHTML = `<strong>${it.k}:</strong> ${bodyText}`;
     projList.appendChild(li);
-  });
+  }
   const projPills=document.getElementById("projPills"); projPills.innerHTML="";
   BASE_CONTENT.projects.stack.forEach(p=>{ const s=document.createElement("span"); s.className="pill"; s.textContent=p; projPills.appendChild(s); });
-  fillList('projValue', BASE_CONTENT.projects.value);
+  await fillList('projValue', BASE_CONTENT.projects.value);
 
   // Skills
-  fillList('skillsCore', BASE_CONTENT.skills.core);
-  fillList('skillsSoft', BASE_CONTENT.skills.soft);
-  fillList('skillsLangs', BASE_CONTENT.skills.langs);
+  await fillList('skillsCore', BASE_CONTENT.skills.core);
+  await fillList('skillsSoft', BASE_CONTENT.skills.soft);
+  await fillList('skillsLangs', BASE_CONTENT.skills.langs);
   const skPills=document.getElementById("skillsPills"); skPills.innerHTML="";
   BASE_CONTENT.skills.tools.forEach(p=>{ const s=document.createElement("span"); s.className="pill"; s.textContent=p; skPills.appendChild(s); });
 
   // Contact
-  document.getElementById('contactIntro').textContent = autoText(BASE_CONTENT.contact.intro, lang);
+  document.getElementById('contactIntro').textContent = await autoLangText(BASE_CONTENT.contact.intro, lang);
   const contactList=document.getElementById("contactList"); contactList.innerHTML="";
-  contactList.innerHTML = `<li><i class="fa-solid fa-location-dot" style="width:20px; color:var(--primary)"></i> ${autoText(PROFILE.location, lang)}</li>
+  const loc = await autoLangText(PROFILE.location, lang);
+  contactList.innerHTML = `<li><i class="fa-solid fa-location-dot" style="width:20px; color:var(--primary)"></i> ${loc}</li>
                            <li><i class="fa-solid fa-at" style="width:20px; color:var(--primary)"></i> ${PROFILE.email}</li>`;
   document.getElementById('mailBtn').href = "mailto:" + PROFILE.email;
   document.getElementById('waBtn').href = PROFILE.whatsapp;
@@ -873,13 +1209,16 @@ function renderCourses(lang) {
     const details = document.createElement("details");
     details.className = "course card";
     details.style.padding = "0";
-    if(expandAll) details.open = true;
 
     const summary = document.createElement("summary");
+    
+    // Default Description logic
+    let initialDesc = (lang === "ar") ? c.description_ar : c.description_en;
+    
     summary.innerHTML = `
       <div>
         <div class="c-title">${lang === 'ar' ? c.title_ar + " | " + c.title_en : c.title_en + " | " + c.title_ar}</div>
-        <div class="c-desc">${lang === 'ar' ? c.description_ar : c.description_en}</div>
+        <div class="c-desc" data-initial-desc="1">${initialDesc}</div>
       </div>
       <div class="badge">16 Weeks</div>
     `;
@@ -887,34 +1226,101 @@ function renderCourses(lang) {
     const body = document.createElement("div");
     body.className = "course-body";
     
-    // Quick render since actual translations of heavy JSON are complex.
-    // In a real scenario, the robust API calls from your previous file would go here.
+    // Structural skeleton to be filled dynamically
     body.innerHTML = `
       <div class="subhead">${lang === 'ar' ? 'منهجية التدريس' : 'Teaching Methodology'}</div>
-      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:10px;">${c.teaching_methods_ar}</p>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:10px;" data-field="methods">—</p>
       
       <div class="subhead">${lang === 'ar' ? 'مخرجات التعلم' : 'Learning Outcomes'}</div>
-      <ul class="clean" style="font-size:0.9rem;">
-        ${c.outcomes_ar.map(o => `<li>${o}</li>`).join('')}
-      </ul>
+      <ul class="clean" style="font-size:0.9rem;" data-field="outcomes"></ul>
       
       <div class="subhead">${lang === 'ar' ? 'الخطة الأسبوعية' : 'Weekly Syllabus'}</div>
-      <div>
-        ${c.outline_ar.map(w => `
-          <div class="week">
-            <strong>Week ${w.week}: ${w.title}</strong>
-            <ul style="margin-top:6px; padding-inline-start: 20px; font-size:0.9rem;">
-              ${w.items.map(i => `<li>${i}</li>`).join('')}
-            </ul>
-          </div>
-        `).join('')}
-      </div>
+      <div data-field="weeks"></div>
     `;
 
     details.appendChild(summary);
     details.appendChild(body);
     list.appendChild(details);
+
+    // Lazy load the heavy translations only when expanded
+    const fill = async () => {
+      // Fix Description if language is not EN or AR
+      if (lang !== "ar" && lang !== "en") {
+        const descEl = summary.querySelector('[data-initial-desc="1"]');
+        if (descEl) descEl.textContent = await translateText(c.description_en, lang, "en");
+      }
+
+      const methodsEl = body.querySelector('[data-field="methods"]');
+      const outcomesEl = body.querySelector('[data-field="outcomes"]');
+      const weeksEl = body.querySelector('[data-field="weeks"]');
+
+      // Methods
+      let methodsText = c.teaching_methods_ar || "";
+      if (lang === "en") methodsText = await translateText(methodsText, "en", "ar");
+      else if (lang !== "ar") methodsText = await translateText(await translateText(methodsText, "en", "ar"), lang, "en");
+      methodsEl.textContent = methodsText || "—";
+
+      // Outcomes (Batch Translation)
+      outcomesEl.innerHTML = "";
+      let outs = c.outcomes_ar || [];
+      if (lang !== "ar") {
+        const joined = outs.join("\n###\n");
+        let translated = await translateText(joined, (lang==="en")? "en" : lang, "ar");
+        outs = (translated || joined).split("\n###\n").map(s=>s.trim()).filter(Boolean);
+      }
+      outs.forEach(t => { const li = document.createElement("li"); li.textContent = t; outcomesEl.appendChild(li); });
+
+      // Weeks
+      weeksEl.innerHTML = "";
+      const weeksData = c.outline_ar || [];
+      for(const w of weeksData) {
+        const wk = document.createElement("div");
+        wk.className = "week";
+        
+        let titleText = `Week ${w.week}: ${w.title}`;
+        if (lang === "ar") titleText = `الأسبوع ${w.week}: ${w.title}`;
+        else if (lang === "en") titleText = await translateText(`الأسبوع ${w.week}: ${w.title}`, "en", "ar");
+        else titleText = await translateText(`الأسبوع ${w.week}: ${w.title}`, lang, "ar");
+
+        const ul = document.createElement("ul");
+        ul.style.marginTop = "6px"; ul.style.paddingInlineStart = "20px"; ul.style.fontSize = "0.9rem";
+        
+        let itTexts = w.items || [];
+        if(lang !== "ar"){
+          const joined = itTexts.join("\n###\n");
+          const translated = await translateText(joined, lang, "ar");
+          itTexts = (translated || joined).split("\n###\n").map(s=>s.trim()).filter(Boolean);
+        }
+
+        wk.innerHTML = `<strong>${titleText}</strong>`;
+        itTexts.forEach(t => { const li = document.createElement("li"); li.textContent = t; ul.appendChild(li); });
+        wk.appendChild(ul);
+        weeksEl.appendChild(wk);
+      }
+
+      showToast((UI[lang] || UI.en).toastTranslated);
+    };
+
+    details.addEventListener("toggle", async () => {
+      if(details.open && !details.dataset.filled){
+        details.dataset.filled = "1";
+        await fill();
+      }
+    });
+
+    if(expandAll) {
+      details.open = true;
+      details.dataset.filled = "1";
+      fill();
+    }
   });
+
+  if(!courses.length){
+    const empty = document.createElement("div");
+    empty.className="card";
+    empty.textContent = (lang==="ar" || lang==="fa") ? "لا توجد نتائج." : "No results.";
+    list.appendChild(empty);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -932,11 +1338,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Lang routing
   document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', async (e) => {
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
       e.target.classList.add('active');
       currentLang = e.target.dataset.lang;
-      renderContent(currentLang);
+      await renderContent(currentLang);
     });
   });
 
@@ -954,6 +1360,135 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.querySelector(`.lang-btn[data-lang="en"]`).classList.add('active');
   await renderContent('en');
 });
+
+/* ===== Botpress: Custom Launcher & Multilingual Hints ===== */
+(function(){
+  const hints = {
+    ar: "اسألني",
+    en: "Ask me",
+    fa: "از من بپرس",
+    de: "Frag mich",
+    fr: "Demande-moi",
+    ro: "Întreabă-mă"
+  };
+
+  const aria = {
+    ar: "افتح الدردشة",
+    en: "Open chat",
+    fa: "باز کردن چت",
+    de: "Chat öffnen",
+    fr: "Ouvrir le chat",
+    ro: "Deschide chatul"
+  };
+
+  const btn = document.getElementById("bp-toggle-chat");
+  const hintEl = document.getElementById("bp-chat-hint");
+
+  function siteLang(){
+    try{
+      if (typeof currentLang !== "undefined" && currentLang) return String(currentLang);
+    }catch(e){}
+    const lang = document.documentElement.getAttribute("lang") || "en";
+    return lang.split("-")[0];
+  }
+
+  function applyHint(){
+    const lang = siteLang();
+    const text = hints[lang] || hints.en;
+    if (hintEl) hintEl.textContent = text;
+
+    const label = aria[lang] || aria.en;
+    if (btn) btn.setAttribute("aria-label", label);
+    if (hintEl) hintEl.setAttribute("aria-label", label);
+  }
+
+  let pendingOpen = false;
+
+  function openChat(){
+    if (window.botpress && typeof window.botpress.open === "function") {
+      window.botpress.open();
+      return true;
+    }
+    return false;
+  }
+
+  function toggleChat(){
+    if (window.botpress && typeof window.botpress.toggle === "function") {
+      window.botpress.toggle();
+      return true;
+    }
+    return openChat();
+  }
+
+  function safeToggle(){
+    const ok = toggleChat();
+    if (!ok) pendingOpen = true;
+  }
+
+  function keyActivate(e){
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      safeToggle();
+    }
+  }
+
+  if (btn){
+    btn.addEventListener("click", safeToggle);
+    btn.addEventListener("keydown", keyActivate);
+  }
+  if (hintEl){
+    hintEl.addEventListener("click", safeToggle);
+    hintEl.addEventListener("keydown", keyActivate);
+  }
+
+  applyHint();
+  const mo = new MutationObserver(() => applyHint());
+  mo.observe(document.documentElement, { attributes: true, attributeFilter: ["lang", "dir"] });
+
+  function updateContext(){
+    const lang = siteLang();
+    const section = (document.querySelector('section.panel.active') || {id:"academic"}).id;
+    if (window.botpress && typeof window.botpress.updateUser === "function"){
+      window.botpress.updateUser({
+        data: { siteLang: lang, siteSection: section, site: "portfolio_academic" }
+      }).catch(()=>{});
+    }
+  }
+
+  try{
+    if (window.botpress && typeof window.botpress.on === "function"){
+      window.botpress.on("webchat:initialized", () => {
+        applyHint();
+        updateContext();
+        if (pendingOpen){
+          pendingOpen = false;
+          openChat();
+        }
+      });
+    } else {
+      let tries = 0;
+      const t = setInterval(() => {
+        tries++;
+        if (window.botpress && typeof window.botpress.on === "function"){
+          clearInterval(t);
+          window.botpress.on("webchat:initialized", () => {
+            applyHint();
+            updateContext();
+            if (pendingOpen){
+              pendingOpen = false;
+              openChat();
+            }
+          });
+        }
+        if (tries > 40) clearInterval(t);
+      }, 250);
+    }
+  }catch(e){}
+
+  document.querySelectorAll('.nav-btn, [data-jump]').forEach(b => {
+      b.addEventListener('click', () => setTimeout(updateContext, 50));
+  });
+})();
 </script>
 </body>
 </html>
