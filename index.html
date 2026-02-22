@@ -553,12 +553,12 @@ html[dir="rtl"] .bp-launcher {
 
   <div class="toast" id="toast"><i class="fa-solid fa-check"></i> <span id="toastText"></span></div>
 
-  <div class="bp-launcher" aria-label="Site chat launcher">
+<div class="bp-launcher" onclick="window.botpressWebChat.sendEvent({ type: 'show' })" aria-label="Site chat launcher">
     <button id="bp-toggle-chat" type="button" aria-label="Open chat">
       <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
     </button>
-    <span id="bp-chat-hint" role="button" tabindex="0" aria-label="Open chat">اسألني</span>
-  </div>
+    <span id="bp-chat-hint" data-i18n="chat_hint">اسألني</span>
+</div>
 
 <script>
 /* ========= Profile Data ========= */
